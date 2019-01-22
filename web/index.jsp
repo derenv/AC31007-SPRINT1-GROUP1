@@ -7,36 +7,48 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-	<!-- menu styles -->
-	
-        <title>Login</title>
-    </head>
-    <body>
-    <center><h1><b>Login</b></h1></center>
-    <center>
-        <div>
-            <form action="loginServlet" method="POST">
-            <table>
-                <tr>
-                    <td>User Name</td>
-                    <td><input type="text" name="username" placeholder="username"></td>
-                </tr>
-                 <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password" placeholder="password&nbsp&nbsp"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><input type="submit" value="Login" />
-                </tr>
-            </table>
-            </form>
-        </div>
+ <head>
+ <link rel="stylesheet" type="text/css" href="css/style2.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<header>
+  <ul>
+    <li>
+      <div class="blur"><img src="img/UoDlogo.jpg"/></div>
+    </li>
+  </ul>
+  </header>
+<body>
+    
+<div class="bg">
+<div class="login">
+   
+  <form method="post" action="loginServlet">
+    <center> <h1>Sign in</h1>
+        <br>
+
+
+
+                <label for="username">Username</label>
+                <input type="text" style="font-size:16px" name="username" required/>
+<br>
+                <label>Password</label>
+                <input type="password" style="font-size:16px" name="password" required/>
+                <br>
+<br>
+              <div class="submit"><input type="submit" value="Login" style="float: right;background-color: rgb(67,101,226);border: none;color:white;
+                        padding: 1.5px 2px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"/></div>
+                    
+
+
+
     </center>
-                
-            
-        
-    </body>
+</form>
+</div>
+</div>
+
+</body>
+<footer>
+  <p>This is a project completed by Team1 in Agile Software engineering</p>
+  </<footer>
 </html>

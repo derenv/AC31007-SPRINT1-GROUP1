@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+=======
+<%@ page import="db.login,db.conn" %>
+
+>>>>>>> 8ed8959884a77a3e02fb6dc3f3a8fb033bf3bb97
 <!DOCTYPE html>
 <html>
     <%

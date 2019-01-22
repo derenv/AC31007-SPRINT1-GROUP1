@@ -6,13 +6,8 @@
 package db;
 
 import java.sql.*;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
 
 /**
  *
