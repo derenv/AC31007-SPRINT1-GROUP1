@@ -30,10 +30,10 @@
 
 
                 <label for="username">Username</label>
-                <input type="text" name="username" required/>
+                <input type="text" style="font-size:16px" name="username" required/>
 <br>
                 <label>Password</label>
-                <input type="password" name="password" required/>
+                <input type="password" style="font-size:16px" name="password" required/>
                 <br>
 <br>
               <div class="submit"><input type="submit" value="Login" style="float: right;background-color: rgb(67,101,226);border: none;color:white;
@@ -49,6 +49,6 @@
 
 </body>
 <footer>
-  <p>Hey This is a project completed by Team1 in AGile SOftware engineering</p>
+  <p>This is a project completed by Team1 in Agile Software engineering</p>
   </<footer>
 </html>
