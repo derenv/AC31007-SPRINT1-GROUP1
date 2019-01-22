@@ -5,6 +5,7 @@
  */
 package db;
 
+import java.sql.Connection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,23 +20,14 @@ import static org.junit.Assert.*;
 public class connTest {
     conn c;
     
-    public connTest() {
-    }
-    
     @Before
     public void setUp() {
-        c = new conn();
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     @Test
     public void testConn() {
-        boolean work = c.connect();
-        assertTrue(work);
+        Connection work = c.connect();
+        assertNotNull(work);
     }
-    
     
 }

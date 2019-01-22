@@ -20,32 +20,31 @@ import java.util.logging.Logger;
  */
 public class conn {
 
-    public conn() {
-       
-    }
 
-    public boolean connect() {
+    public static Connection connect() {
 
         String db = "18agileteam1db";
         String user = "18agileteam1"; // assumes database name is the same as username
         try {
-            java.sql.Connection con;
+            java.sql.Connection DBcon;
             try {
                 Class.forName("org.gjt.mm.mysql.Driver");
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(conn.class.getName()).log(Level.SEVERE, null, ex);
-                return false;
+                return null;
             }
-            con = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/" + db, user, "7845.at1.5487");
+            DBcon = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/" + db, user, "7845.at1.5487");
             System.out.println(db + " database successfully opened.");
             
             
-            return true;
+            return DBcon;
         } catch (SQLException e) {
             System.out.println("SQLException caught: " + e.getMessage());
-            return false;
+            return null;
         }
     }
+    
+    
 
 }
 

@@ -5,6 +5,7 @@
  */
 package db;
 
+import java.sql.Connection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,37 +19,19 @@ import static org.junit.Assert.*;
  */
 public class loginTest {
      login l;
-     conn c;
-    public loginTest() {
-          
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+     Connection c;
+        
     @Before
     public void setUp() {
          l = new login();
-         c = new conn();
+         c = conn.connect();
     
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
       public void testLogin() {
           
-         c.connect();
+       
          
         boolean successfulLogin = l.login("a", "b");
         assertTrue("Successful login as teacher", successfulLogin);
