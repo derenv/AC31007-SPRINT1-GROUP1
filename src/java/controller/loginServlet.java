@@ -35,7 +35,7 @@ public class loginServlet extends HttpServlet {
             
           Connection c = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/18agileteam1db", "18agileteam1", "7845.at1.5487");
           
-          PreparedStatement ps = c.prepareStatement("SELECT UserID FROM teachers where Username=? and Password=?");
+          PreparedStatement ps = c.prepareStatement("SELECT UserID FROM users where Username=? and Password=?");
           
         
           ps.setString(1, _username);
@@ -66,16 +66,18 @@ public class loginServlet extends HttpServlet {
                 return;
                 }
               
-                
+              
 	  }
-	  response.sendRedirect("error.jsp");
-	  return;
+          response.sendRedirect("error.jsp");
+	  return;  
+	  
 	  } catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
                         out.println("fail");
 			e.printStackTrace();
 		}
 	}
+
               
          
         
