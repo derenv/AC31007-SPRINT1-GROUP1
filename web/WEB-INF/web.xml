@@ -16,6 +16,41 @@
         <servlet-name>Login3</servlet-name>
         <url-pattern>/Login3</url-pattern>
     </servlet-mapping>
+    
+-<servlet>
+
+<servlet-name>UploadHandleServlet</servlet-name>
+
+<servlet-class>me.gacl.web.controller.UploadHandleServlet</servlet-class>
+
+</servlet>
+
+
+-<servlet-mapping>
+
+<servlet-name>UploadHandleServlet</servlet-name>
+
+<url-pattern>/Source Packages/UploadHandleServlet</url-pattern>
+
+</servlet-mapping>
+<servlet>
+     <servlet-name>ListFileServlet</servlet-name>
+     <servlet-class>me.gacl.web.controller.ListFileServlet</servlet-class>
+</servlet>
+ 
+<servlet-mapping>
+     <servlet-name>ListFileServlet</servlet-name>
+    <url-pattern>/Source Packages/ListFileServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+      <servlet-name>DownLoadServlet</servlet-name>
+      <servlet-class>me.gacl.web.controller.DownLoadServlet</servlet-class>
+</servlet>
+ 
+<servlet-mapping>
+      <servlet-name>DownLoadServlet</servlet-name>
+      <url-pattern>/Source Packages/DownLoadServlet</url-pattern>
+</servlet-mapping>
     <session-config>
         <session-timeout>
             30
