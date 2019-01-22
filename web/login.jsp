@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="db.login,db.conn" %>
+
 <!DOCTYPE html>
 <html>
     <%
