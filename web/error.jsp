@@ -1,6 +1,6 @@
 <%-- 
-    Document   : welcome
-    Created on : 22-Jan-2019, 12:56:13
+    Document   : error
+    Created on : 22-Jan-2019, 14:23:10
     Author     : sarahsmall
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome</title>
+        <title>Error Page</title>
     </head>
     <body>
-        <h1>Welcome you have logged in!</h1>
+        <h1>Sorry there has been an error!</h1>
     </body>
 </html>

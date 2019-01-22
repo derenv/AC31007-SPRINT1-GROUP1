@@ -7,6 +7,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,37 +24,49 @@ import javax.servlet.http.HttpServletResponse;
 public class loginServlet extends HttpServlet {
 
   
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        
           String _username = request.getParameter("username");
           String _password = request.getParameter("password");
           
-          if (_username != null && _password != null){
-                  
+          try {
+              Class.forName("com.mysql.jdbc.Driver");  //loads driver
+            
+          Connection c = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/18agileteam1db", "18agileteam1", "7845.at1.5487");
+          PreparedStatement ps = c.prepareStatement("SELECT Username, Password FROM teachers where Username=? and Password=?");
+          
+          ps.setString(1, _username);
+          ps.setString(2, _password);
+ 
+          ResultSet rs = ps.executeQuery();
+ 
+	  while (rs.next()) {
+                response.sendRedirect("welcome.jsp");
               
-          if (_username.equals("sarah")&&_password.equals("12345")){
-              out.println("sucess");
-          }
+                return;
+	  }
+	  response.sendRedirect("error.jsp");
+	  return;
+	  } catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+                        out.println("fail");
+			e.printStackTrace();
+		}
+	}
+              
+         
         
-        }else{
-                out.println("Empty username or password");
-                }
           
            
-        }
-    }
+        
+    
     
   
   
 
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response);
-    }
+  
 
  
     @Override
