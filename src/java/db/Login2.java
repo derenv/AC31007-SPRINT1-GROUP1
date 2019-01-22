@@ -33,7 +33,7 @@ public class Login2 extends HttpServlet {
             
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/18agileteam1db", "18agileteam1", "7845.at1.5487");
+                Connection conn = (Connection DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/18agileteam1db", "18agileteam1", "7845.at1.5487");
                 Statement stmt = conn.createStatement();
                 stmt.executeUpdate("SELECT * FROM teachers");
                 conn.close();
