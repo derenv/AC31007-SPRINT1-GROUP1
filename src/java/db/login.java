@@ -18,22 +18,21 @@ import java.sql.*;
  * @author finntorbet
  */
 public class login {
+
     Connection c;
-    
+
     public login() {
         c = conn.connect();
     }
 
-    public boolean login(String u, String p) throws SQLException {
-        PreparedStatement pst = c.prepareStatement("Select Username,Password from teachers where Username='a' and Password='b'");
-        pst.setString(1, "a");
-        pst.setString(2, "b");
+    public boolean login() throws SQLException {
+        PreparedStatement pst = c.prepareStatement("Select UIsername from teachers");
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
-            System.out.println("Valid login credentials");
+            System.out.println(rs.next());
+            return true;
         } else {
-            System.out.println("Invalid login credentials");
+            return false;
         }
-        return false;
     }
 }

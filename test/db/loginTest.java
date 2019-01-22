@@ -6,6 +6,7 @@
 package db;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,21 +20,16 @@ import static org.junit.Assert.*;
  */
 public class loginTest {
      login l;
-     Connection c;
         
     @Before
     public void setUp() {
          l = new login();
-         c = conn.connect();
     
     }
     
     @Test
-      public void testLogin() {
-          
-       
-         
-        boolean successfulLogin = l.login("a", "b");
-        assertTrue("Successful login as teacher", successfulLogin);
+      public void testLogin() throws SQLException {
+        boolean successfulLogin = l.login();
+        assertTrue(successfulLogin);
       }
 }
