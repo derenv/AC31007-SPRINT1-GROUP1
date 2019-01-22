@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
  *
  * @author sarahsmall
@@ -28,10 +29,8 @@ public class loginServlet extends HttpServlet {
           String _username = request.getParameter("username");
           String _password = request.getParameter("password");
           
-          
           if (_username != null && _password != null){
-              
-              
+                  
               
           if (_username.equals("sarah")&&_password.equals("12345")){
               out.println("sucess");
