@@ -34,17 +34,39 @@ public class loginServlet extends HttpServlet {
               Class.forName("com.mysql.jdbc.Driver");  //loads driver
             
           Connection c = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/18agileteam1db", "18agileteam1", "7845.at1.5487");
-          PreparedStatement ps = c.prepareStatement("SELECT Username, Password FROM teachers where Username=? and Password=?");
           
+          PreparedStatement ps = c.prepareStatement("SELECT UserID FROM teachers where Username=? and Password=?");
+          
+        
           ps.setString(1, _username);
           ps.setString(2, _password);
  
           ResultSet rs = ps.executeQuery();
- 
+          
 	  while (rs.next()) {
-                response.sendRedirect("welcome.jsp");
-              
+                String type=rs.getString("UserID");
+                if ("Teacher".equals(type)){
+                response.sendRedirect("HTML/teacherDash.html");
                 return;
+                }
+                else if ("Admin".equals(type)){
+                response.sendRedirect("HTML/adminDash.html");
+                return;
+                }
+                else if ("ExternalMod".equals(type)){
+                response.sendRedirect("HTML/externalModDash.html");
+                return;
+                }
+                else if ("InternalMod".equals(type)){
+                response.sendRedirect("HTML/internalModDash.html");
+                return;
+                }
+                else if ("ExternalVet".equals(type)){
+                response.sendRedirect("HTML/examVettingDash.html");
+                return;
+                }
+              
+                
 	  }
 	  response.sendRedirect("error.jsp");
 	  return;
