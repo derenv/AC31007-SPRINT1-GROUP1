@@ -5,12 +5,9 @@
  */
 package db;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.sql.*;
 
 /**
@@ -28,6 +25,10 @@ public class login {
     /**
     *
     * @author deren vural
+    * 
+    * @param    username
+    * @param    password
+    * @return   type
     */
     public String check_valid_details(String username, String password){
         try {
