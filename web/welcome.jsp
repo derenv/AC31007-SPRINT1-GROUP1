@@ -19,3 +19,4 @@
         <h1>Welcome you have logged in!</h1>
     </body>
 </html>
+<% response.sendRedirect("HTML/teacherHome.html");%>
