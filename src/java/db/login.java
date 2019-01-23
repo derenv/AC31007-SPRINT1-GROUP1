@@ -37,7 +37,6 @@ public class login {
     */
     public String check_valid_details(String username, String password){
         try {
-	    if(c==null){return "FUCK1";}
             //prepare statement
             PreparedStatement ps = c.prepareStatement("SELECT UserID FROM users where Username=? and Password=?");
             
@@ -45,7 +44,9 @@ public class login {
             ps.setString(2, password);
             
             ResultSet rs = ps.executeQuery();
-	    if(rs != null){return "FUCK2"}
+	    if(rs.getString("UserID") == null){return "empty UserID"}
+	    if(rs != null){return rs.
+	    if(rs != null){return "FUCK2"}getStatement();}
             
             //return value
             return rs.getString("UserID");

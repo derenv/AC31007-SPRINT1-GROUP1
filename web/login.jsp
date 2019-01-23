@@ -21,13 +21,7 @@
         String type = log1.check_valid_details(username,password);
         if(type == null){
             //null value
-	    out.println("null values");
-	    Enumeration in = request.getParameterNames();
-	    while(in.hasMoreElements()) {
-	        String paramName = in.nextElement().toString();
-	        out.println(paramName + " = " + request.getParameter(paramName)+"<br>");
-	    }
-            //response.sendRedirect("error.jsp");
+            response.sendRedirect("error.jsp");
         }else if ("Teacher".equals(type)){
             response.sendRedirect("HTML/teacherDash.html");
         }else if ("Admin".equals(type)){
