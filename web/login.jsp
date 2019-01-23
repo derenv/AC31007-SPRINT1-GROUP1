@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <<<<<<< HEAD
 =======
-<%@ page import="db.login,db.conn" %>
+<%@ page import="db.login" %>
 
 >>>>>>> 8ed8959884a77a3e02fb6dc3f3a8fb033bf3bb97
 <!DOCTYPE html>
@@ -22,7 +22,8 @@
         String type = log1.check_valid_details(username,password);
         if(type == null){
             //null value
-            response.sendRedirect("error.jsp");
+	    out.println("null values");
+            //response.sendRedirect("error.jsp");
         }else if ("Teacher".equals(type)){
             response.sendRedirect("HTML/teacherDash.html");
         }else if ("Admin".equals(type)){
@@ -35,7 +36,9 @@
             response.sendRedirect("HTML/examVettingDash.html");
         }else{
             //invalid value
-            response.sendRedirect("error.jsp");
+	    out.println("else reached");
+	    out.println("'"+username+"'          '"+password+"'");
+            //response.sendRedirect("error.jsp");
         }
     %>
 </html>
