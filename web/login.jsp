@@ -41,6 +41,7 @@
         }else{
             //invalid value
 	    out.println("else reached");
+	    out.println(type);
 	    out.println("'"+username+"'          '"+password+"'");
             //response.sendRedirect("error.jsp");
         }

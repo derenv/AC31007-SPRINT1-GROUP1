@@ -37,7 +37,7 @@ public class login {
     */
     public String check_valid_details(String username, String password){
         try {
-	    if(c==null){System.out.println("NULL CONNECTION");}
+	    if(c==null){return "FUCK1";}
             //prepare statement
             PreparedStatement ps = c.prepareStatement("SELECT UserID FROM users where Username=? and Password=?");
             
@@ -45,7 +45,7 @@ public class login {
             ps.setString(2, password);
             
             ResultSet rs = ps.executeQuery();
-	    System.out.println(rs);
+	    if(rs != null){return "FUCK2"}
             
             //return value
             return rs.getString("UserID");
