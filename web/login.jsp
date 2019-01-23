@@ -21,7 +21,8 @@
         String type = log1.check_valid_details(username,password);
         if(type == null){
             //null value
-            response.sendRedirect("error.jsp");
+	    out.println("null value");
+            //response.sendRedirect("error.jsp");
         }else if ("Teacher".equals(type)){
             response.sendRedirect("HTML/teacherDash.html");
         }else if ("Admin".equals(type)){
