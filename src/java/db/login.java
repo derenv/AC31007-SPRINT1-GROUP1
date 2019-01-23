@@ -37,23 +37,19 @@ public class login {
             //prepare statement
 	    String statement = "SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'";
             PreparedStatement ps = c.prepareStatement(statement);
-            
-            //ps.setString(1, username);
-            //ps.setString(2, password);
 
-	    //return ps.toString();
-	    
+	    //parse set of results
             ResultSet rs = ps.executeQuery();
-	    //if(rs.getString("UserID") == null){return "empty UserID";}else{return "working";}
-	    //if(rs != null){if(rs.getStatement() != null){return "not null statement";}else{return "null statement";}}
-	    return "empty";
-	    //if(rs.getString("UserID") == null){return "column not found";}
-	    
-            //return value
-	    //return rs.getString("UserID");
+	    if(rs == null){
+		//return error code for redirect
+		return "no result";
+	    }else{
+		//get first in results and return type of user
+		rs.next();
+		return rs.getString("UserID");
+	    }
         }catch(SQLException e){
             return(e.getMessage());
-            //return "SQL Exception";
         }
     }
     
