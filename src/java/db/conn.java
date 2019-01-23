@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class conn {
 
 
-    public static Connection connect() {
+    public Connection connect() {
 
         String db = "18agileteam1db";
         String user = "18agileteam1"; // assumes database name is the same as username
