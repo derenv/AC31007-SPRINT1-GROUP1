@@ -20,7 +20,8 @@ public class login {
     Connection c;
 
     public login() {
-        c = conn.connect();
+	conn conn1 = new conn();
+        c = conn1.connect();
     }
 
     /**
