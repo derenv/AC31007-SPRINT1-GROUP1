@@ -47,7 +47,7 @@ public class login {
 	    //if(rs.getString("UserID") == null){return "column not found";}
 	    
             //return value
-            return rs.getString("UserID");
+	    //return rs.getString("UserID");
         }catch(SQLException e){
             e.printStackTrace();
             return "SQL Exception";
