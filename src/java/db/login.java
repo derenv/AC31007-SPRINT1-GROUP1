@@ -35,15 +35,16 @@ public class login {
     public String check_valid_details(String username, String password){
         try {
             //prepare statement
-            PreparedStatement ps = c.prepareStatement("SELECT UserID FROM `18agileteam1db`.`users` where Username='?' and Password='?'");
+	    String statement = "SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'"
+            PreparedStatement ps = c.prepareStatement(statement);
             
-            ps.setString(1, username);
-            ps.setString(2, password);
+            //ps.setString(1, username);
+            //ps.setString(2, password);
 
-	    return ps.toString();
+	    //return ps.toString();
 	    
-            //ResultSet rs = ps.executeQuery();
-	    //if(rs.getString("UserID") == null){return "empty UserID";}else{return "working";}
+            ResultSet rs = ps.executeQuery();
+	    if(rs.getString("UserID") == null){return "empty UserID";}else{return "working";}
 	    //if(rs != null){if(rs.getStatement() != null){return "not null statement";}else{return "null statement";}}
 
 	    //if(rs.getString("UserID") == null){return "column not found";}
