@@ -5,11 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
+
 <%@ page import="db.login" %>
 
->>>>>>> 8ed8959884a77a3e02fb6dc3f3a8fb033bf3bb97
 <!DOCTYPE html>
 <html>
     <%
@@ -23,6 +21,11 @@
         if(type == null){
             //null value
 	    out.println("null values");
+	    Enumeration in = request.getParameterNames();
+	    while(in.hasMoreElements()) {
+	        String paramName = in.nextElement().toString();
+	        out.println(paramName + " = " + request.getParameter(paramName)+"<br>");
+	    }
             //response.sendRedirect("error.jsp");
         }else if ("Teacher".equals(type)){
             response.sendRedirect("HTML/teacherDash.html");
