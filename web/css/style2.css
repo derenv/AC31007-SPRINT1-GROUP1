@@ -14,7 +14,7 @@ margin: 0;
 .bg {
   /* The image used */
   background-image: url("../img/background.jpg");
-  
+
 
   /* Full height */
   height: 92%;
@@ -146,4 +146,3 @@ font-size: 20px;
   .signout a:hover {
 
   }
-
