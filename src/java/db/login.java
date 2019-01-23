@@ -46,10 +46,6 @@ public class login {
 	    }else{
 		//get first in results and return type of user
 		rs.next();
-
-		//close database connection
-		conn conn1 = new conn();
-		conn1.disconnect(c);
 		
 		return rs.getString("UserID");
 	    }

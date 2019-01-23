@@ -14,4 +14,12 @@ public class CRUD {
         String[] result;
         return result;
     }
+    
+    public void insert(){
+        
+        
+    }
+    
+    }
+            
 }
