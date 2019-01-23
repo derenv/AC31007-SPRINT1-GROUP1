@@ -49,7 +49,6 @@ public class login {
 
 		//close database connection
 		conn conn1 = new conn();
-		conn1.disconnect(c);
 		
 		return rs.getString("UserID");
 	    }
