@@ -46,9 +46,12 @@ public class login {
 	    }else{
 		//get first in results and return type of user
 		rs.next();
+<<<<<<< HEAD
 
 		//close database connection
 		conn conn1 = new conn();
+=======
+>>>>>>> origin/master
 		
 		return rs.getString("UserID");
 	    }
