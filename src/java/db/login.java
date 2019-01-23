@@ -44,9 +44,9 @@ public class login {
 	    //return ps.toString();
 	    
             ResultSet rs = ps.executeQuery();
-	    if(rs.getString("UserID") == null){return "empty UserID";}else{return "working";}
+	    //if(rs.getString("UserID") == null){return "empty UserID";}else{return "working";}
 	    //if(rs != null){if(rs.getStatement() != null){return "not null statement";}else{return "null statement";}}
-
+	    return "empty";
 	    //if(rs.getString("UserID") == null){return "column not found";}
 	    
             //return value
