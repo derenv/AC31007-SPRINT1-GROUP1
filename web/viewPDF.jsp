@@ -2,8 +2,6 @@
     Document   : index
     Created on : 22-Jan-2019, 12:11:29
     Author     : sarahsmall
-
-    Code to apply to a button on other pages to display a certain pdf from the database/webspace
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
