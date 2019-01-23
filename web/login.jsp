@@ -21,8 +21,7 @@
         String type = log1.check_valid_details(username,password);
         if(type == null){
             //null value
-	    out.println("null value");
-            //response.sendRedirect("error.jsp");
+            response.sendRedirect("error.jsp");
         }else if ("Teacher".equals(type)){
             response.sendRedirect("HTML/teacherDash.html");
         }else if ("Admin".equals(type)){
@@ -35,10 +34,7 @@
             response.sendRedirect("HTML/examVettingDash.html");
         }else{
             //invalid value
-	    out.println("else reached");
-	    out.println(type);
-	    out.println("'"+username+"'          '"+password+"'");
-            //response.sendRedirect("error.jsp");
+            response.sendRedirect("error.jsp");
         }
     %>
 </html>

@@ -39,8 +39,14 @@ public class conn {
         }
     }
     
-    
-
+    public void disconnect(Connection DBcon){
+	//
+	try{
+	    DBcon.close();
+        } catch (SQLException e) {
+            System.out.println("SQLException caught: " + e.getMessage());
+        }
+    }
 }
 
 

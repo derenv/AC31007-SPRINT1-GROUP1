@@ -48,6 +48,9 @@ public class login {
 		rs.next();
 		return rs.getString("UserID");
 	    }
+
+	    conn conn1 = new conn();
+	    conn1.close(c);
         }catch(SQLException e){
             return(e.getMessage());
         }
