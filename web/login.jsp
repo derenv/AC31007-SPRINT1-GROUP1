@@ -13,8 +13,8 @@
 <html>
     <%
         //get post params
-        String username = request.getParameter("t1");
-        String password = request.getParameter("t2");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         
         //check if stored in database
         login log1 = new login();

@@ -23,7 +23,7 @@
 <div class="bg">
 <div class="login">
    
-  <form method="post" action="loginServlet">
+  <form method="post" action="login.jsp">
     <center> <h1>Sign in</h1>
         <br>
 
