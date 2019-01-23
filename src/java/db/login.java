@@ -35,7 +35,7 @@ public class login {
     public String check_valid_details(String username, String password){
         try {
             //prepare statement
-	    String statement = "SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'"
+	    String statement = "SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'";
             PreparedStatement ps = c.prepareStatement(statement);
             
             //ps.setString(1, username);
@@ -52,8 +52,8 @@ public class login {
             //return value
 	    //return rs.getString("UserID");
         }catch(SQLException e){
-            e.printStackTrace();
-            return "SQL Exception";
+            return(e.getMessage());
+            //return "SQL Exception";
         }
     }
     
