@@ -45,7 +45,7 @@ public class login {
             
             ResultSet rs = ps.executeQuery();
 	    if(rs.getString("UserID") == null){return "empty UserID"}
-	    if(rs != null){return rs.getStatement();}
+	    if(rs != null){if(rs.getStatement() != null){return "not null statement"}else{return "null statement";}}
             
             //return value
             return rs.getString("UserID");
