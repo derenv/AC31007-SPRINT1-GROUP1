@@ -27,7 +27,7 @@ public class readPDF extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String _name = request.getParameter("name");
+         String _name = "AC31008";
         
             try {
               Class.forName("com.mysql.jdbc.Driver");  //loads driver
