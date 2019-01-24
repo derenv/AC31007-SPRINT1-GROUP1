@@ -23,14 +23,29 @@
             //null value
             response.sendRedirect("error.jsp");
         }else if ("Teacher".equals(type)){
+	    //create session variables then redirect to dashboard
+	    session.setAttribute("username",username);
+	    session.setAttribute("type",type);
             response.sendRedirect("HTML/teacherDash.html");
         }else if ("Admin".equals(type)){
+	    //create session variables then redirect to dashboard
+	    session.setAttribute("username",username);
+	    session.setAttribute("type",type);
             response.sendRedirect("HTML/adminDash.html");
         }else if ("ExternalMod".equals(type)){
+	    //create session variables then redirect to dashboard
+	    session.setAttribute("username",username);
+	    session.setAttribute("type",type);
             response.sendRedirect("HTML/externalModDash.html");
         }else if ("InternalMod".equals(type)){
+	    //create session variables then redirect to dashboard
+	    session.setAttribute("username",username);
+	    session.setAttribute("type",type);
             response.sendRedirect("HTML/internalModDash.html");
         }else if ("ExternalVet".equals(type)){
+	    //create session variables then redirect to dashboard
+	    session.setAttribute("username",username);
+	    session.setAttribute("type",type);
             response.sendRedirect("HTML/examVettingDash.html");
         }else{
             //invalid value
