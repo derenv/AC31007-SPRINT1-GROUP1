@@ -6,7 +6,14 @@
     
 
 --%>
-
+<%@page import="db.dbAccess"%>
+<% 
+    dbAccess a;
+    a = new dbAccess();
+    
+    
+    String module = a.getModuleCodes(); 
+    out.println(module);%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="session_check.jsp" %>
 <<!DOCTYPE html>
@@ -42,8 +49,7 @@
     <body>
         <form action="../Source Packages/controller/readPDF.java" method="post">
             <c:forToken var="i" items="${module}">
-                <div class="blur"><img src="img/pdf.png"/></div>
-                Module <c:out value = "${i}"/>
+                <c:out value = "${i}"/>
                 
                 <input tpe="submit" value="${i}">
                 <br>
