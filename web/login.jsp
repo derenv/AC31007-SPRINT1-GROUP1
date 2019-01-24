@@ -21,7 +21,6 @@
         String type = log1.check_valid_details(username,password);
         if(type == null){
             //null value
-	    out.println("null value");
             response.sendRedirect("error.jsp");
         }else if ("Teacher".equals(type)){
 	    //create session variables then redirect to dashboard
@@ -45,7 +44,6 @@
             response.sendRedirect("HTML/examVettingDash.html");
         }else{
             //invalid value
-	    out.println("other valye");
             response.sendRedirect("error.jsp");
         }
     %>
