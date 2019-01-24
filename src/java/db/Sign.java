@@ -11,7 +11,7 @@ package db;
  */
 public class Sign {
     
-    public boolean signedByIM(){return true;}
-    public boolean signedByEM(){return true;}
-    public boolean signedByEV(){return true;}
+    public boolean signedByIM(){return false;}
+    public boolean signedByEM(){return false;}
+    public boolean signedByEV(){return false;}
 }

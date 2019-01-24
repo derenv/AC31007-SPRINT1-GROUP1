@@ -11,7 +11,7 @@ package db;
  */
 public class Review {
     
-    public boolean reviewedByIM(){return true;}
-    public boolean reviewedByEM(){return true;}
-    public boolean reviewedByEV(){return true;}
+    public boolean reviewedByIM(){return false;}
+    public boolean reviewedByEM(){return false;}
+    public boolean reviewedByEV(){return false;}
 }
