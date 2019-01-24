@@ -5,14 +5,11 @@
  */
 package controller;
 
+import db.conn;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,7 +62,6 @@ public class readPDF extends HttpServlet {
 	
     }
     
-
     @Override
     public String getServletInfo() {
         return "Short description";
