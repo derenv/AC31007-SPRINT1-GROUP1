@@ -5,6 +5,25 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    //ensure already logged in user does not have access to login page (must log out first)
+    String username = (String) session.getAttribute("username");
+    if(username != null){
+        //check type and compare for redirect
+	String type = (String) session.getAttribute("type");
+        if ("Teacher".equals(type)){
+            response.sendRedirect("HTML/teacherDash.jsp");
+        }else if ("Admin".equals(type)){
+            response.sendRedirect("HTML/adminDash.jsp");
+        }else if ("ExternalMod".equals(type)){
+            response.sendRedirect("HTML/externalModDash.jsp");
+        }else if ("InternalMod".equals(type)){
+            response.sendRedirect("HTML/internalModDash.jsp");
+        }else if ("ExternalVet".equals(type)){
+            response.sendRedirect("HTML/examVettingDash.jsp");
+        }
+    }
+%>
 <!DOCTYPE html>
 <html>
  <head>
