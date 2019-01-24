@@ -10,7 +10,7 @@
 <html>
     <%
         //get session and check username not null
-	String username = session.getAttribute("username");
+	String username = (String) session.getAttribute("username");
 	if(username == null){
             response.sendRedirect("index.jsp");
 	}
