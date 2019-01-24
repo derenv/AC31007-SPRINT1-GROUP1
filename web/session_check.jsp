@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 22 Jan 2019, 17:30:40
+    Document   : session_check.jsp
+    Created on : 24 Jan 2019, 12:52:00
     Author     : deren vural
 --%>
 
