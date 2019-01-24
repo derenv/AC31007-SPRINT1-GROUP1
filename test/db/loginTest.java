@@ -28,8 +28,8 @@ public class loginTest {
     }
     
     @Test
-      public void testLogin() throws SQLException {
-        boolean successfulLogin = l.login();
-        assertTrue(successfulLogin);
+      public void test_check_valid_details(){
+        String type = l.check_valid_details("sarah","123");
+        assertEquals("Teacher", type);
       }
 }

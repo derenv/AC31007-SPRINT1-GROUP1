@@ -22,6 +22,7 @@ public class connTest {
     
     @Before
     public void setUp() {
+        c = new conn();
     }
 
     @Test

@@ -56,15 +56,4 @@ public class login {
             return(e.getMessage());
         }
     }
-    
-    public boolean login() throws SQLException {
-        PreparedStatement pst = c.prepareStatement("Select UIsername from teachers");
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            System.out.println(rs.next());
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
