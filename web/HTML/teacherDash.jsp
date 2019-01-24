@@ -8,7 +8,7 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
  <head>
- <link rel="stylesheet" type="text/css" href="../css/style2.css" />
+ <link rel="stylesheet" type="text/css" href="../css/Style.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -19,22 +19,104 @@ and open the template in the editor.
     </li>
   </ul>
   </header>
+<body>
+<div class="main">
+  <table>
+      <tr>
+          <td class="bTop" colspan="3">
+          </td>
+
+      </tr>
+      <tr>
+          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100">
+          </td>
+          <td class="middle">AC21001
+          </td>
+          <td class="bRight">Craig Ramsey
+          </td>
+          <td class="bRight">Information Security
+          </td>
+      </tr>
+      <tr>
+          <td class="bBottom" colspan="3">
+          </td>
+      </tr>
+      <tr>
+          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
+          </td>
+          <td class="middle">AC21001
+          </td>
+          <td class="bRight">Craig Ramsey
+          </td>
+          <td class="bRight">Information Security
+          </td>
+      </tr>
+      <tr>
+          <td class="bBottom" colspan="3">
+          </td>
+      </tr>
+      <tr>
+          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
+          </td>
+          <td class="middle">AC21001
+          </td>
+          <td class="bRight">Craig Ramsey
+          </td>
+          <td class="bRight">Information Security
+          </td>
+      </tr>
+      <tr>
+          <td class="bBottom" colspan="3">
+          </td>
+      </tr>
+      <tr>
+          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
+          </td>
+          <td class="middle">AC21001
+          </td>
+          <td class="bRight">Craig Ramsey
+          </td>
+          <td class="bRight">Information Security
+          </td>
+      </tr>
+      <tr>
+          <td class="bBottom" colspan="3">
+          </td>
+      </tr>
+      <tr>
+          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
+          </td>
+          <td class="middle">AC21001
+          </td>
+          <td class="bRight">Craig Ramsey
+          </td>
+          <td class="bRight">Information Security
+          </td>
+      </tr>
+      <tr>
+          <td class="bBottom" colspan="3">
+          </td>
+      </tr>
+  </table>
+</div>
+
+
+
+
 <div class="sidebar">
   <ul>
     <li><h2>Account Name</h2></li>
     <br>
-    <li><a href="#">Add New Exam</a></li>
-    <li><a href="../viewExams.jsp">View Exams</a></li>
-    <li><a href="#">Exam Progress</a></li>
+    <li><a href="#">Required</a></li>
+    <li><a href="../viewPDF.jsp">New</a></li>
+    <li><a href="#">In Progress</a></li>
     <li><a href="#">Complete</a></li>
     <br>
     <br>
     <div class="signout"><li><a href='#'>Sign out</a></li></div>
-   
-
-
-
   </ul>
-
 </div>
+</body>
 </html>
+
+

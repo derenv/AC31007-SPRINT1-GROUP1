@@ -1,0 +1,174 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Helvetica;
+
+}
+
+body{
+height: 100%;
+margin: 0;
+
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../img/background.jpg");
+
+
+  /* Full height */
+  height: 92%;
+
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+div blur {
+  overflow: hidden;
+}
+
+
+
+
+header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: rgb(67,101,226);
+
+
+}
+
+ul li img{
+  width:20% !important;
+  position: relative;
+  left: -20%;
+
+
+
+
+}
+ul li{
+  list-style-type: none;
+
+}
+
+footer{
+  text-align: center;
+  font-family: sans-serif;
+}
+form{
+  background-color: white;
+  padding:150px;
+  opacity: 0.75;
+}
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgb(67,101,226);
+}
+label{
+  padding:20px;
+}
+.login {
+  float: left;
+  text-align: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.submit{
+
+float: right;
+background-color: rgb(67,101,226);
+border: none;
+color:white;
+padding: 12.5px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+}
+
+
+.sidebar{
+  bottom:100px;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+  margin:0px;
+
+}
+.sidebar h2{
+  padding: 6px 8px 6px 1px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  text-align: left;
+  padding-top: 50px;
+
+
+}
+
+.sidebar a{
+  padding: 6px 8px 6px 1px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: fixed;
+
+}
+
+.sidebar a:hover{
+  color: #f1f1f1;
+}
+
+.signout {
+
+    color: white !important;
+
+  }
+
+  .signout a:hover {
+
+  }
+
+
+  .main {
+  margin-left: 300px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+img{
+  size:50%;
+
+}
+
+td {
+  padding: 50px;
+}

@@ -27,32 +27,32 @@ public class readPDF extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String _name = "AC31008";
-        
+         
             try {
               Class.forName("com.mysql.jdbc.Driver");  //loads driver
             
          Connection c = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/18agileteam1db", "18agileteam1", "7845.at1.5487");
           
-          PreparedStatement ps = c.prepareStatement("SELECT Pdf_path FROM pdf where Mod_Code=? ");
+          PreparedStatement ps = c.prepareStatement("SELECT * FROM pdf ");
           
           
-        
-          ps.setString(1, _name);
+        out.println("Hello");
+          
           ResultSet rs = ps.executeQuery();
           
           while (rs.next()) {
-                String type=rs.getString("Pdf_path");
-                //out.println(type);
-                response.sendRedirect(type);
+               
+               
+           String type= rs.getString("Mod_code");
              
-                return;
+            out.println(type);
+                
                 
               
               
 	  }
-          response.sendRedirect("error.jsp");
-	  return;  
+          
+	   
 	  
 	  } catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

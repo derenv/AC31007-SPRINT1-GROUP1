@@ -29,8 +29,7 @@
         <br>
 
 
-                 <label for="NAME">NAME</label>
-                <input type="text" style="font-size:16px" name="name" required/>
+        
                 
 <br>
              
