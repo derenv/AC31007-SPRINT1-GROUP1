@@ -7,115 +7,108 @@
 <%@ page contentType="text/html;"%>  
 
 <html>
-<%  
-MultipartRequest m = new MultipartRequest(request, "\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");  
-out.println("successfully uploaded!"+"\n");  
+    <%
+        //deal with passed file request
+        MultipartRequest m = new MultipartRequest(request, "\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");
+        //success message (no try/catch block though?-possible test print)
+        out.println("successfully uploaded!"+"\n");
 
-Enumeration files = m.getFileNames(); 
-String fileName = ""; 
-String filePath=""; 
+        //files
+        Enumeration files = m.getFileNames();
+        String fileName = "";//name of PDF file
+        String filePath="";//location on server
+        String Mod="";//module code
 
-String Mod="";
-
-while (files.hasMoreElements()) { 
-fileName = (String) files.nextElement(); 
-
-
-filePath = m.getFilesystemName(fileName); 
-File f = m.getFile(fileName); 
-
-if (null == f) 
-throw new ServletException("file is not exist"); 
-} 
-
-Enumeration enum1=m.getParameterNames(); 
-while (enum1.hasMoreElements()) { 
-String s=(String)enum1.nextElement(); 
-//out.print(s); 
-
-String[] str=m.getParameterValues(s); 
-
-StringBuffer sb= new StringBuffer();
-
-for (int i=0;i<str.length;i++){ 
-  //out.println(str[i]); 
- sb.append(str[i]);
-  
-  } 
-
-   Mod=sb.toString();
-
-} 
-
-
-
-   response.setContentType("text/html");   
-
-          
-       //  String Stage=request.getParameter("Stage");     
-       // String Edit=request.getParameter("Edit"); 
-      
-     
-         String path="http://silva.computing.dundee.ac.uk/2018-agileteam1/"+filePath;      
-         String Stage="0";     
-         String Edit="0"; 
+        //for each file
+        while (files.hasMoreElements()){
+            //get current file details
+            fileName = (String) files.nextElement();
+            filePath = m.getFilesystemName(fileName);
+            
+            //create file object
+            File f = m.getFile(fileName);
+            
+            //catch empty file
+            if (null == f){
+                throw new ServletException("file is not exist"); 
+            }
+        }
         
-                
+        //get file passed in form parameter
+        Enumeration enum1 = m.getParameterNames(); 
+        
+        //for each file
+        while (enum1.hasMoreElements()){
+            String s = (String) enum1.nextElement();
+            
+            String[] str = m.getParameterValues(s);
+            
+            StringBuffer sb = new StringBuffer();
+            
+            for (int i=0;i<str.length;i++){
+                sb.append(str[i]);
+            }
+            
+            Mod=sb.toString();
+        } 
+        
+        response.setContentType("text/html");   
+        
+        //server path
+        String path="http://silva.computing.dundee.ac.uk/2018-agileteam1/"+filePath;      
+        String Stage="0";     
+        String Edit="0"; 
+        
+        //timestamp
         java.util.Date date=new java.util.Date();   
         String datetime=new Timestamp(date.getTime()).toString();  
-  
-        try   
-        {   
+        
+        try{
+            //connnection details
             String driverName = "com.mysql.jdbc.Driver"; 
             String DBUser = "18agileteam1"; 
             String DBPasswd = "7845.at1.5487"; 
             String DBName = "18agileteam1db"; 
-          
+            
+            //connection
             String connUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/" + DBName + "?user=" + DBUser + "&password=" + DBPasswd;  
             Class.forName(driverName).newInstance();  
             Connection conn = DriverManager.getConnection(connUrl);  
             Statement stmt = conn.createStatement();  
             stmt.executeQuery("SET NAMES UTF8");  
             
+            //prepare pdf link statements
             String insert_sql = "insert into pdf(Mod_code,Pdf_path,Current_Stage,Edit) values('" + Mod + "','" + path + "','" + Stage + "','" + Edit + "')";  
-           
-        // String insert_sql = "insert into pdf (Mod_code,Pdf_path,Current_Stage,Edit)  values('AC32006','www.zhujiefan.com','0','0')";
-           
-         String query_sql = "select * from pdf";  
-                          
-            try {   
-                stmt.execute(insert_sql);   
-            }catch(Exception e)     {  
-                e.printStackTrace();  
-            }  
+            String query_sql = "select * from pdf";
             
-            try {   
-                ResultSet rs = stmt.executeQuery(query_sql);     
-                while(rs.next()) {  
-                    %>     
-                    <br/>
-                    Module Code:<%=rs.getString("Mod_code")%> </br>     
-                    Pdf path:<%=rs.getString("Pdf_path")%> </br>   
-                    Current:<%=rs.getString("Current_Stage")%> </br>   
-                    Edit:<%=rs.getString("Edit")%> </br> </br>   
-                    <%  
-                }      
+            try{
+                stmt.execute(insert_sql);
+            }catch(Exception e){  
+                e.printStackTrace();
             }
-                 catch(Exception e) {  
-                e.printStackTrace();  
-            }   
-                 
-            stmt.close();                 
-            conn.close();   
+            
+            try{
+                ResultSet rs = stmt.executeQuery(query_sql);
+                while(rs.next()) {
+    %>
+    <br/>
+    Module Code:<%=rs.getString("Mod_code")%> </br>
+    Pdf path:<%=rs.getString("Pdf_path")%> </br>
+    Current:<%=rs.getString("Current_Stage")%> </br>
+    Edit:<%=rs.getString("Edit")%> </br> </br>
+    <%
+                }
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+            
+            stmt.close();
+            conn.close();
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-          catch (Exception e) {  
-                e.printStackTrace();  
-        }   
-%>   
-    
-             <a href="uploadindex.jsp">back</a>  <br/>
-             <a href="connection.jsp"> view data </a>   <br/>
-             <a href="Source Packages/ListFileServlet" >download the file</a>    <br/>
-    </html>
-    
-   
+    %>
+    <a href="uploadindex.jsp">back</a>  <br/>
+    <a href="connection.jsp"> view data </a>   <br/>
+    <a href="Source Packages/ListFileServlet" >download the file</a>    <br/>
+</html>
