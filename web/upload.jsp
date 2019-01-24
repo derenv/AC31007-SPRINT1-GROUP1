@@ -16,6 +16,8 @@
         //success message (no try/catch block though?-possible test print)
         out.println("successfully uploaded!"+"\n");
 
+        String module=request.getParameter("Mod");
+        out.println("module:"+module+"\n");
         //files
         Enumeration files = m.getFileNames();
         String fileName = "";//name of PDF file
