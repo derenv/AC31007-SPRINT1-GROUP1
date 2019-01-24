@@ -25,6 +25,7 @@ public class readPDF extends HttpServlet {
 
    
 
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          
@@ -33,17 +34,17 @@ public class readPDF extends HttpServlet {
             
          Connection c = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/18agileteam1db", "18agileteam1", "7845.at1.5487");
           
-          PreparedStatement ps = c.prepareStatement("SELECT * FROM pdf ");
+          PreparedStatement ps = c.prepareStatement("SELECT * FROM users ");
           
           
-        out.println("Hello");
+
           
           ResultSet rs = ps.executeQuery();
           
           while (rs.next()) {
                
                
-           String type= rs.getString("Mod_code");
+           String type= rs.getString("Module1");
              
             out.println(type);
                 

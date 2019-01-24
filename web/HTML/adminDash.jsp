@@ -14,6 +14,10 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Admin Dashboard</h1>
-        <div>TODO write content</div>
+        
+        <a href="../createusers.jsp" >create a new user</a>   </br></br>
+      <a href="../choose.jsp" >update users' statues</a>   
+   
     </body>
 </html>
+
