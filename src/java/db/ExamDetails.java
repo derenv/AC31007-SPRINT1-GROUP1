@@ -11,6 +11,7 @@ package db;
  */
 public class ExamDetails {
     
+    
     public void editYear(){}
     public void editModuleCoordinator(){}
     public boolean upload(){return true;}
