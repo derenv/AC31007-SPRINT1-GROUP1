@@ -1,5 +1,5 @@
 <%@page contentType="text/html" %>
-
+<%@include file="session_check.jsp" %>
 <!DOCTYPE html>
 
 <html>

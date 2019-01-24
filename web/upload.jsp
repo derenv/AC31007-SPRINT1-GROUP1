@@ -3,8 +3,11 @@
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>  
-<%@ page language="java" import="java.util.*,java.sql.*"%>  
-<%@ page contentType="text/html;"%>  
+<%@ page language="java" import="java.util.*,java.sql.*"%> 
+
+<%@page contentType="text/html" %>
+<%@include file="session_check.jsp" %>
+<!DOCTYPE html>
 
 <html>
     <%
