@@ -8,9 +8,7 @@
 --%>
 <%@page import="db.dbAccess"%>
 <% 
-    dbAccess a;
-    a = new dbAccess();
-    
+    dbAccess a = new dbAccess();    
     
     String module = a.getModuleCodes(); 
     out.println(module);%>
@@ -51,7 +49,7 @@
             <c:forToken var="i" items="${module}">
                 <c:out value = "${i}"/>
                 
-                <input tpe="submit" value="${i}">
+                <!---<input tpe="submit" value="${i}">-->
                 <br>
             </c:forToken>>
         </form>  
