@@ -76,10 +76,10 @@
 
             <div class="sidebar">
                 <ul>
-                    <li><h2>Account Name</h2></li>
+                    <li><h2><% out.println(username2); %></h2></li>
                     <br>
                     <li><a href="#">Required</a></li>
-                    <li><a href="trial.jsp">My Modules</a></li>
+                    <li><a href="HTML/teacherDash.jsp">My Modules</a></li>
                     <li><a href="#">In Progress</a></li>
                     <li><a href="#">Complete</a></li>
                     <br>
