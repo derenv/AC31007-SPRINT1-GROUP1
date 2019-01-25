@@ -14,7 +14,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 <%@ page language="java" import="java.util.*,java.sql.*"%>
 <%@ page import="db.conn" %>
-
+<%@include file="../session_check.jsp" %>
 
 <html>
     <%

@@ -15,6 +15,7 @@
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page contentType="text/html;"%>
 <%@ page import="db.conn" %>
+<%@include file="../session_check.jsp" %>
  
 <!DOCTYPE html>
 <html>
