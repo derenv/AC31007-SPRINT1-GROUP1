@@ -2,8 +2,7 @@
     Document   : test.jsp
     Created on : 24-Jan-2019, 19:12:18
     Author     : sarahsmall
---%>
-<%-- 
+
     Document   : updateuser
     Created on : 24-Jan-2019, 17:19:54
     Author     : zhendongliu
@@ -31,25 +30,26 @@
             </ul>
         </header>
         <%
-    
+            //get user from implicit session object
             String username2 = (String) session.getAttribute("username");
-
-            java.util.Date date=new java.util.Date();   
-            String datetime=new Timestamp(date.getTime()).toString();  
-
-            try   
-            {   
+            
+            java.util.Date date=new java.util.Date();
+            String datetime=new Timestamp(date.getTime()).toString();
+            
+            try{
+                //create connection
                 conn connection_driver = new conn();
                 Connection connection = connection_driver.connect();
+                
+                //create SQL query
                 Statement stmt = connection.createStatement();
-
-                stmt.executeQuery("SET NAMES UTF8");          
-
+                stmt.executeQuery("SET NAMES UTF8");
                 String query_sql =( "select * from exams where Teacher='"+username2+"'");
-
-                try {   
+                
+                //run statement and parse results
+                try {
                     ResultSet rs = stmt.executeQuery(query_sql);     
-                    while(rs.next()) {  
+                    while(rs.next()){
         %>     
         <br/>
                    
@@ -90,16 +90,16 @@
                 
        
         </br>   
-        <%  
-                    }    
-                }catch(Exception e) {  
-                    e.printStackTrace();  
+        <%
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
                 }   
-                 
+                
                 stmt.close();
             }catch (Exception e){
                 e.printStackTrace();
-            }   
-        %>   
+            }
+        %>
     </body>
 </html>
