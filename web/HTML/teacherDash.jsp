@@ -7,8 +7,7 @@ and open the template in the editor.
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../session_check.jsp" %>
 <%
-    
-    
+    String username2 = (String) session.getAttribute("username");
 %>
 <!DOCTYPE html>
 <html>
@@ -113,7 +112,7 @@ and open the template in the editor.
 
 <div class="sidebar">
   <ul>
-    <li><h2>Account Name</h2></li>
+    <li><h2><% out.println(username2); %></h2></li>
     <br>
     <li><a href="#">Required</a></li>
     <li><a href="../trial.jsp">My Modules</a></li>
