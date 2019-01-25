@@ -30,7 +30,7 @@ public class ListFileServlet extends HttpServlet {
         listfile(new File(uploadFilePath),fileNameMap);//File can be either a file or a menu
         //send map to listfile.jsp to show
         request.setAttribute("fileNameMap", fileNameMap);
-        request.getRequestDispatcher("/listfile.jsp").forward(request, response);
+        request.getRequestDispatcher("/WebApplication1/listfile.jsp").forward(request, response);
     }
     
  
