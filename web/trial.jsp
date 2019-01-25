@@ -79,12 +79,12 @@
                     <li><h2>Account Name</h2></li>
                     <br>
                     <li><a href="#">Required</a></li>
-                    <li><a href="../trial.jsp">My Modules</a></li>
+                    <li><a href="trial.jsp">My Modules</a></li>
                     <li><a href="#">In Progress</a></li>
                     <li><a href="#">Complete</a></li>
                     <br>
                     <br>
-                    <div class="signout"><li><a href='#'>Sign out</a></li></div>
+                    <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
                 </ul>
             </div>
         </div>
