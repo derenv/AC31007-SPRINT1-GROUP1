@@ -97,7 +97,7 @@
                 }   
                 
                 stmt.close();
-            }catch (Exception e){
+            }catch(SQLException e){
                 e.printStackTrace();
             }
         %>
