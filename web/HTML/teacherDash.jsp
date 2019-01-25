@@ -62,9 +62,9 @@ and open the template in the editor.
       <tr>
           <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
           </td>
-          <td class="middle">AC21001
+          <td class="middle">AC31007
           </td>
-          <td class="bRight">Craig Ramsey
+          <td class="bRight">Craig Ramsoy
           </td>
           <td class="bRight">Information Security
           </td>
@@ -81,9 +81,9 @@ and open the template in the editor.
           </td>
           <td class="middle">AC21001
           </td>
-          <td class="bRight">Craig Ramsey
+          <td class="bRight">Iain Murray
           </td>
-          <td class="bRight">Information Security
+          <td class="bRight">Database Systems
           </td>
       </tr>
       <tr>
