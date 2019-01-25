@@ -116,7 +116,7 @@ and open the template in the editor.
     <br>
     <li><a href="#">Required</a></li>
     <li><a href="../trial.jsp">My Modules</a></li>
-    <li><a href="../viewPDF.jsp">New</a></li>
+    <li><a href="../uploadindex.jsp">New</a></li>
     <li><a href="#">In Progress</a></li>
     <li><a href="#">Complete</a></li>
     <br>
