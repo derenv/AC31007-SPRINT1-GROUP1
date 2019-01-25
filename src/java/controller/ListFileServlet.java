@@ -20,9 +20,10 @@ public class ListFileServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //get the menu
-        String appPath = request.getServletContext().getRealPath("");
+        //String appPath = request.getServletContext().getRealPath("");
         // constructs path of the directory to save uploaded file
-        String uploadFilePath = appPath + File.separator + "pdf";
+        //String uploadFilePath = appPath + File.separator + "pdf";
+        String uploadFilePath = ".." + File.separator + "pdf";
         //String uploadFilePath = ("\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");
         //save file name
         Map<String,String> fileNameMap = new HashMap<String,String>();
@@ -30,7 +31,7 @@ public class ListFileServlet extends HttpServlet {
         listfile(new File(uploadFilePath),fileNameMap);//File can be either a file or a menu
         //send map to listfile.jsp to show
         request.setAttribute("fileNameMap", fileNameMap);
-        request.getRequestDispatcher("/WebApplication1/listfile.jsp").forward(request, response);
+        request.getRequestDispatcher("/listfile.jsp").forward(request, response);
     }
     
  
