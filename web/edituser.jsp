@@ -41,15 +41,29 @@
             
             try {   
                 ResultSet rs = stmt.executeQuery(query_sql);     
-                while(rs.next()) {  
+                while(rs.next()) {           
+                    
+            session.setAttribute("Username",rs.getString("Username"));
+            session.setAttribute("UserID",rs.getString("UserID"));
+            session.setAttribute("Mod1",rs.getString("Module1"));
+            session.setAttribute("Mod2",rs.getString("Module2"));
+            session.setAttribute("Mod3",rs.getString("Module3"));
+            session.setAttribute("Mod4",rs.getString("Module4"));
                     %>     
                     <br/>
+                    
                     User name:<%=rs.getString("Username")%> </br>     
                     Password:<%=rs.getString("Password")%> </br>   
                     User ID:<%=rs.getString("UserID")%> </br>   
                     Module1:<%=rs.getString("Module1")%> </br>
                     Module2:<%=rs.getString("Module2")%> </br>   
-                    </br>   
+                    Module3:<%=rs.getString("Module3")%> </br>
+                    Module4:<%=rs.getString("Module4")%> </br>   
+                               
+                    
+                    </br>  
+                    
+                    
                     <%  
                 }      
             }
@@ -65,15 +79,26 @@
         }   
 %>   
         
-          <form action="update.jsp" method="post">
-     user name &nbsp   
+    <form action="update.jsp" method="post">
+     User name &nbsp   
   <input name="username"  type ="text">
     User  ID &nbsp   
-  <input name="userid"  type ="text">
+  <select name="userid"  type ="text">
+      <option value="Admin">Admin</option>
+      <option value="ExternalMod">ExternalMod</option>
+      <option value="InternalMod">InternalMod</option>
+      <option value="Teacher">Teacher</option>
+  </select>
     Module 1  &nbsp 
   <input name="mod1"  type ="text">
     Module 2  &nbsp 
   <input name="mod2"  type ="text">
+    Module 3  &nbsp 
+  <input name="mod3"  type ="text">
+    Module 4  &nbsp 
+  <input name="mod4"  type ="text">
+  
+ 
   
   <input name="submit"  type ="submit"  value="submit"  >
   

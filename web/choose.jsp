@@ -47,11 +47,12 @@ java.util.Date date=new java.util.Date();
                     User ID:<%=rs.getString("UserID")%> </br>   
                     Module1:<%=rs.getString("Module1")%> </br>
                     Module2:<%=rs.getString("Module2")%> </br>
+                    Module3:<%=rs.getString("Module3")%> </br>
+                    Module4:<%=rs.getString("Module4")%> </br>               
                     <a href="edituser.jsp?Username= <%=rs.getString("Username")%> "> Update</a>
                    
-                     <a href="deleteuser.jsp?Username= <%=rs.getString("Username")%> "> Delete</a>
-               
-                     
+                    <a href="deleteuser.jsp?Username= <%=rs.getString("Username")%> "> Delete</a> 
+                  
                     </br>   
                     <%  
                 }      
