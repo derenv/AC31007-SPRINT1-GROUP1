@@ -18,7 +18,10 @@ public class DownLoadServlet extends HttpServlet {
         String fileName = request.getParameter("filename"); 
         fileName = new String(fileName.getBytes("iso8859-1"),"UTF-8");
        
-        String fileSaveRootPath=("\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");
+        String appPath = request.getServletContext().getRealPath("");
+        // constructs path of the directory to save uploaded file
+        String fileSaveRootPath = appPath + File.separator + "pdf";
+        //String fileSaveRootPath=("\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");
         //find file path through file name
         String path = findFileSavePathByFileName(fileName,fileSaveRootPath);
         //get files to be downloaded
