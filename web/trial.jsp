@@ -84,7 +84,7 @@
                     <li><a href="#">Complete</a></li>
                     <br>
                     <br>
-                    <div class="signout"><li><a href='#'>Sign out</a></li></div>
+                    <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
                 </ul>
             </div>
         </div>
