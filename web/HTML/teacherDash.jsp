@@ -17,11 +17,11 @@ and open the template in the editor.
 </head>
 
 <header>
-  <ul>
-    <li>
-      <div class="blur"><img src="../img/UoDlogo.jpg"/></div>
-    </li>
-  </ul>
+  
+    
+      <div class="content"><img src="../img/UoDlogo.jpg"/></div>
+    
+  
   </header>
 <body>
 <div class="main">
@@ -37,11 +37,15 @@ and open the template in the editor.
     <li><h2>Hello, <% out.println(username2); %></h2></li>
     <br>
    
-    <li><a href="../myModules.jsp">My Modules</a></li>
+    
+    <li><p><u>Exams</U></p></li>
     <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
     <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
     <li><a href="#">Edit my Exams</a></li>
     <li><a href="#">View Exam Progress</a></li>
+    <br>
+     <li><p><u>Other</U></p></li>
+    <li><a href="../myModules.jsp">My Modules</a></li>
     <li><a href="#">Account Details</a></li>
     <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
   </ul>

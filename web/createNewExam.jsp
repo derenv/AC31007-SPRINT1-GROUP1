@@ -17,34 +17,33 @@ and open the template in the editor.
 </head>
 
 <header>
-  <ul>
-    <li>
-      <div class="blur"><img src="img/UoDlogo.jpg"/></div>
-    </li>
-  </ul>
+ 
+      <div class="content"><img src="img/UoDlogo.jpg"/></div>
+   
   </header>
 <body>
 <div class="main">
     <h2>Create a new exam</h2>
-        <form action="createInsert.jsp" method="post">
+    <p>Please fill in the details for the exam and add the files(PDF format only) to be uploaded.</p>
+        <form action="createInsert.jsp" method="post" style="padding:0px">
              <h3>Details</H3>
-    module code &nbsp   
+    Module code &nbsp   
   <input name="moduleCode"  type ="text"> <br/>
-    year &nbsp  
+    Year &nbsp  
   <input name="year"  type ="text"><br/>
-    module name &nbsp  &nbsp 
+    Module Name &nbsp  &nbsp 
   <input name="moduleName"  type ="text"><br/>
-    module coordinator  &nbsp 
+    Module Coordinator  &nbsp 
   <input name="modCoord"  type ="text"><br/>
   <h3>Files</H3>
   
-    Main Exam  &nbsp 
+    Main Exam  &nbsp <!--type in table main-->
   <input name="mainExam"  type ="file"><br/>
-    Solutions(Main)  &nbsp 
+    Solutions(Main)  &nbsp <!--type in table main sol-->
   <input name="solMain"  type ="file"><br/>
-    Resit Exam  &nbsp 
+    Resit Exam  &nbsp <!--type in table resit-->
   <input name="resitExam"  type ="file"><br/>
-    Solutions (Resit)  &nbsp 
+    Solutions (Resit)  &nbsp <!--type in table resit sol-->
   <input name="solResit"  type ="file"><br/>
   
   
@@ -79,15 +78,16 @@ and open the template in the editor.
 
 <div class="sidebar">
   <ul>
-    <li><h2>Hello, <% out.println(username2); %></h2></li>
+    <li><h2><% out.println(username2); %></h2></li>
     <br>
    
-    <li><a href="../trial.jsp">My Modules</a></li>
-   
-    <li><a href="viewPDF.jsp">View uploaded Exams</a></li>
-    <li><a href="#">Edit my Exams</a></li>
-    <li><a href="#">View Exam Progress</a></li>
-    <li><a href="#">Account Details</a></li>
+      <li><a href="myModules.jsp">My Modules</a></li>
+      <li><a href="createNewExam.jsp">Create a new Exam</a></li>
+      <li><a href="viewExams.jsp">View uploaded Exams</a></li>
+      <li><a href="editExam.jsp">Edit my Exams</a></li>
+      <li><a href="examProgress.jsp">View Exam Progress</a></li>
+      <li><a href="accountDetails.jsp">Account Details</a></li>
+                    
     <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
   </ul>
 </div>

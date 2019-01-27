@@ -31,11 +31,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <header>
-  <ul>
-    <li>
-      <div class="blur"><img src="img/UoDlogo.jpg"/></div>
-    </li>
-  </ul>
+  
+      <div class="content"><img src="img/UoDlogo.jpg"/></div>
+  
   </header>
 <body>
     
@@ -56,7 +54,7 @@
                 <br>
 <br>
               <div class="submit"><input type="submit" value="Login" style="float: right;background-color: rgb(67,101,226);border: none;color:white;
-                        padding: 1.5px 2px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"/></div>
+                        padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"/></div>
                     
 
 

@@ -18,21 +18,40 @@
  
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+   <%
+            //get user from implicit session object
+            String username2 = (String) session.getAttribute("username");%>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/Style.css" />
     </head>
     <body>
         <header>
-            <ul>
-                <li>
-                    <div class="blur"><img src="img/UoDlogo.jpg"/></div>
-                </li>
-            </ul>
+           
+                    <div class="content"><img src="img/UoDlogo.jpg"/></div>
+           
         </header>
+        <div class="main"><h2>My modules</h2>
+            <p>View all modules you are currently enrolled in.</p> 
+         <div class="sidebar">
+                <ul>
+                    
+                    <li><h2><% out.println(username2); %></h2></li>
+                    <br>
+                      <li><a href="myModules.jsp">My Modules</a></li>
+                        <li><a href="createNewExam.jsp">Create a new Exam</a></li>
+                        <li><a href="viewExams.jsp">View uploaded Exams</a></li>
+                        <li><a href="editExam.jsp">Edit my Exams</a></li>
+                        <li><a href="examProgress.jsp">View Exam Progress</a></li>
+                        <li><a href="accountDetails.jsp">Account Details</a></li>
+                    
+             
+                    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
+                </ul>
+            </div></div>
         <%
             //get user from implicit session object
-            String username2 = (String) session.getAttribute("username");
+      
             
             java.util.Date date=new java.util.Date();
             String datetime=new Timestamp(date.getTime()).toString();
@@ -58,7 +77,7 @@
         <div class="main">
             <table>
                 <tr>
-                    <td class="bTop" colspan="3">
+                
                     </td>
                 </tr>
                 <tr>
@@ -72,13 +91,13 @@
                     </td>
                 </tr>
                 <tr>
-            </table>
+                </table>
 
             <div class="sidebar">
                 <ul>
                     <li><h2><% out.println(username2); %></h2></li>
                     <br>
-                       
+                        <li><a href="myModules.jsp">My Modules</a></li>
                         <li><a href="createNewExam.jsp">Create a new Exam</a></li>
                         <li><a href="viewExams.jsp">View uploaded Exams</a></li>
                         <li><a href="editExam.jsp">Edit my Exams</a></li>

@@ -28,7 +28,7 @@ margin: 0;
 
 }
 
-div blur {
+ .blur {
   overflow: hidden;
 }
 
@@ -36,13 +36,23 @@ div blur {
 
 
 header{
-  display: flex;
+  
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
+  
   background-color: rgb(67,101,226);
+  position:relative;
 
 
+}
+.content{position: abosulte;}
+.content img{ position: absolute;
+    top: 0px;
+    left:240px;
+    height:60px;
+    width:200px;
+    
 }
 
 ul li img{
@@ -128,6 +138,17 @@ font-size: 20px;
 
 
 }
+.sidebar p{
+  padding: 0px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  text-align: left;
+  
+
+
+}
 
 .sidebar a{
   padding: 6px 8px 6px 1px;
@@ -142,13 +163,15 @@ font-size: 20px;
   color: #f1f1f1;
 }
 
-.signout {
+.signout a {
 
-    
+   
+    color:rgb(67,101,226);
 
   }
 
   .signout a:hover {
+      color:rgb(20,71,200);
 
   }
 
@@ -170,9 +193,11 @@ img{
 }
 
 td {
-  padding: 50px;
+  padding: 0px 50px 50px 20px;
+  
 }
 
 .box{colour:grey;
 
 }
+td{text-align: center;}

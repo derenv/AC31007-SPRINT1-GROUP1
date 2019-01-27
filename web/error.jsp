@@ -15,6 +15,6 @@
         <title>Error Page</title>
     </head>
     <body>
-        <h1>Sorry there has been an error!</h1>
+        <h1>Sorry incorrect login details please try again</h1>
     </body>
 </html>
