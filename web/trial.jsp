@@ -51,7 +51,11 @@
                 try {
                     ResultSet rs = stmt.executeQuery(query_sql);     
                     while(rs.next()){
-        %>     
+                        Statement stmt2 = connection.createStatement();
+                        stmt2.executeQuery("SET NAMES UTF8");
+                        String query_sql2 =( "select pdf_path from pdf where Mod_code='"+rs.getString("ModuleCode")+"'");
+                        ResultSet rs2 = stmt2.executeQuery(query_sql2);
+        %>              
         <br/>
                    
                     
@@ -70,6 +74,7 @@
                     </td>
                     <td class="bRight"><%=rs.getString("ModuleName")%>
                     </td>
+                    <td class="bRight"><a href="<%=rs2.getString("pdf_path") %>"></a>
                 </tr>
                 <tr>
             </table>
