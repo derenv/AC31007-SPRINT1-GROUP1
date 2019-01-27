@@ -78,12 +78,13 @@
                 <ul>
                     <li><h2><% out.println(username2); %></h2></li>
                     <br>
-                    <li><a href="#">Required</a></li>
-                    <li><a href="HTML/teacherDash.jsp">My Modules</a></li>
-                    <li><a href="#">In Progress</a></li>
-                    <li><a href="#">Complete</a></li>
-                    <br>
-                    <br>
+                       
+                        <li><a href="createNewExam.jsp">Create a new Exam</a></li>
+                        <li><a href="#">View uploaded Exams</a></li>
+                        <li><a href="#">Edit my Exams</a></li>
+                        <li><a href="#">View Exam Progress</a></li>
+                        <li><a href="#">Account Details</a></li>
+                    
                     <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
                 </ul>
             </div>
