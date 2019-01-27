@@ -37,7 +37,7 @@ and open the template in the editor.
     <li><h2>Hello, <% out.println(username2); %></h2></li>
     <br>
    
-    <li><a href="../trial.jsp">My Modules</a></li>
+    <li><a href="../myModules.jsp">My Modules</a></li>
     <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
     <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
     <li><a href="#">Edit my Exams</a></li>

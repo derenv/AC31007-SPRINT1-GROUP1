@@ -17,8 +17,6 @@
             <b>Select File:</b>   
             <input type="file" name="fname"><br/>
             
-           
-            
             Mode Code:<input type="text" name ="Mod" required> <br/>
        
            <input type="submit" value="Upload">
