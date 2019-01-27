@@ -25,102 +25,24 @@ and open the template in the editor.
   </header>
 <body>
 <div class="main">
-  <table>
-      <tr>
-          <td class="bTop" colspan="3">
-          </td>
 
-      </tr>
-      <tr>
-          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100">
-          </td>
-          <td class="middle">AC21001
-          </td>
-          <td class="bRight">Craig Ramsey
-          </td>
-          <td class="bRight">Information Security
-          </td>
-      </tr>
-      <tr>
-          <td class="bBottom" colspan="3">
-          </td>
-      </tr>
-      <tr>
-          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
-          </td>
-          <td class="middle">AC21001
-          </td>
-          <td class="bRight">Craig Ramsey
-          </td>
-          <td class="bRight">Information Security
-          </td>
-      </tr>
-      <tr>
-          <td class="bBottom" colspan="3">
-          </td>
-      </tr>
-      <tr>
-          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
-          </td>
-          <td class="middle">AC31007
-          </td>
-          <td class="bRight">Craig Ramsoy
-          </td>
-          <td class="bRight">Information Security
-          </td>
-           </td>
-           <td class="bRight"><button>create</button>
-          </td>
-      </tr>
-      <tr>
-          <td class="bBottom" colspan="3">
-          </td>
-      </tr>
-      <tr>
-          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
-          </td>
-          <td class="middle">AC21001
-          </td>
-          <td class="bRight">Iain Murray
-          </td>
-          <td class="bRight">Database Systems
-          </td>
-      </tr>
-      <tr>
-          <td class="bBottom" colspan="3">
-          </td>
-      </tr>
-      <tr>
-          <td class="bLeft"><img src="../img/pdflogo.jpg" height="100" width="100"/>
-          </td>
-          <td class="middle">AC21001
-          </td>
-          <td class="bRight">Craig Ramsey
-          </td>
-          <td class="bRight">Information Security
-          </td>
-      </tr>
-      <tr>
-          <td class="bBottom" colspan="3">
-          </td>
-      </tr>
-  </table>
-</div>
+ 
+     
 
 
 
 
 <div class="sidebar">
   <ul>
-    <li><h2><% out.println(username2); %></h2></li>
+    <li><h2>Hello, <% out.println(username2); %></h2></li>
     <br>
-    <li><a href="#">Required</a></li>
+   
     <li><a href="../trial.jsp">My Modules</a></li>
-    <li><a href="../uploadindex.jsp">New</a></li>
-    <li><a href="#">In Progress</a></li>
-    <li><a href="#">Complete</a></li>
-    <br>
-    <br>
+    <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
+    <li><a href="#">View uploaded Exams</a></li>
+    <li><a href="#">Edit my Exams</a></li>
+    <li><a href="#">View Exam Progress</a></li>
+    <li><a href="#">Account Details</a></li>
     <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
   </ul>
 </div>
