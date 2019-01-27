@@ -14,7 +14,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>  
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page import="db.conn" %>
-<%@include file="../session_check.jsp" %>
+<%@include file="session_check.jsp" %>
  
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@
                     while(rs.next()){
         %>     
         <br/>
-                   
+                     
                     
         <div class="main">
             <table>
@@ -80,12 +80,12 @@
                     <br>
                        
                         <li><a href="createNewExam.jsp">Create a new Exam</a></li>
-                        <li><a href="#">View uploaded Exams</a></li>
-                        <li><a href="#">Edit my Exams</a></li>
-                        <li><a href="#">View Exam Progress</a></li>
-                        <li><a href="#">Account Details</a></li>
+                        <li><a href="viewExams.jsp">View uploaded Exams</a></li>
+                        <li><a href="editExam.jsp">Edit my Exams</a></li>
+                        <li><a href="examProgress.jsp">View Exam Progress</a></li>
+                        <li><a href="accountDetails.jsp">Account Details</a></li>
                     
-                    <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
+                    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
                 </ul>
             </div>
         </div>
