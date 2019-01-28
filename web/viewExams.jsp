@@ -7,6 +7,7 @@
     Created on : 24-Jan-2019, 17:19:54
     Author     : zhendongliu
 --%>
+<%@page import="db.viewExams"%>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
@@ -37,25 +38,24 @@
             java.util.Date date=new java.util.Date();
             String datetime=new Timestamp(date.getTime()).toString();
             
-            try{
-                //create connection
-                conn connection_driver = new conn();
-                Connection connection = connection_driver.connect();
+            viewExams v = new viewExams(username2, "Teacher");
+            String[] list = new String[20];
+            list = v.getModuleCodes();
+            
+            for(int i = 0; i < 19; i++) {
                 
-                //create SQL query
-                Statement stmt = connection.createStatement();
-                stmt.executeQuery("SET NAMES UTF8");
-                String query_sql =( "select * from exams where Teacher='"+username2+"'");
+                //break loop
+                if(list[i] == null) {
+                    break;
+                }
                 
-                //run statement and parse results
-                try {
-                    ResultSet rs = stmt.executeQuery(query_sql);
-                    while(rs.next()){ 
-                        Statement stmt2 = connection.createStatement();
-                        stmt2.executeQuery("SET NAMES UTF8");
-                        String query_sql2 =( "select Pdf_path from pdf where Mod_code='"+rs.getString("ModuleCode")+"'");
-                        ResultSet rs2 = stmt2.executeQuery(query_sql2); 
-                        rs2.next();
+                String examPath = v.getExam(list[i]);
+                String examSolutionPath = v.getExamSolution(list[i]);
+                
+                String resitPath = v.getResit(list[i]);
+                String resitSolutionPath = v.getResitSolution(list[i]);
+                
+                String[] meta = v.getMeta(list[i]);
         %>              
         <br/>
                    
@@ -66,14 +66,23 @@
                 <tr>
                     <td class="bLeft"><img src="img/pdflogo.jpg" height="100" width="100">
                     </td>
-                    <td class="middle"><%=rs.getString("ModuleCode")%>
+                    <td class="middle"><%=list[i]%>
                     </td>
-                    <td class="bRight"><%=rs.getString("ModuleCoordinator")%>
+                    <td class="bRight"><%=meta[0]%>
                    </td>
-                    <td class="bRight"><%=rs.getString("ModuleName")%>
+                    <td class="bRight"><%=meta[1]%>
                     </td>
-                    <td class="bRight"><a href="<%=rs2.getString("Pdf_path") %>">View</a>
-                    </td>
+                    
+                    <td class="bRight">
+                        <form> <!-- Still need to process a selection from the drop down menu to the redirect--->
+                    <select name="paper" id="paper">
+                        <option value="<%=examPath %>">View Exam Paper</option>
+                        <option value="<%=examSolutionPath %>">View Exam Solutions</option>
+                        <option value="<%=resitPath %>">View Resit Paper</option>
+                        <option value="<%=resitSolutionPath %>">View Resit Solutions</option>
+                    </select>
+                    </form>
+                   
                 </tr>
                 <tr>
                     <td class="middle">EXAM PROGRESS
@@ -86,16 +95,6 @@
                 
        
         </br>   
-        <%
-                  }  
-                }catch(Exception e){
-                    e.printStackTrace();
-                }   
-                
-                stmt.close();
-            }catch(SQLException e){
-                e.printStackTrace();
-            }
-        %>
+        <% } //end of for loop %>
     </body>
 </html>
