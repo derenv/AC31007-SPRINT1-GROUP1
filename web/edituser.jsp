@@ -88,6 +88,7 @@
       <option value="ExternalMod">ExternalMod</option>
       <option value="InternalMod">InternalMod</option>
       <option value="Teacher">Teacher</option>
+      <option value="Exam_Vetting_Committee">Exam Vetting Committee</option>
   </select>
     Module 1  &nbsp 
   <input name="mod1"  type ="text">
