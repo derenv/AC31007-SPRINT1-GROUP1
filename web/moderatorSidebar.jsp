@@ -22,7 +22,7 @@ This is the sidebar file that is included for all moderator web pages
                 <br><br>
                 <ul>
                     <li><p><u>Exams</U></p></li>
-                    <li><a href="#">New</a></li>
+                    <li><a href="../new">New</a></li>
                     <li><a href="#">In Progress</a></li>
                     <li><a href="#">Completed</a></li><br>
                     <li><p><u>Other</u></p></li>

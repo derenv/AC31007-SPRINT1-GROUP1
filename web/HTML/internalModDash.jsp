@@ -28,7 +28,7 @@ This is the internal moderator dashboard, this is first stage in exam review aft
                         <td class="bRight"><img src="../img/folder.png" height="256" width="256">
                     </tr>
                     <tr>
-                        <td class="bLeft"><a href="#">New</a>
+                        <td class="bLeft"><a href="../new.jsp">New</a>
                         </td>
                         <td class="middle"><a href="#">In progress</a>
                         </td>
