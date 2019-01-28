@@ -13,13 +13,21 @@
         <title>Create Users Page</title>
     </head>
     <body>
+        
+        
       <form action="insertusers.jsp" method="post">
-    user name &nbsp   
+    User name &nbsp   
   <input name="username"  type ="text"> <br/>
     Password &nbsp  
   <input name="password"  type ="password"><br/>
     User ID &nbsp  &nbsp 
-  <input name="userid"  type ="text"><br/>
+    <select name="userid"  type ="text">
+      <option value="Admin">Admin</option>
+      <option value="ExternalMod">ExternalMod</option>
+      <option value="InternalMod">InternalMod</option>
+      <option value="Teacher">Teacher</option>
+       <option value="Exam_Vetting_Committee">Exam Vetting Committee</option>
+  </select><br/>
     Module 1  &nbsp 
   <input name="mod1"  type ="text"><br/>
     Module 2  &nbsp 
@@ -33,6 +41,8 @@
   
 
         </form>
+        
+        
     </body>
   
 </html>
