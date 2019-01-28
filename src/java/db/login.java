@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package db;
 
 import java.sql.PreparedStatement;
@@ -16,13 +11,6 @@ import java.sql.*;
  */
 public class login {
 
-    Connection c;
-
-    public login() {
-	conn conn1 = new conn();
-        c = conn1.connect();
-    }
-
     /**
     *
     * @author deren vural
@@ -32,22 +20,17 @@ public class login {
     * @return   type
     */
     public String check_valid_details(String username, String password){
-        try {
-            //prepare statement
-	    String statement = "SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'";
-            PreparedStatement ps = c.prepareStatement(statement);
+        try{
+            //prepare & run statement
+            ResultSet rs = (new data_access()).run_statement("SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'");
 
 	    //parse set of results
-            ResultSet rs = ps.executeQuery();
 	    if(rs == null){
 		//return error code for redirect
 		return "no result";
 	    }else{
 		//get first in results and return type of user
 		rs.next();
-
-		//close database connection
-		conn conn1 = new conn();
 		
 		return rs.getString("UserID");
 	    }

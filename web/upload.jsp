@@ -1,4 +1,4 @@
-my<%@page import="com.oreilly.servlet.MultipartRequest" %>
+<%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
@@ -7,24 +7,25 @@ my<%@page import="com.oreilly.servlet.MultipartRequest" %>
 
 <%@page contentType="text/html" %>
 <%@include file="session_check.jsp" %>
+<%@ page import="db.data_access" %>
 <!DOCTYPE html>
 
 <html>
     <%
-        String appPath = request.getServletContext().getRealPath("");
-        // constructs path of the directory to save uploaded file
-        String save_path = appPath + File.separator + "pdf";
+        //construct path of the directory to save uploaded file
+        String save_path = "/pdf";
+        File uploads = new File(save_path);
         
         //deal with passed file request
-        //MultipartRequest m = new MultipartRequest(request, save_path);
-        MultipartRequest m = new MultipartRequest(request, "\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");
+        MultipartRequest m = new MultipartRequest(request, save_path);
         
         //files
         Enumeration files = m.getFileNames();
         String fileName = "";//name of PDF file
         String filePath="";//location on server
         String Mod="";//module code
-
+        File f = null;
+        
         //for each file
         while (files.hasMoreElements()){
             //get current file details
@@ -32,7 +33,7 @@ my<%@page import="com.oreilly.servlet.MultipartRequest" %>
             filePath = m.getFilesystemName(fileName);
             
             //create file object
-            File f = m.getFile(fileName);
+            f = m.getFile(fileName);
             
             //catch empty file
             if (null == f){
@@ -40,62 +41,17 @@ my<%@page import="com.oreilly.servlet.MultipartRequest" %>
             }
         }
         
-        //get file passed in form parameter
-        Enumeration enum1 = m.getParameterNames(); 
-        
-        //for each file
-        while (enum1.hasMoreElements()){
-            String s = (String) enum1.nextElement();
-            
-            String[] str = m.getParameterValues(s);
-            
-            StringBuffer sb = new StringBuffer();
-            
-            for (int i=0;i<str.length;i++){
-                sb.append(str[i]);
-            }
-            
-            Mod=sb.toString();
-        } 
-        
-        response.setContentType("text/html");   
-        
         //server path
-        String path="http://silva.computing.dundee.ac.uk/2018-agileteam1/"+filePath;      
+        String path="http://silva.computing.dundee.ac.uk/2018-agileteam1/"+filePath;
         String Stage="0";     
-        String Edit="0"; 
+        String Edit="0";
         
-        //timestamp
-        java.util.Date date=new java.util.Date();   
-        String datetime=new Timestamp(date.getTime()).toString();  
+        //insert new file into database
+        (new data_access()).run_statement("INSERT INTO pdf(Mod_code,Pdf_path,Current_Stage,Edit) VALUES('" + Mod + "','" + path + "','" + Stage + "','" + Edit + "')");
         
-        try{
-            //connnection details
-            String driverName = "com.mysql.jdbc.Driver"; 
-            String DBUser = "18agileteam1"; 
-            String DBPasswd = "7845.at1.5487"; 
-            String DBName = "18agileteam1db"; 
-            
-            //connection
-            String connUrl = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/" + DBName + "?user=" + DBUser + "&password=" + DBPasswd;  
-            Class.forName(driverName).newInstance();  
-            Connection conn = DriverManager.getConnection(connUrl);  
-            Statement stmt = conn.createStatement();  
-            stmt.executeQuery("SET NAMES UTF8");  
-            
-            //prepare pdf link statements
-            String insert_sql = "insert into pdf(Mod_code,Pdf_path,Current_Stage,Edit) values('" + Mod + "','" + path + "','" + Stage + "','" + Edit + "')";  
-            String query_sql = "select * from pdf";
-            
-            try{
-                stmt.execute(insert_sql);
-            }catch(Exception e){  
-                e.printStackTrace();
-            }
-            
-            try{
-                ResultSet rs = stmt.executeQuery(query_sql);
-                while(rs.next()) {
+        //get all files in database & print
+        ResultSet rs = (new data_access()).run_statement("SELECT * FROM pdf");
+        while(rs.next()) {
     %>
     <br/>
     Module Code:<%=rs.getString("Mod_code")%> </br>
@@ -103,15 +59,6 @@ my<%@page import="com.oreilly.servlet.MultipartRequest" %>
     Current:<%=rs.getString("Current_Stage")%> </br>
     Edit:<%=rs.getString("Edit")%> </br> </br>
     <%
-                }
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-            
-            stmt.close();
-            conn.close();
-        }catch (Exception e) {
-            e.printStackTrace();
         }
     %>
     <a href="uploadindex.jsp">back</a>  <br/>
