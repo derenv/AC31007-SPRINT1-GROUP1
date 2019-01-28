@@ -15,6 +15,98 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="../css/Style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
+    <body>
+        
+           <%
+            //get user from implicit session object
+          
+        
+            java.util.Date date=new java.util.Date();
+            String datetime=new Timestamp(date.getTime()).toString();
+            
+            try{
+                //create connection
+                conn connection_driver = new conn();
+                Connection connection = connection_driver.connect();
+                
+                //create SQL query
+                Statement stmt = connection.createStatement();
+                stmt.executeQuery("SET NAMES UTF8");
+                String query_sql =( "select * from exams where Teacher='"+username2+"'");
+                
+                //run statement and parse results
+                try {
+                    ResultSet rs = stmt.executeQuery(query_sql);
+                    while(rs.next()){ 
+                        Statement stmt2 = connection.createStatement();
+                        stmt2.executeQuery("SET NAMES UTF8");
+                        String query_sql2 =( "select * from pdf where Mod_code='"+rs.getString("ModuleCode")+"'");
+                        ResultSet rs2 = stmt2.executeQuery(query_sql2); 
+                        rs2.next();
+        %>              
+        <br/>
+                   
+                    
+        <div class="main">
+          
+            <table  border = "1" width = "100%">
+                
+              <tr>
+            <th>   </th>
+            <th>Module Code</th>
+            <th>Module ID</th>
+            <th>Year</th> 
+            <th>Module Coordinator</th>    
+            <th>Module Name</th>    
+            <th>Author</th>
+           <th>Improve</th>
+         </tr>
+                <tr>
+                    <td class="bLeft"><img src="img/pdflogo.jpg" height="100" width="100">
+                    </td>
+                    <td class="middle"><%=rs.getString("ModuleCode")%>
+                    </td>
+                     <td class="middle"><%=rs.getString("ModuleID")%>
+                    </td>
+                      <td class="middle"><%=rs.getString("Year")%>
+                    </td>                     
+                    <td class="bRight"><%=rs.getString("ModuleCoordinator")%>
+                   </td>
+                    <td class="bRight"><%=rs.getString("ModuleName")%>
+                    </td>
+                    <td class="bRight"><%=rs2.getString("Author") %>
+                    </td>
+                    <td>  <button> <a href="createNewExam.jsp">Create</a> </button></td>
+                </tr>
+                <tr>
+                    <td class="middle">EXAM PROGRESS
+                        </td>
+                </tr>
+                
+                
+             
+            </table>
+            <br>
+           
+        </div>
+                
+       
+        </br>   
+        <%
+                  }  
+                }catch(Exception e){
+                    e.printStackTrace();
+                }   
+                
+                stmt.close();
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+        %>
+        
+   
+        
+        
         <div class="main">
             <h2>Create a new exam</h2>
             <p>Please fill in the details for the exam and add the files(PDF format only) to be uploaded.</p>
