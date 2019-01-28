@@ -21,8 +21,10 @@ and open the template in the editor.
     </header>
     
     <body>
+        <div class="main">
+            <div class="sidebar">
     
-    
+        <ul>
     <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
     <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
     <li><a href="../editExam.jsp">Edit my Exams</a></li>
@@ -32,10 +34,10 @@ and open the template in the editor.
     <li><a href="../accountDetails.jsp">Account Details</a></li>
     <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
   </ul>
-</div>
+            </div></div>
 </body>
 </html>
-
+<!--
 
                     <li><p><u>Exams</U></p></li>
                     <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
@@ -55,4 +57,4 @@ and open the template in the editor.
             </div>
         </div>
     </body>
-</html>
+</html>-->
