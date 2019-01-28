@@ -21,35 +21,35 @@
         String type = log1.check_valid_details(username,password);
         if(type == null){
             //null value
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/error.jsp");
         }else if ("Teacher".equals(type)){
 	    //create session variables then redirect to dashboard
 	    session.setAttribute("username",username);
 	    session.setAttribute("type",type);
-            response.sendRedirect("HTML/teacherDash.jsp");
+            response.sendRedirect("/HTML/teacherDash.jsp");
         }else if ("Admin".equals(type)){
 	    //create session variables then redirect to dashboard
 	    session.setAttribute("username",username);
 	    session.setAttribute("type",type);
-            response.sendRedirect("HTML/adminDash.jsp");
+            response.sendRedirect("/HTML/adminDash.jsp");
         }else if ("ExternalMod".equals(type)){
 	    //create session variables then redirect to dashboard
 	    session.setAttribute("username",username);
 	    session.setAttribute("type",type);
-            response.sendRedirect("HTML/externalModDash.jsp");
+            response.sendRedirect("/HTML/externalModDash.jsp");
         }else if ("InternalMod".equals(type)){
 	    //create session variables then redirect to dashboard
 	    session.setAttribute("username",username);
 	    session.setAttribute("type",type);
-            response.sendRedirect("HTML/internalModDash.jsp");
+            response.sendRedirect("/HTML/internalModDash.jsp");
         }else if ("ExternalVet".equals(type)){
 	    //create session variables then redirect to dashboard
 	    session.setAttribute("username",username);
 	    session.setAttribute("type",type);
-            response.sendRedirect("HTML/examVettingDash.jsp");
+            response.sendRedirect("/HTML/examVettingDash.jsp");
         }else{
             //invalid value
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/error.jsp");
         }
     %>
 </html>

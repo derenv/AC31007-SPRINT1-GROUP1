@@ -11,46 +11,40 @@ and open the template in the editor.
 %>
 <!DOCTYPE html>
 <html>
- <head>
- <link rel="stylesheet" type="text/css" href="../css/Style.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<header>
-  
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/Style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
     
-      <div class="content"><img src="../img/UoDlogo.jpg"/></div>
+    <header>
+        <div class="content"><img src="../img/UoDlogo.jpg"/></div>
+    </header>
     
-  
-  </header>
-<body>
-<div class="main">
-
- 
-     
-
-
-
-
-<div class="sidebar">
-  <ul>
-    <li><h2>Hello, <% out.println(username2); %></h2></li>
-    <br>
-   
+    <body>
     
-    <li><p><u>Exams</U></p></li>
-    <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
-    <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
-    <li><a href="#">Edit my Exams</a></li>
-    <li><a href="#">View Exam Progress</a></li>
-    <br>
-     <li><p><u>Other</U></p></li>
-    <li><a href="../myModules.jsp">My Modules</a></li>
-    <li><a href="#">Account Details</a></li>
-    <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
-  </ul>
-</div>
-</body>
+        <div class="main">
+            <div class="sidebar">
+                <ul>
+                    <li><h2>Hello, <% out.println(username2); %></h2></li>
+                    <br>
+
+
+                    <li><p><u>Exams</U></p></li>
+                    <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
+                    <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
+                    <li><a href="#">Edit my Exams</a></li>
+                    <li><a href="#">View Exam Progress</a></li>
+                    <br>
+                     <li><p><u>Other</U></p></li>
+                    <li><a href="../myModules.jsp">My Modules</a></li>
+                    <li><a href="#">Account Details</a></li>
+                    <div class="signout">
+                        <li>
+                            <a href='../logout.jsp'>Sign out</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </body>
 </html>
-
-

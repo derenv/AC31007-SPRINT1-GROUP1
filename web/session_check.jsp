@@ -12,7 +12,7 @@
         //get session and check username not null
 	String username = (String) session.getAttribute("username");
 	if(username == null){
-            response.sendRedirect("/WebApplication1/index.jsp");
+            response.sendRedirect("/index.jsp");
 	}
     %>
 </html>
