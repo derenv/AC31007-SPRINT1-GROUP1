@@ -89,7 +89,7 @@ and open the template in the editor.
                     </td>
                     <td class="bRight"><%=rs2.getString("Author") %>
                     </td>
-                    <td>  <button> <a href="createNewExam.jsp">Create</a> </button></td>
+                    <td>  <button> <a href="#botton" target="_self">Create</a> </button></td>
                 </tr>
                 <tr>
                     <td class="middle">EXAM PROGRESS
@@ -126,7 +126,7 @@ and open the template in the editor.
             <form action="createInsert.jsp" method="post" style="padding:0px">
                 <h3>Details</H3>
                 Module code &nbsp   
-                <input name="moduleCode"  type ="text"> <br/>
+                <input name="moduleCode"  type ="text" > <br/>
                 Year &nbsp  
                 <input name="year"  type ="text"><br/>
                 Module Name &nbsp  &nbsp 
@@ -136,7 +136,7 @@ and open the template in the editor.
                 <h3>Files</H3>
 
                 Main Exam  &nbsp <!--type in table main-->
-                <input name="mainExam"  type ="file"><br/>
+                <input name="mainExam"  type ="file" id="botton"><br/>
                 Solutions(Main)  &nbsp <!--type in table main sol-->
                 <input name="solMain"  type ="file"><br/>
                 Resit Exam  &nbsp <!--type in table resit-->
