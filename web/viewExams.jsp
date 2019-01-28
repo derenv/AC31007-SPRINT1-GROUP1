@@ -87,10 +87,6 @@
           
             <table>
                 <tr>
-                    <!--<td class="bTop" colspan="3">-->
-                    </td>
-                </tr>
-                <tr>
                     <td class="bLeft"><img src="img/pdflogo.jpg" height="100" width="100">
                     </td>
                     <td class="middle"><%=rs.getString("ModuleCode")%>
@@ -100,14 +96,14 @@
                     <td class="bRight"><%=rs.getString("ModuleName")%>
                     </td>
                     <td class="bRight"><a href="<%=rs2.getString("Pdf_path") %>">View</a>
-                    </td> 
                     </td>
-                    <td class="bRight">Main Exam
-                    </td> 
                 </tr>
                 <tr>
+                    <td class="middle">EXAM PROGRESS
+                        </td>
+                </tr>
             </table>
-
+            <br>
            
         </div>
                 
