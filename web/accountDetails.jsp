@@ -15,19 +15,16 @@
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page import="db.conn" %>
 <%@include file="session_check.jsp" %>
+<%@include file="sidebarTeacher.jsp" %>
  
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/Style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/Style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <header>
-            
-                    <div class="content"><img src="img/UoDlogo.jpg"/></div>
-             
-        </header>
         <div class="main"> <h2>My Account Details</h2>
            </div>
         <%
@@ -75,22 +72,7 @@
                 <tr>
             </table>
 
-            <div class="sidebar">
-                <ul>
-                    
-                    <li><h2><% out.println(username2); %></h2></li>
-                    <br>
-                      <li><a href="myModules.jsp">My Modules</a></li>
-                        <li><a href="createNewExam.jsp">Create a new Exam</a></li>
-                        <li><a href="viewExams.jsp">View uploaded Exams</a></li>
-                        <li><a href="editExam.jsp">Edit my Exams</a></li>
-                        <li><a href="examProgress.jsp">View Exam Progress</a></li>
-                        <li><a href="accountDetails.jsp">Account Details</a></li>
-                    
-             
-                    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
-                </ul>
-            </div>
+            
         </div>
                 
        
