@@ -13,7 +13,8 @@
 <html>
     <%
         //construct path of the directory to save uploaded file
-        MultipartRequest m = new MultipartRequest(request, "\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");
+        //MultipartRequest m = new MultipartRequest(request, "\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1");
+        MultipartRequest m = new MultipartRequest(request, "\\\\silva.computing.dundee.ac.uk\\2018-agileteam1\\pdf");
         
         //files
         Enumeration files = m.getFileNames();
