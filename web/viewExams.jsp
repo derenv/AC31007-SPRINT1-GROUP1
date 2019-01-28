@@ -31,7 +31,6 @@
     </div>
     <%
         //get user from implicit session object
-
         java.util.Date date = new java.util.Date();
         String datetime = new Timestamp(date.getTime()).toString();
 
