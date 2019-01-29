@@ -16,5 +16,9 @@
     </head>
     <body>
         <h1>Sorry there has been a database error!</h1>
+        <%
+            String message = (String) request.getAttribute("error");
+        %>
+        <h2><%=message%></h2>
     </body>
 </html>
