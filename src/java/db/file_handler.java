@@ -59,8 +59,8 @@ public class file_handler {
                     "INSERT INTO pdf(ModuleCode,Exam,Solution,Resit,ResitSolution,Edit) VALUES('?','?','?','?','?','?')",paramater_list
                 );
             }
-        }catch(Exception e){
-            response.sendRedirect("error.jsp");
+        }catch(SQLException e){
+            response.sendRedirect("dberror.jsp");
         }
     }
     
@@ -105,10 +105,10 @@ public class file_handler {
                 }//END OF LOOP
             }else{
                 //error
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("dberror.jsp");//replace with invalid file error page
             }
         }catch(IOException | SQLException e){
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("dberror.jsp");
         }
     }
     
@@ -118,7 +118,7 @@ public class file_handler {
      * @param   identifier
      * @return   q
      */
-    public boolean file_exists(String identifier){
+    public boolean file_exists(String identifier) throws SQLException{
         //check if passed file exists
         return (new data_access()).run_statement("SELECT * FROM pdf WHERE ModuleCode="+identifier) != null;
     }
