@@ -7,6 +7,7 @@
 package db;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -37,24 +38,23 @@ public class viewExams {
      * @param role, role of specified user (Teacher, InternalModerator, ExternalModerator, ExamVet)
      * @return String[] moduleCodes, the modules that the user is assigned to
      */
-    public String[] getModuleCodes() {
+    public ArrayList<String> getModuleCodes(String username) {
         // Maximum set to 20 as this is the maximum number of modules a school will have a semester
-        String[] moduleCodes = new String[20];
+        ArrayList<String> moduleCodes = new ArrayList<String>();
         
         data_access da = new data_access();
         
         try {
-            ResultSet rs = da.run_statement("select * from exams where " + role + "='" + username + "'");
-
-            int counter = 0;
+            //ResultSet rs = da.run_statement("select * from exams where " + role + "='" + username + "'");
+            Object[] params = {username};
+            ResultSet rs = da.run_statement("select ModuleCode from exams where Teacher=?",params);
             while (rs.next()) {
-                moduleCodes[counter] = rs.getString("ModuleCode");
-                counter++;
+                moduleCodes.add(rs.getString("ModuleCode"));
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return moduleCodes;
     }
     

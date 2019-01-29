@@ -5,10 +5,9 @@
  */
 package db;
 
+import java.util.ArrayList;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -52,9 +51,11 @@ public class testViewExam {
     
     @Test
     public void testGetModuleCodes() {
-        String[] expected = {"ACTEST1","ACTEST2","ACTEST3","ACTEST4"};
-        String[] results = v.getModuleCodes();
-        assertArrayEquals(expected, results);
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("ACTEST1");
+        expected.add("ACTEST2");
+        ArrayList<String> results = v.getModuleCodes("sarah");
+        assertEquals(expected,results);
     }
     
     
