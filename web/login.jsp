@@ -14,11 +14,11 @@
 <!DOCTYPE html>
 <html>
     <%
+        //get post params
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        
         try{
-            //get post params
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-
             //check if stored in database
             login log1 = new login();
             String type = log1.check_valid_details(username,password);
@@ -55,7 +55,11 @@
                 response.sendRedirect("error.jsp");
             }
         }catch(SQLException e){
-            request.setAttribute("error", e);
+            String state = e.getSQLState();
+            session.setAttribute("cause", e.getErrorCode());
+            session.setAttribute("databasestatus", state);
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
             response.sendRedirect("dberror.jsp");
         }
     %>

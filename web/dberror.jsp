@@ -18,12 +18,14 @@
     <body>
         <h1>Sorry there has been a database error!</h1>
         <%
-            SQLException e = (SQLException) request.getAttribute("error");
-            if(e == null){
-                out.print("<h2>null exception</h2>");
-            }else{
-                e.printStackTrace();
-            }
+            String e = (String) session.getAttribute("databasestatus");
+            out.println("<h2>SQL Database State: "+e+"</h2>");
+            String el = Integer.toString((int)session.getAttribute("cause"));
+            out.println("<h2>error code: "+el+"</h2>");
+            String ed = (String) session.getAttribute("username");
+            out.println("<h2>attempted user: "+ed+"</h2>");
+            //String ef = (String) session.getAttribute("password");
+            //out.println("<h2>pswd: "+ef+"</h2>");
         %>
     </body>
 </html>

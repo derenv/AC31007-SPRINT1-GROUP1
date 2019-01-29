@@ -21,6 +21,16 @@ public class data_access {
     }
     
     /**
+    * close connection
+    * 
+    * @author deren vural
+    * @throws   SQLException
+    */
+    public void close() throws SQLException{
+	c.close();
+    }
+    
+    /**
     * method for running string insert statements
     * 
     * @author deren vural
@@ -35,9 +45,6 @@ public class data_access {
 
         //parse set of results
         ResultSet results = ps.executeQuery();
-
-        //close connection
-        c.close();
 
         return results;
     }
@@ -60,6 +67,8 @@ public class data_access {
         for(int i=1;i<ps_params.length;i++){
             if(ps_params[i] instanceof ByteArrayInputStream){
                 ps.setBinaryStream(i, (ByteArrayInputStream) ps_params[i]);
+            }else if(ps_params[i] instanceof String){
+                ps.setString(i, (String) ps_params[i]);
             }else{
                 ps.setObject(i, ps_params[i]);
             }
@@ -67,9 +76,6 @@ public class data_access {
 
         //parse set of results
         ResultSet results = ps.executeQuery();
-
-        //close connection
-        c.close();
 
         return results;
     }

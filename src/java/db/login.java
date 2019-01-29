@@ -22,8 +22,11 @@ public class login {
     */
     public String check_valid_details(String username, String password) throws SQLException{
         //prepare & run statement
-        ResultSet rs = (new data_access()).run_statement("SELECT UserID FROM users where Username='"+username+"' and Password='"+password+"'");
-
+        Object[] params = {username,password};
+        data_access accessor = new data_access();
+        ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username='?' and Password='?'",params);
+        accessor.close();
+        
         //parse set of results
         if(rs == null){
             //return error code for redirect
