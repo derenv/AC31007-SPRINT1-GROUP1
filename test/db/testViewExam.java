@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.sql.Blob;
+
 
 /**
  *
@@ -57,6 +59,15 @@ public class testViewExam {
         ArrayList<String> results = v.getModuleCodes("sarah");
         assertEquals(expected,results);
     }
+    
+    //@Test 
+   // public void  testGetExam(){
+    //Blob result = null;
+   // Blob compare = v.getExam("ACTEST4");
+    //assertEquals(compare,result);
+    
+    
+    //}
     
     
 }

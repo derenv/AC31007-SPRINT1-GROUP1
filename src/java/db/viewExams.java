@@ -39,7 +39,9 @@ public class viewExams {
      * @return String[] moduleCodes, the modules that the user is assigned to
      */
     public ArrayList<String> getModuleCodes(String username) {
-        // Maximum set to 20 as this is the maximum number of modules a school will have a semester
+        // can return any amount of modules for a specific user
+        
+        //array list used instead of string[] - sorry finn
         ArrayList<String> moduleCodes = new ArrayList<String>();
         
         data_access da = new data_access();
@@ -63,18 +65,22 @@ public class viewExams {
      * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution
      * @return 
      */
-    public String getExam(String ModuleCode) {
-        String examPath = "";
+    public Blob getExam(String ModuleCode) {
+     
+        Blob exam=null;
         data_access da = new data_access();
         try{
-            ResultSet rs = da.run_statement("select pdf_path from pdf where Mod_code='" + ModuleCode + "' and type = 'Main'");
-            rs.next();
-            examPath = rs.getString("pdf_path");
+            ResultSet rs = da.run_statement("select Exam from pdf where ModuleCode='" + ModuleCode + "'");
+            while(rs.next()){
+             System.out.print("Your blob has been created");
+             exam = rs.getBlob("Exam");
+             
+            }
         } catch(Exception e) {
             e.printStackTrace();
         }
                 
-        return examPath;
+        return exam;
     }
     
     public String getExamSolution(String ModuleCode) {
@@ -141,6 +147,41 @@ public class viewExams {
                 
         return meta;
     }
+    
+    public String getModCoord(String ModuleCode){
+    String modCoord ="";
+    data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select ModuleCoordinator from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            modCoord = rs.getString("ModuleCoordinator");
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+                
+        return modCoord;
+    }
+    
+      public String get(String ModuleCode){
+    String modCoord ="";
+    data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select ModuleCoordinator from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            modCoord = rs.getString("ModuleCoordinator");
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+                
+        return modCoord;
+    }
+    
+   
+    
+    
+    
     
     /**
      * Method to return current stage for a specified module

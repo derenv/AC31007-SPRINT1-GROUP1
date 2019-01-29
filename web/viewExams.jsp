@@ -21,7 +21,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%        //get user from implicit session object
-    String username2 = (String) session.getAttribute("username");%>
+    %>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/Style.css" />
@@ -32,17 +32,32 @@
     </div>
     <%
         //get user from implicit session object
-
+        String username2 = (String) session.getAttribute("username");
         java.util.Date date = new java.util.Date();
         String datetime = new Timestamp(date.getTime()).toString();
 
         viewExams v = new viewExams(username2, "Teacher");
-        String[] list = new String[20];
-        list = v.getModuleCodes();
+        ArrayList<String> list = new ArrayList();
+        list = v.getModuleCodes(username2);
+        
+        //gets the size of Array list (number of module codes)
+        Arrays.toString(list.toArray());
+        int length = list.size();
+        String item ="";
+        String modCoord="";
+        
+        //loops for the number of modules they have
+       for (int i = 0; i < length ; i++) {
 
-        for (int i = 0; i < 19; i++) {
-
-            //break loop
+          
+           item = list.get(i);
+           modCoord = v.getModCoord(item);
+           
+           
+           
+           
+           
+           /*  //break loop
             if (list[i] == null) {
                 break;
             }
@@ -55,7 +70,7 @@
 
             String[] meta = v.getMeta(list[i]);
             
-            int progress = v.getStage(list[i]);
+            int progress = v.getStage(list[i]);*/
     %>              
     <br/>
 
@@ -66,18 +81,18 @@
             <tr>
                 <td class="bLeft"><img src="img/pdflogo.jpg" height="100" width="100">
                 </td>
-                <td class="middle"><%=list[i]%>
+                <td class="middle"><%=list.get(i)%>
                 </td>
-                <td class="bRight"><%=meta[0]%>
+                <td class="bRight"><%=modCoord%>
                 </td>
-                <td class="bRight"><%=meta[1]%>
+                <td class="bRight"><%//=meta[1]%>
                 </td>
 
                 <td class="bRight">
-                    <a href="<%=examPath%>">View Exam Paper</a>
-                    <a href="<%=examSolutionPath%>">View Exam Solutions</a>
-                    <a href="<%=resitPath%>">View Resit Paper</a>
-                    <a href="<%=resitSolutionPath%>">View Resit Solutions</a>
+                    <a href="<%//examPath%>">View Exam Paper</a>
+                    <a href="<%//examSolutionPath%>">View Exam Solutions</a>
+                    <a href="<%//resitPath%>">View Resit Paper</a>
+                    <a href="<%//resitSolutionPath%>">View Resit Solutions</a>
                 </td>
             </tr>
             <tr>
@@ -94,7 +109,7 @@
 
             <!-- jQuery Script -->
             <script type="text/javascript">
-                var i = <%=progress%>;
+                /*var i = <%//progress%>;
                 function makeProgress() {
                     if (i === 1) {
                         j = 12.5;
@@ -124,7 +139,7 @@
                     // Wait for sometime before running this script again
                     setTimeout("makeProgress()", 100);
                 }
-                makeProgress();
+                makeProgress();*/
             </script>
 
             </tr>
