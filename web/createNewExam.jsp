@@ -56,7 +56,7 @@ and open the template in the editor.
                     while(rs.next()){ 
                         Statement stmt2 = connection.createStatement();
                         stmt2.executeQuery("SET NAMES UTF8");
-                        String query_sql2 =( "select * from pdf where Mod_code='"+rs.getString("ModuleCode")+"'");
+                        String query_sql2 =( "select * from pdf where ModuleCode='"+rs.getString("ModuleCode")+"'");
                         ResultSet rs2 = stmt2.executeQuery(query_sql2); 
                         rs2.next();
         %>              
@@ -134,13 +134,13 @@ and open the template in the editor.
                 <h3>Details</H3>
                 
                 Module code &nbsp 
-                <input name="moduleCode"  type ="text" value="${ModuleCode}" >  <br/>
+                <input name="moduleCode"  type ="text"  value="<%=request.getParameter("ModuleCode") %>"   >  <br/>
                 Year &nbsp  
-                <input name="year"  type ="text"><br/>
+                <input name="year"  type ="text"  value="<%=request.getParameter("Year") %>" ><br/>
                 Module Name &nbsp  &nbsp 
-                <input name="moduleName"  type ="text"><br/>
+                <input name="moduleName"  type ="text"  value="<%=request.getParameter("ModuleName") %>" ><br/>
                 Module Coordinator  &nbsp 
-                <input name="modCoord"  type ="text"><br/>
+                <input name="modCoord"  type ="text"   value="<%=request.getParameter("ModuleCoordinator") %>" ><br/>
                 <h3>Files</H3>
 
                 Main Exam  &nbsp <!--type in table main-->
@@ -163,4 +163,3 @@ and open the template in the editor.
                 
                 </body>
                 </html>
-
