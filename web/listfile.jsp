@@ -4,23 +4,19 @@
 <%@include file="session_check.jsp" %>
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Download file</title>
-  </head>
+    <head>
+        <title>Download file</title>
+    </head>
   
-  <body>
-      
-    <c:forEach var="me" items="${fileNameMap}">
-        <c:url value="/Source Packages/DownLoadServlet" var="downurl">
-            <c:param name="filename" value="${me.key}"></c:param>
-        </c:url>
-        ${me.value}<a href="${downurl}">download</a>
-        <br/>
-    </c:forEach>
-  </body>
-  
-                 <a href="uploadindex.jsp">back</a>  
-
-      
+    <body>
+        <!--print each file in hash map to page using c++ tag for loop-->
+        <c:forEach var="me" items="${fileNameMap}">
+            <c:url value="/Source Packages/DownLoadServlet" var="downurl">
+                <c:param name="filename" value="${me.key}"></c:param>
+            </c:url>
+            ${me.value}<a href="${downurl}">download</a>
+            <br/>
+        </c:forEach>
+    </body>
+    <a href="uploadindex.jsp">back</a>  
 </html>
-
