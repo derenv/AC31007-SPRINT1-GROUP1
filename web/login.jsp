@@ -55,7 +55,7 @@
                 response.sendRedirect("error.jsp");
             }
         }catch(SQLException e){
-            request.setAttribute("error", e.getMessage());
+            request.setAttribute("error", e);
             response.sendRedirect("dberror.jsp");
         }
     %>

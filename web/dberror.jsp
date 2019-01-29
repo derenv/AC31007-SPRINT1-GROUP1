@@ -4,6 +4,7 @@
     Author     : sarahsmall
 --%>
 
+<%@page import="java.sql.SQLException"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,8 +18,8 @@
     <body>
         <h1>Sorry there has been a database error!</h1>
         <%
-            String message = (String) request.getAttribute("error");
+            SQLException e = (SQLException) request.getAttribute("error");
         %>
-        <h2><%=message%></h2>
+        <h2><%e.printStackTrace();%></h2>
     </body>
 </html>
