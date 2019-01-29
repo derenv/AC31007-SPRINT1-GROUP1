@@ -68,10 +68,15 @@ public class data_access {
         //insert all parameters into statement
         for(int i=0;i<ps_params.length;i++){
             if(ps_params[i] instanceof ByteArrayInputStream){
+                System.out.println("stream");
                 ps.setBinaryStream(i+1, (ByteArrayInputStream) ps_params[i]);
             }else if(ps_params[i] instanceof String){
+                System.out.println("string");
+                System.out.println(i);
                 ps.setString(i+1, (String) ps_params[i]);
+                System.out.println(i);
             }else{
+                System.out.println("obj");
                 ps.setObject(i+1, ps_params[i]);
             }
         }

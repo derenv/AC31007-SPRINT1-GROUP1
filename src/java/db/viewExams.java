@@ -155,7 +155,8 @@ public class viewExams {
         try{
             ResultSet rs = da.run_statement("select Stage from exams where ModuleCode='" + ModuleCode + "'");
             rs.next();
-            stage = rs.getInt("Current_stage");
+            stage = rs.getInt("stage");
+            System.out.println("stage has been found");
         } catch(Exception e) {
             e.printStackTrace();
         }

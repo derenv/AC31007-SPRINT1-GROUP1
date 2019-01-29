@@ -38,7 +38,7 @@ public class testViewExam {
     
     @Test
     public void testGetMeta() {
-        String[] expected = {"sarah", "test1name", "2019"};
+        String[] expected = {"sarah", "test1Name", "2019"};
         String[] compare = v.getMeta("ACTEST1");
         assertArrayEquals(expected, compare);
     }
@@ -49,4 +49,13 @@ public class testViewExam {
         int compare = v.getStage("ACTEST1");
         assertEquals(expected, compare);
     }
+    
+    @Test
+    public void testGetModuleCodes() {
+        String[] expected = {"ACTEST1","ACTEST2","ACTEST3","ACTEST4"};
+        String[] results = v.getModuleCodes();
+        assertArrayEquals(expected, results);
+    }
+    
+    
 }
