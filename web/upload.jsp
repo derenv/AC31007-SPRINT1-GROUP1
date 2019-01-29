@@ -13,8 +13,11 @@
 <html>
     <%
         file_handler handle = new file_handler();
-        handle.file_upload(request,response);
-        
+        try{
+            handle.file_upload(request,response);
+        }catch(IOException ff){
+            ff.printStackTrace();
+        }
         /*
         //construct path of the directory to save uploaded file
         String x = request.getContextPath();

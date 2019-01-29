@@ -1,9 +1,7 @@
 package db;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.*;
 
 /**
  *
@@ -25,7 +23,6 @@ public class login {
         Object[] params = {username,password};
         data_access accessor = new data_access();
         ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username=? and Password=?",params);
-        //ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username='"+username+"' and Password='"+password+"'");
         
         //parse set of results
         if(rs == null){
