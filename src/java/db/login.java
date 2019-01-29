@@ -24,8 +24,9 @@ public class login {
         //prepare & run statement
         Object[] params = {username,password};
         data_access accessor = new data_access();
-        ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username='?' and Password='?'",params);
-        accessor.close();
+        //ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username='?' and Password='?'",params);
+        ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username='"+username+"' and Password='"+password+"'");
+        accessor.close();   
         
         //parse set of results
         if(rs == null){
