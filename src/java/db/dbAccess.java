@@ -41,13 +41,13 @@ public class dbAccess {
         try{
             stmt = c.createStatement();
             //WHERE statement needed here to specify which modular codes to return
-            ResultSet rs = stmt.executeQuery("SELECT mod_code FROM pdf");
+            ResultSet rs = stmt.executeQuery("SELECT ModuleCode FROM exams");
             
             // yes I understand how ugly this code is, don't judge 
             boolean first = true;
             
             while(rs.next()) {
-                String next = rs.getString("mod_code");
+                String next = rs.getString("ModuleCode");
                 if(!first) {
                     moduleCodes = moduleCodes + ", " + next; 
                 } else {
