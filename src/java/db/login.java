@@ -26,7 +26,6 @@ public class login {
         data_access accessor = new data_access();
         //ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username='?' and Password='?'",params);
         ResultSet rs = accessor.run_statement("SELECT UserID FROM users where Username='"+username+"' and Password='"+password+"'");
-        accessor.close();   
         
         //parse set of results
         if(rs == null){
@@ -35,7 +34,6 @@ public class login {
         }else{
             //get first in results and return type of user
             rs.next();
-
             return rs.getString("UserID");
         }
     }

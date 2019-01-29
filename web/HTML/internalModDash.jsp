@@ -1,9 +1,10 @@
 
 <!--
 This is the internal moderator dashboard, this is first stage in exam review after the exam setter (teacher) has created the exam.
+@include file="../session_check.jsp" 
 -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="../session_check.jsp" %>
+
 <%@include file="../moderatorSidebar.jsp" %>
 <%    String username2 = (String) session.getAttribute("username");
 %>

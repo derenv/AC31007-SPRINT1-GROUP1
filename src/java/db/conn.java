@@ -26,11 +26,14 @@ public class conn {
                 Class.forName("org.gjt.mm.mysql.Driver");
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(conn.class.getName()).log(Level.SEVERE, null, ex);
+                 
+                
+                
                 return null;
             }
             DBcon = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk/" + db, user, "7845.at1.5487");
             System.out.println(db + " database successfully opened.");
-            
+          
             
             return DBcon;
         } catch (SQLException e) {

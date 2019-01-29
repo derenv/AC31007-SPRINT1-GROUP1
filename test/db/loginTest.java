@@ -5,6 +5,7 @@
  */
 package db;
 
+import java.sql.SQLException;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -23,7 +24,7 @@ public class loginTest {
     }
     
     @Test
-      public void test_check_valid_details(){
+      public void test_check_valid_details() throws SQLException{
         String type = l.check_valid_details("sarah","123");
         assertEquals("Teacher", type);
       }
