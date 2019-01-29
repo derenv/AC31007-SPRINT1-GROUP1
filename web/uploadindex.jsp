@@ -14,12 +14,13 @@
     </head>
     <body>
         <form action="upload.jsp" method="post" enctype="multipart/form-data">
-            <b>Select File:</b>   
-            <input type="file" name="fname"><br/>
-            
-           
-            
-            Mode Code:<input type="text" name ="Mod" required> <br/>
+            <b>Select Files:</b>
+            <input type="file" name="fname1"><br/>
+            <input type="file" name="fname2"><br/>
+            <input type="file" name="fname3"><br/>
+            <input type="file" name="fname4"><br/>
+            Mode Code:<input type="text" name="ModuleCode" required> <br/>
+            Edit:<input type="text" name="Edit" required> <br/>
        
            <input type="submit" value="Upload">
         </form>  

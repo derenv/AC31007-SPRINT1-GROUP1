@@ -53,8 +53,8 @@
                 //invalid value
                 response.sendRedirect("error.jsp");
             }
-        }catch(Exception e){
-            response.sendRedirect("error.jsp");
+        }catch(SQLException e){
+            response.sendRedirect("dberror.jsp");
         }
     %>
 </html>

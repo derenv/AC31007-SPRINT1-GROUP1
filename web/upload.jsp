@@ -7,13 +7,15 @@
 
 <%@page contentType="text/html" %>
 <%@include file="session_check.jsp" %>
-<%@ page import="db.data_access" %>
+<%@ page import="db.file_handler" %>
 <!DOCTYPE html>
 
 <html>
     <%
         file_handler handle = new file_handler();
-        handle.file_upload(request);
+        handle.file_upload(request,response);
+        
+        /*
         //construct path of the directory to save uploaded file
         String x = request.getContextPath();
         
@@ -52,15 +54,15 @@
         
         //get all files in database & print
         ResultSet rs = (new data_access()).run_statement("SELECT * FROM pdf");
-        while(rs.next()) {
+        while(rs.next()) {*/
     %>
     <br/>
-    Module Code:<%=rs.getString("Mod_code")%> </br>
-    Pdf path:<%=rs.getString("Pdf_path")%> </br>
-    Current:<%=rs.getString("Current_Stage")%> </br>
-    Edit:<%=rs.getString("Edit")%> </br> </br>
+    Module Code:<%//=rs.getString("Mod_code")%> </br>
+    Pdf path:<%//=rs.getString("Pdf_path")%> </br>
+    Current:<%//=rs.getString("Current_Stage")%> </br>
+    Edit:<%//=rs.getString("Edit")%> </br> </br>
     <%
-        }
+        //}
     %>
     <a href="uploadindex.jsp">back</a>  <br/>
     <a href="connection.jsp"> view data </a>   <br/>
