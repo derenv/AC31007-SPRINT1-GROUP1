@@ -13,7 +13,7 @@
         <title>File Upload App in JSP</title>
     </head>
     <body>
-        <form action="upload.jsp" method="post" enctype="multipart/form-data">
+        <form action="upload.jsp" method="post"  enctype="multipart/form-data">
             <b>Select Files:</b>
             <input type="file" name="fname1"><br/>
             <input type="file" name="fname2"><br/>

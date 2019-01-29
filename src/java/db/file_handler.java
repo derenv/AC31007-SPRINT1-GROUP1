@@ -32,7 +32,8 @@ public class file_handler {
             String newModuleCode = request.getParameter("ModuleCode");
             ByteArrayInputStream[] files = new ByteArrayInputStream[4];
             //Exam
-            byte[] file_data = (request.getParameter("fname1")).getBytes();
+            String req = request.getParameter("fname1");
+            byte[] file_data = (req).getBytes();
             files[0] = new ByteArrayInputStream(file_data);
             //Solution
             file_data = (request.getParameter("fname2")).getBytes();
