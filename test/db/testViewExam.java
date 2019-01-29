@@ -17,14 +17,14 @@ import static org.junit.Assert.*;
  * @author sarahsmall
  */
 public class testViewExam {
-    
+    viewExams v;
     
     public testViewExam() {
     }
     
     @Before
     public void setUp() {
-        
+        v = new viewExams("test", "Teacher");
     }
     
     @After
@@ -33,69 +33,20 @@ public class testViewExam {
 
     @Test
     public void testConnection() {
-        viewExams v = new viewExams("test", "test");
         assertNotNull(v.c);
     }
     
     @Test
-    public void testReturnExamsTeacher() {
-        viewExams v = new viewExams("test", "Teacher");
-        String[] compare = v.getModuleCodes();
-        String[] expected = new String[20];
-        expected[0] = "Test1";
-        expected[1] = "Test2";
-        expected[2] = "Test3";
-        assertArrayEquals(expected, compare);
-    }
-
-    @Test
-    public void testReturnExamsModerator() {
-        viewExams v = new viewExams("testIMod@dundee.ac.uk", "InternalModerator");
-        String[] compare = v.getModuleCodes();
-        String[] expected = new String[20];
-        expected[0] = "Test1";
-        expected[1] = "Test2";
-        expected[2] = "Test3";
-        assertArrayEquals(expected, compare);
-    }
-    
-    @Test
-    public void testGetExamPath() {
-        viewExams v = new viewExams("test", "Teacher");
-        String compare = v.getExam("Test1");
-        String expected = "testFilePath";
-        assertEquals(expected, compare);
-    }
-    
-    @Test
-    public void testGetExamSolutionPath() {
-        viewExams v = new viewExams("test", "Teacher");
-        String compare = v.getExamSolution("Test1");
-        String expected = "testFilePathSolution";
-        assertEquals(expected, compare);
-    }
-    
-    @Test
-    public void testGetResitPath() {
-        viewExams v = new viewExams("test", "Teacher");
-        String compare = v.getResit("Test1");
-        String expected = "testFilePathResit";
-        assertEquals(expected, compare);
-    }
-    
-    @Test
-    public void testGetResitSolutionPath() {
-        viewExams v = new viewExams("test", "Teacher");
-        String compare = v.getResitSolution("Test1");
-        String expected = "testFilePathResitSolution";
-        assertEquals(expected, compare);
-    }
-    
-    @Test
     public void testGetMeta() {
-        viewExams v = new viewExams("test", "test");
-        String[] expected = {"testName", "TestModule1", "testYear"};
-        String[] compare = v.getMeta("Test1");
+        String[] expected = {"sarah", "test1name", "2019"};
+        String[] compare = v.getMeta("ACTEST1");
         assertArrayEquals(expected, compare);
+    }
+    
+    @Test
+    public void testGetStage() {
+        int expected = 5;
+        int compare = v.getStage("ACTEST1");
+        assertEquals(expected, compare);
     }
 }

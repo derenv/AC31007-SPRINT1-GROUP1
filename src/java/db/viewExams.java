@@ -141,5 +141,26 @@ public class viewExams {
                 
         return meta;
     }
+    
+    /**
+     * Method to return current stage for a specified module
+     * 
+     * @param
+     * @return
+     * @author
+     */
+    public int getStage(String ModuleCode) {
+        int stage = 0;
+        data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select Stage from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            stage = rs.getInt("Current_stage");
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+                
+        return stage;
+    }
 
 }
