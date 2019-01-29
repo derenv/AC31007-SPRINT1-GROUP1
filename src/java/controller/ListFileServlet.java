@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 import java.io.File;
 import java.io.IOException;
@@ -13,42 +8,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 public class ListFileServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //get the menu
-        // constructs path of the directory to save uploaded file
+        //path of the directory to save uploaded file
         String uploadFilePath = "\\\\silva.computing.dundee.ac.uk\\webapps\\2018-agileteam1\\pdf";
         
-        //save file name
+        //create string hash map
         Map<String,String> fileNameMap = new HashMap<String,String>();
         
-        //save file names to map collection
+        //update hash map with files
         listfile(new File(uploadFilePath),fileNameMap);//File can be either a file or a menu
         
-        //send map to listfile.jsp to show
+        //set hash map as implicit variable for listfile.jsp to show
         request.setAttribute("fileNameMap", fileNameMap);
         request.getRequestDispatcher("/listfile.jsp").forward(request, response);
     }
     
- 
+    /* 
+     * recursively add all files from specified downwards to hash map
+     */
     public void listfile(File file,Map<String,String> map){
-        //if file is a menu
+        //if folder
         if(!file.isFile()){
-            
+            //get all files in folder
             File files[] = file.listFiles();
-           
+            
+            //for each file in folder
             for(File f : files){
-             
+                //recursive
                 listfile(f,map);
             }
         }else{
-        
+            //add to hash map
             String realName = file.getName().substring(file.getName().indexOf("_")+1);
-         
             map.put(file.getName(), realName);
         }
     }

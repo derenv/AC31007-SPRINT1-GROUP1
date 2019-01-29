@@ -17,9 +17,6 @@
             //get post params
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            
-            //get server path
-            //String app_path = request.getServletContext().getRealPath("");
 
             //check if stored in database
             login log1 = new login();

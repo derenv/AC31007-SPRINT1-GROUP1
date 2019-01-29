@@ -1,4 +1,5 @@
 package db;
+import java.io.ByteArrayInputStream;
 import java.sql.*;
 
 /**
@@ -20,7 +21,8 @@ public class data_access {
     }
     
     /**
-    *
+    * method for running string insert statements
+    * 
     * @author deren vural
     * 
     * @param    statement
@@ -33,12 +35,48 @@ public class data_access {
 
             //parse set of results
             ResultSet results = ps.executeQuery();
-
+            
+            //close connection
+            c.close();
+            
             return results;
         }catch(SQLException e){
-            //
+            return null;
         }
-
-        return null;
+    }
+    
+    /**
+    * method for running string insert statements
+    * 
+    * @author deren vural
+    * 
+    * @param    statement
+    * @param    ps_params
+    * @return   results
+    */
+    public ResultSet run_statement(String statement, Object[] ps_params) {
+        //
+        try{
+            PreparedStatement ps = c.prepareStatement(statement);
+            
+            //insert all parameters into statement
+            for(int i=1;i<ps_params.length;i++){
+                if(ps_params[i] instanceof ByteArrayInputStream){
+                    ps.setBinaryStream(i, (ByteArrayInputStream) ps_params[i]);
+                }else{
+                    ps.setObject(i, ps_params[i]);
+                }
+            }
+            
+            //parse set of results
+            ResultSet results = ps.executeQuery();
+            
+            //close connection
+            c.close();
+            
+            return results;
+        }catch(SQLException e){
+            return null;
+        }
     }
 }
