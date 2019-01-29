@@ -18,24 +18,21 @@ public class login {
     * @param    username
     * @param    password
     * @return   type
+    * @throws   SQLException
     */
-    public String check_valid_details(String username, String password){
-        try{
-            //prepare & run statement
-            ResultSet rs = (new data_access()).run_statement("SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'");
+    public String check_valid_details(String username, String password) throws SQLException{
+        //prepare & run statement
+        ResultSet rs = (new data_access()).run_statement("SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'");
 
-	    //parse set of results
-	    if(rs == null){
-		//return error code for redirect
-		return "no result";
-	    }else{
-		//get first in results and return type of user
-		rs.next();
-		
-		return rs.getString("UserID");
-	    }
-        }catch(SQLException e){
-            return(e.getMessage());
+        //parse set of results
+        if(rs == null){
+            //return error code for redirect
+            return "no result";
+        }else{
+            //get first in results and return type of user
+            rs.next();
+
+            return rs.getString("UserID");
         }
     }
 }
