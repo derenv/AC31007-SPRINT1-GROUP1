@@ -24,8 +24,6 @@
             out.println("<h2>error code: "+el+"</h2>");
             String ed = (String) session.getAttribute("username");
             out.println("<h2>attempted user: "+ed+"</h2>");
-            //String ef = (String) session.getAttribute("password");
-            //out.println("<h2>pswd: "+ef+"</h2>");
         %>
     </body>
 </html>

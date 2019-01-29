@@ -60,23 +60,15 @@ public class data_access {
     * @throws   SQLException
     */
     public ResultSet run_statement(String statement, Object[] ps_params) throws SQLException {
-        //
         PreparedStatement ps = c.prepareStatement(statement);
-        System.out.println(ps_params.length);
-        System.out.println(statement);
         
         //insert all parameters into statement
         for(int i=0;i<ps_params.length;i++){
             if(ps_params[i] instanceof ByteArrayInputStream){
-                System.out.println("stream");
                 ps.setBinaryStream(i+1, (ByteArrayInputStream) ps_params[i]);
             }else if(ps_params[i] instanceof String){
-                System.out.println("string");
-                System.out.println(i);
                 ps.setString(i+1, (String) ps_params[i]);
-                System.out.println(i);
             }else{
-                System.out.println("obj");
                 ps.setObject(i+1, ps_params[i]);
             }
         }
