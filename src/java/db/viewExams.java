@@ -36,7 +36,7 @@ public class viewExams {
      *
      * @param username, username of specified user
      * @param role, role of specified user (Teacher, InternalModerator, ExternalModerator, ExamVet)
-     * @return String[] moduleCodes, the modules that the user is assigned to
+     * @return arrayList<string> moduleCodes, the modules that the user is assigned to
      */
     public ArrayList<String> getModuleCodes(String username) {
         // can return any amount of modules for a specific user
@@ -65,89 +65,115 @@ public class viewExams {
      * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution
      * @return 
      */
-    public Blob getExam(String ModuleCode) {
+    public byte[] getExam(String ModuleCode) throws SQLException {
      
-        Blob exam=null;
+        Blob exam = null;
         data_access da = new data_access();
         try{
             ResultSet rs = da.run_statement("select Exam from pdf where ModuleCode='" + ModuleCode + "'");
             while(rs.next()){
              System.out.print("Your blob has been created");
-             exam = rs.getBlob("Exam");
+              exam = rs.getBlob("Exam");
              
             }
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
-        return exam;
+        if (exam !=    null  ) { 
+        return exam.getBytes((long)1, (int)exam.length());
+        }
+        else
+            return null;
+    
     }
     
-    public String getExamSolution(String ModuleCode) {
-        String examPath = "";
+  
+    
+     /**
+     * 
+     * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution
+     * @return 
+     */
+    public byte[] getSolution(String ModuleCode) throws SQLException {
+     
+        Blob exam = null;
         data_access da = new data_access();
         try{
-            ResultSet rs = da.run_statement("select pdf_path from pdf where Mod_code='" + ModuleCode + "' and type = 'MainSolution'");
-            rs.next();
-            examPath = rs.getString("pdf_path");
+            ResultSet rs = da.run_statement("select ExamSolution from pdf where ModuleCode='" + ModuleCode + "'");
+            while(rs.next()){
+             System.out.print("Your blob has been created");
+              exam = rs.getBlob("Exam");
+             
+            }
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
-        return examPath;
-    }
+        if (exam !=    null  ) { 
+        return exam.getBytes((long)1, (int)exam.length());
+        }
+        else
+            return null;
     
-    public String getResit(String ModuleCode) {
-        String examPath = "";
+    }
+  /**
+     * 
+     * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution
+     * @return 
+     */
+    
+    public byte[] getResit(String ModuleCode) throws SQLException {
+     
+        Blob exam = null;
         data_access da = new data_access();
         try{
-            ResultSet rs = da.run_statement("select pdf_path from pdf where Mod_code='" + ModuleCode + "' and type = 'Resit'");
-            rs.next();
-            examPath = rs.getString("pdf_path");
+            ResultSet rs = da.run_statement("select Resit from pdf where ModuleCode='" + ModuleCode + "'");
+            while(rs.next()){
+             System.out.print("Your blob has been created");
+              exam = rs.getBlob("Exam");
+             
+            }
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
-        return examPath;
+        if (exam !=    null  ) { 
+        return exam.getBytes((long)1, (int)exam.length());
+        }
+        else
+            return null;
+    
     }
     
-    public String getResitSolution(String ModuleCode) {
-        String examPath = "";
+    public byte[] getResitSolution(String ModuleCode) throws SQLException {
+     
+        Blob exam = null;
         data_access da = new data_access();
         try{
-            ResultSet rs = da.run_statement("select pdf_path from pdf where Mod_code='" + ModuleCode + "' and type = 'ResitSolution'");
-            rs.next();
-            examPath = rs.getString("pdf_path");
+            ResultSet rs = da.run_statement("select ResitSolution from pdf where ModuleCode='" + ModuleCode + "'");
+            while(rs.next()){
+             System.out.print("Your blob has been created");
+              exam = rs.getBlob("Exam");
+             
+            }
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
-        return examPath;
+        if (exam !=    null  ) { 
+        return exam.getBytes((long)1, (int)exam.length());
+        }
+        else
+            return null;
+    
     }
+    
+
     
     /**
-     * Additional get methods for returning method data, functions identical to above set of methods
+     * gets the module coordinator for an exam
      * 
      * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution 
      * @return String[] list, returns the meta data in the format
-     * MODULE COORDINATOR, MODULE NAME, YEAR
-     */
-    public String[] getMeta(String ModuleCode) {
-        String[] meta = new String[3];
-        data_access da = new data_access();
-        try{
-            ResultSet rs = da.run_statement("select ModuleCoordinator, ModuleName, Year from exams where ModuleCode='" + ModuleCode + "'");
-            rs.next();
-            meta[0] = rs.getString("ModuleCoordinator");
-            meta[1] = rs.getString("ModuleName");
-            meta[2] = rs.getString("Year");
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-                
-        return meta;
-    }
-    
+     * MODULE COORDINATOR,
+     */ 
     public String getModCoord(String ModuleCode){
     String modCoord ="";
     data_access da = new data_access();
@@ -162,26 +188,51 @@ public class viewExams {
                 
         return modCoord;
     }
-    
-      public String get(String ModuleCode){
-    String modCoord ="";
+     /**
+     * gets the module name for an exam
+     * 
+     * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution 
+     * @return String
+     * MODULE NAME
+     */ 
+      public String getModName(String ModuleCode){
+    String modName ="";
     data_access da = new data_access();
         try{
-            ResultSet rs = da.run_statement("select ModuleCoordinator from exams where ModuleCode='" + ModuleCode + "'");
+            ResultSet rs = da.run_statement("select ModuleName from exams where ModuleCode='" + ModuleCode + "'");
             rs.next();
-            modCoord = rs.getString("ModuleCoordinator");
+            modName = rs.getString("ModuleName");
    
         } catch(Exception e) {
             e.printStackTrace();
         }
                 
-        return modCoord;
+        return modName;
     }
-    
+       /**
+     * gets the module name for an exam
+     * 
+     * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution 
+     * @return String
+     * MODULE NAME
+     */ 
+      public String getYear(String ModuleCode){
+    String year ="";
+    data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select Year from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            year = rs.getString("Year");
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+                
+        return year;
+    }
    
     
-    
-    
+ 
     
     /**
      * Method to return current stage for a specified module

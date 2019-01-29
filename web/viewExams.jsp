@@ -36,6 +36,7 @@
         java.util.Date date = new java.util.Date();
         String datetime = new Timestamp(date.getTime()).toString();
 
+        //get the module codes that are relevent to the user
         viewExams v = new viewExams(username2, "Teacher");
         ArrayList<String> list = new ArrayList();
         list = v.getModuleCodes(username2);
@@ -43,37 +44,34 @@
         //gets the size of Array list (number of module codes)
         Arrays.toString(list.toArray());
         int length = list.size();
-        String item ="";
+       
+        //initiase the varibales to empty strings
+        String modCode ="";
         String modCoord="";
+        String modName="";
+        String year="";
+        byte[] exam=null;
+        //below byte papers not implemented
+       // byte[] solutions = null;
+        //byte[] resit = null;
+       // byte[] resitSolutions = null;
         
         //loops for the number of modules they have
        for (int i = 0; i < length ; i++) {
 
           
-           item = list.get(i);
-           modCoord = v.getModCoord(item);
+           modCode = list.get(i);
+           modCoord = v.getModCoord(modCode);
+           modName = v.getModName(modCode);
+           year = v.getYear(modCode);
+        
+  
+         
            
-           
-           
-           
-           
-           /*  //break loop
-            if (list[i] == null) {
-                break;
-            }
-
-            String examPath = v.getExam(list[i]);
-            String examSolutionPath = v.getExamSolution(list[i]);
-
-            String resitPath = v.getResit(list[i]);
-            String resitSolutionPath = v.getResitSolution(list[i]);
-
-            String[] meta = v.getMeta(list[i]);
-            
-            int progress = v.getStage(list[i]);*/
+     
     %>              
     <br/>
-
+      
 
     <div class="main">
 
@@ -81,18 +79,30 @@
             <tr>
                 <td class="bLeft"><img src="img/pdflogo.jpg" height="100" width="100">
                 </td>
-                <td class="middle"><%=list.get(i)%>
+                <td class="middle"><%=modCode%>
                 </td>
                 <td class="bRight"><%=modCoord%>
                 </td>
-                <td class="bRight"><%//=meta[1]%>
+                <td class="bRight"><%=modName%>
                 </td>
-
+                <td class="bRight"><%=year%>
+                </td>
+                <!--this sends the module code to view PDF and displays it-->
                 <td class="bRight">
-                    <a href="<%//examPath%>">View Exam Paper</a>
-                    <a href="<%//examSolutionPath%>">View Exam Solutions</a>
-                    <a href="<%//resitPath%>">View Resit Paper</a>
-                    <a href="<%//resitSolutionPath%>">View Resit Solutions</a>
+                    <form name=viewPDF" method='POST' action="viewPDF.jsp">
+                        <input type="hidden" name="modCode" value="<%=modCode%>">
+                        <input type="submit" value="View Exam Paper"/>
+                    </form>
+                </td>
+                <td>
+                    <!--<form name=viewPDF" method='POST' action="viewPDF.jsp">
+                        <input type="hidden" name="modCode" value="<%=modCode%>">
+                        <input type="hidden" name="type" value=2>
+                        <input type="submit"  value="View Exam Solutions"/>
+                    </form>-->
+                </td>        
+                    <a href="">View Resit Paper</a>
+                    <a href="">View Resit Solutions</a>
                 </td>
             </tr>
             <tr>
@@ -109,7 +119,7 @@
 
             <!-- jQuery Script -->
             <script type="text/javascript">
-                /*var i = <%//progress%>;
+                /*var i = //progress;
                 function makeProgress() {
                     if (i === 1) {
                         j = 12.5;
@@ -150,6 +160,6 @@
 
 
     </br>   
-    <% } //end of for loop %>
+    <%  }//end of for loop %>
 </body>
 </html>
