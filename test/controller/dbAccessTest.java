@@ -30,10 +30,10 @@ public class dbAccessTest {
     public void tearDown() {
     }
 
-    @Test
+    /*@Test
     public void testGetModuleCodes() {
         String moduleCodes = a.getModuleCodes();
         String compare = "AC31002, AC31008, AC32000, TEST";
         assertEquals(compare, moduleCodes);
-    }
+    }*/
 }
