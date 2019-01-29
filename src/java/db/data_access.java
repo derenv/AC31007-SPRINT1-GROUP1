@@ -27,22 +27,19 @@ public class data_access {
     * 
     * @param    statement
     * @return   results
+    * @throws   SQLException
     */
-    public ResultSet run_statement(String statement) {
+    public ResultSet run_statement(String statement) throws SQLException {
         //
-        try{
-            PreparedStatement ps = c.prepareStatement(statement);
+        PreparedStatement ps = c.prepareStatement(statement);
 
-            //parse set of results
-            ResultSet results = ps.executeQuery();
-            
-            //close connection
-            c.close();
-            
-            return results;
-        }catch(SQLException e){
-            return null;
-        }
+        //parse set of results
+        ResultSet results = ps.executeQuery();
+
+        //close connection
+        c.close();
+
+        return results;
     }
     
     /**
@@ -53,30 +50,27 @@ public class data_access {
     * @param    statement
     * @param    ps_params
     * @return   results
+    * @throws   SQLException
     */
-    public ResultSet run_statement(String statement, Object[] ps_params) {
+    public ResultSet run_statement(String statement, Object[] ps_params) throws SQLException {
         //
-        try{
-            PreparedStatement ps = c.prepareStatement(statement);
-            
-            //insert all parameters into statement
-            for(int i=1;i<ps_params.length;i++){
-                if(ps_params[i] instanceof ByteArrayInputStream){
-                    ps.setBinaryStream(i, (ByteArrayInputStream) ps_params[i]);
-                }else{
-                    ps.setObject(i, ps_params[i]);
-                }
+        PreparedStatement ps = c.prepareStatement(statement);
+
+        //insert all parameters into statement
+        for(int i=1;i<ps_params.length;i++){
+            if(ps_params[i] instanceof ByteArrayInputStream){
+                ps.setBinaryStream(i, (ByteArrayInputStream) ps_params[i]);
+            }else{
+                ps.setObject(i, ps_params[i]);
             }
-            
-            //parse set of results
-            ResultSet results = ps.executeQuery();
-            
-            //close connection
-            c.close();
-            
-            return results;
-        }catch(SQLException e){
-            return null;
         }
+
+        //parse set of results
+        ResultSet results = ps.executeQuery();
+
+        //close connection
+        c.close();
+
+        return results;
     }
 }

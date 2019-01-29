@@ -20,7 +20,7 @@
         <%
             SQLException e = (SQLException) request.getAttribute("error");
             if(e == null){
-                System.out.println("<h2>null exception</h2>");
+                out.print("<h2>null exception</h2>");
             }else{
                 e.printStackTrace();
             }

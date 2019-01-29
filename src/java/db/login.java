@@ -22,7 +22,7 @@ public class login {
     */
     public String check_valid_details(String username, String password) throws SQLException{
         //prepare & run statement
-        ResultSet rs = (new data_access()).run_statement("SELECT UserID FROM `18agileteam1db`.`users` where Username='"+username+"' and Password='"+password+"'");
+        ResultSet rs = (new data_access()).run_statement("SELECT UserID FROM users where Username='"+username+"' and Password='"+password+"'");
 
         //parse set of results
         if(rs == null){
