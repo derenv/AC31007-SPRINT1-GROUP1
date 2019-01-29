@@ -8,6 +8,7 @@
 
 <%@page import="java.util.Enumeration"%>
 <%@ page import = "java.io.*"%>
+<%@ page import = "java.sql.SQLException"%>
 <%@ page import="db.login" %>
 
 <!DOCTYPE html>
