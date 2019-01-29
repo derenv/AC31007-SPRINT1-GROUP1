@@ -19,7 +19,11 @@
         <h1>Sorry there has been a database error!</h1>
         <%
             SQLException e = (SQLException) request.getAttribute("error");
+            if(e == null){
+                System.out.println("<h2>null exception</h2>");
+            }else{
+                e.printStackTrace();
+            }
         %>
-        <h2><%e.printStackTrace();%></h2>
     </body>
 </html>
