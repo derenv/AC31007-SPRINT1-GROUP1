@@ -13,13 +13,11 @@
 
 <!DOCTYPE html>
 <html>
-
     <body>
-        
         <%
 
 java.util.Date date=new java.util.Date();   
-        String datetime=new Timestamp(date.getTime()).toString();  
+String datetime=new Timestamp(date.getTime()).toString();  
   
         try   
         {   
@@ -35,28 +33,50 @@ java.util.Date date=new java.util.Date();
             stmt.executeQuery("SET NAMES UTF8");          
            
          String query_sql = "select * from users";  
-                          
-            
+
+              %>   
+       <div class="main">
+        <table border="1">
+        <tr>       
+	<th>User name</th>
+	<th>Password</th>
+	<th>User ID </th>
+	<th>Module 1</th>
+	<th>Module 2</th>
+	<th>Module 3</th>
+	<th>Module 4</th>
+        <th>Function</th>
+	</tr>
+                   
+             <%
             try {   
                 ResultSet rs = stmt.executeQuery(query_sql);     
-                while(rs.next()) {  
-                    %>     
-                    <br/>
-                    User name:<%=rs.getString("Username")%> </br>     
-                    Password:<%=rs.getString("Password")%> </br>   
-                    User ID:<%=rs.getString("UserID")%> </br>   
-                    Module1:<%=rs.getString("Module1")%> </br>
-                    Module2:<%=rs.getString("Module2")%> </br>
-                    Module3:<%=rs.getString("Module3")%> </br>
-                    Module4:<%=rs.getString("Module4")%> </br>               
-                    <a href="edituser.jsp?Username= <%=rs.getString("Username")%> "> Update</a>
-                   
-                    <a href="deleteuser.jsp?Username= <%=rs.getString("Username")%> "> Delete</a> 
-                  
-                    </br>   
-                    <%  
-                }      
+                while(rs.next()) {       
+             %>     
+      
+                <tr>
+                    <td> <%=rs.getString("Username")%> </td>  
+                    <td> <%=rs.getString("Password")%> </td> 
+                    <td> <%=rs.getString("UserID")%>  </td>  
+                    <td> <%=rs.getString("Module1")%> </td>   
+                    <td> <%=rs.getString("Module2")%> </td>   
+                    <td> <%=rs.getString("Module3")%> </td>  
+                    <td> <%=rs.getString("Module4")%> </td>   
+                    <td>  <button>   <a href="edituser.jsp?Username= <%=rs.getString("Username")%> "> Update</a> </button>   
+                       <button>   <a href="deleteuser.jsp?Username= <%=rs.getString("Username")%> "> Delete</a> </button>
+                    </td>
+                </tr>   
+<%  
+                } 
+%>
+                  </table>
+              </div>
+
+<%
+
             }
+
+
                  catch(Exception e) {  
                 e.printStackTrace();  
             }   
@@ -71,7 +91,7 @@ java.util.Date date=new java.util.Date();
         
         
         
- 
+  <button> <a href="#" onclick="javascript:history.back(-1);">Back</a></button>
     </body>
     
     

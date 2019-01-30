@@ -76,7 +76,7 @@
  
     </body>
     
-        <a href="choose.jsp"> back</a>
+ <script > window.location.href='choose.jsp' </script>
     
     
     
