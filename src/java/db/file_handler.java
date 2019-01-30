@@ -69,12 +69,11 @@ public class file_handler {
             //check if file exists
             else if(file_exists(newModuleCode)){
                 //update file and metadata on database
+                Object[] new_paramater_list = {files.get(0), files.get(1), files.get(2), files.get(3)};
                 (new data_access()).run_statement(
-                    "UPDATE pdf(ModuleCode,Exam,ExamSolution,Resit,ResitSolution) VALUES('?','?','?','?','?') WHERE ModuleCode="+newModuleCode,paramater_list
+                    "UPDATE pdf(Exam,ExamSolution,Resit,ResitSolution) VALUES(?,?,?,?) WHERE ModuleCode="+newModuleCode,new_paramater_list
                 );
             }else{
-                //session.setAttribute("parameters", paramater_list);
-                //response.sendRedirect("ferror.jsp");
                 //add file and metadata to database
                 (new data_access()).run_statement(
                     "INSERT INTO pdf(ModuleCode,Exam,ExamSolution,Resit,ResitSolution) VALUES(?,?,?,?,?)",paramater_list
