@@ -67,7 +67,7 @@ public class testViewExam {
     
     @Test
     public void testGetStage() {
-        int expected = 5;
+        int expected = 6;
         int compare = v.getStage("ACTEST1");
         assertEquals(expected, compare);
     }

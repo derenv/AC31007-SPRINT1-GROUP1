@@ -134,36 +134,19 @@
                         <input type="submit"  value="View Resit Solutions"/>
                     </form>
                 </td> 
-                
+                <!--PROGRESS BAR--> 
                     <div class="w3-container">
                         <div class="w3-light-grey">
                             
                             <div class="w3-blue" style="font-size:14px;height:24px;width:<%=stage%>%"><%=label%></div>
                         </div><br>
                     </div>
-                    
-                    
-                    
-                    
-                
             </tr>
             <tr>
-     
-            <!-- Progress bar HTML  CURRENTLY NOT WORKING!>
-            <div class="progress progress-striped active">
-                <div class="progress-bar"></div>
-            </div>-->
-
-            <!-- jQuery Script -->
-          
-
             </tr>
         </table>
         <br>
-
     </div>
-
-
     </br>   
     <% }//end of for loop %>
 </body>
