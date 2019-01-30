@@ -35,12 +35,11 @@ public class file_handler {
      * @param   response
      * @throws  IOException
      */
-    public void file_upload(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void file_upload(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException{
         try{
             //get values & files to be added to database
             String newModuleCode = request.getParameter("ModuleCode");
             ArrayList<ByteArrayInputStream> files = new ArrayList<>();
-            
             
             ServletFileUpload x = new ServletFileUpload();
             FileItemIterator items = x.getItemIterator(request);
@@ -51,25 +50,39 @@ public class file_handler {
                     InputStream stream = item.openStream();
                     byte[] file_data = IOUtils.toByteArray(stream);
                     files.add(new ByteArrayInputStream(file_data));
-                }
+                }/*else{
+                    FileItem q = (FileItem) item;
+                    newModuleCode = q.getString();
+                }*/
             }
             
             //form parameters for SQL command
+            newModuleCode = "fucker";
             Object[] paramater_list = {newModuleCode, files.get(0), files.get(1), files.get(2), files.get(3)};
             
+            if(newModuleCode == null){
+                session.setAttribute("parameters", paramater_list);
+                session.setAttribute("cause", "null module code");
+                response.sendRedirect("ferror.jsp");
+            }
             //check if file exists
-            if(file_exists(newModuleCode)){
+            else if(file_exists(newModuleCode)){
                 //update file and metadata on database
                 (new data_access()).run_statement(
                     "UPDATE pdf(ModuleCode,Exam,Solution,Resit,ResitSolution) VALUES('?','?','?','?','?') WHERE ModuleCode="+newModuleCode,paramater_list
                 );
             }else{
+                //session.setAttribute("parameters", paramater_list);
+                //response.sendRedirect("ferror.jsp");
                 //add file and metadata to database
                 (new data_access()).run_statement(
                     "INSERT INTO pdf(ModuleCode,Exam,Solution,Resit,ResitSolution) VALUES('?','?','?','?','?')",paramater_list
                 );
             }
         }catch(SQLException e){
+            session.setAttribute("state", e.getSQLState());
+            session.setAttribute("code", e.getErrorCode());
+            session.setAttribute("mess", e.getMessage());
             response.sendRedirect("dberror.jsp");
         } catch (FileUploadException ex) {
             Logger.getLogger(file_handler.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,6 +145,12 @@ public class file_handler {
      */
     public boolean file_exists(String identifier) throws SQLException{
         //check if passed file exists
-        return (new data_access()).run_statement("SELECT * FROM pdf WHERE ModuleCode="+identifier) != null;
+        Object[] parameters = {identifier};
+        ResultSet rs = (new data_access()).run_statement("SELECT Exam FROM pdf WHERE ModuleCode='?'",parameters);
+        if(!rs.next()){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

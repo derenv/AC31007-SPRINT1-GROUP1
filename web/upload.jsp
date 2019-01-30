@@ -14,7 +14,7 @@
     <%
         file_handler handle = new file_handler();
         try{
-            handle.file_upload(request,response);
+            handle.file_upload(request,response,session);
         }catch(IOException ff){
             ff.printStackTrace();
         }

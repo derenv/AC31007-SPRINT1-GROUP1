@@ -14,16 +14,16 @@
 	<!-- menu styles -->
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
         <title>Error Page</title>
+        <%
+            Object[] x = (Object[]) session.getAttribute("parameters");
+            out.println("<h2>"+x[0]+"</h2>");
+            out.println("<h2>"+x[1]+"</h2>");
+            out.println("<h2>"+x[2]+"</h2>");
+            out.println("<h2>"+x[3]+"</h2>");
+            out.println("<h2>"+x[4]+"</h2>");
+        %>
     </head>
     <body>
-        <h1>Sorry there has been a database error!</h1>
-        <%
-            String state = (String) session.getAttribute("state");
-            out.println("<h2>"+state+"</h2>");
-            Object code = session.getAttribute("code");
-            out.println("<h2>"+code+"</h2>");
-            String message = (String) session.getAttribute("mess");
-            out.println("<h2>"+message+"</h2>");
-        %>
+        <h1>Sorry there has been a file handling error!</h1>
     </body>
 </html>
