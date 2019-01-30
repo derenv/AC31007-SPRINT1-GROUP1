@@ -248,12 +248,58 @@ public class viewExams {
             ResultSet rs = da.run_statement("select Stage from exams where ModuleCode='" + ModuleCode + "'");
             rs.next();
             stage = rs.getInt("stage");
-            System.out.println("stage has been found");
         } catch(Exception e) {
             e.printStackTrace();
         }
                 
         return stage;
     }
+    
+    /**
+     * Method to return access privileges for the user
+     * 
+     * @author finntorbet and mikhailpolishchouk
+     */
+    public boolean getAccessPrivileges(String ModuleCode) {
+        
+        //returns true if admin or teacher has override rights
+        if(role=="Teacher" || role == "Admin") {
+            return true;
+        }
+        
+        int stage = 0;
+        data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select Stage from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            stage = rs.getInt("stage");
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        switch(stage){
+            case 2:
+                if (role == "InternalMod"){
+                    return true;
+                }
+                return false;
+            case 4:
+                if (role == "ExternalVet"){
+                    return true;
+                }
+                return false;
+            case 6:
+                if (role == "ExternalMod"){
+                    return true;
+                }
+                return false;
+            default: 
+                return false;
+        }      
+        
+    }
+        
+    
 
 }
