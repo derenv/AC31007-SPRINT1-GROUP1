@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.sql.Blob;
+
 
 /**
  *
@@ -35,11 +37,27 @@ public class testViewExam {
         assertNotNull(v.c);
     }
     
-    @Test
-    public void testGetMeta() {
-        String[] expected = {"sarah", "test1Name", "2019"};
-        String[] compare = v.getMeta("ACTEST1");
-        assertArrayEquals(expected, compare);
+   
+    @Test 
+    public void getModCoord(){
+    String expected = "sarah";
+    String compare = v.getModCoord("ACTEST1");
+    assertEquals(expected, compare);
+    }
+    
+    @Test 
+    public void getModName(){
+    String expected = "test1Name";
+    String compare = v.getModName("ACTEST1");
+    assertEquals(expected, compare);
+    
+    }
+    @Test 
+    public void getYear(){
+    String expected = "2019";
+    String compare = v.getModName("ACTEST1");
+    assertEquals(expected, compare);
+    
     }
     
     @Test
@@ -57,6 +75,15 @@ public class testViewExam {
         ArrayList<String> results = v.getModuleCodes("sarah");
         assertEquals(expected,results);
     }
+    
+    //@Test 
+   // public void  testGetExam(){
+    //Blob result = null;
+   // Blob compare = v.getExam("ACTEST4");
+    //assertEquals(compare,result);
+    
+    
+    //}
     
     
 }
