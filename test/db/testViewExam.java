@@ -1,7 +1,9 @@
-/*
+/**
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * and open the template in the editor
+ * 
+ * @author finntorbet
  */
 package db;
 
@@ -55,7 +57,7 @@ public class testViewExam {
     @Test 
     public void getYear(){
     String expected = "2019";
-    String compare = v.getModName("ACTEST1");
+    String compare = v.getYear("ACTEST1");
     assertEquals(expected, compare);
     
     }
