@@ -50,19 +50,35 @@
             session.setAttribute("Mod3",rs.getString("Module3"));
             session.setAttribute("Mod4",rs.getString("Module4"));
                     %>     
-                    <br/>
                     
-                    User name:<%=rs.getString("Username")%> </br>     
-                    Password:<%=rs.getString("Password")%> </br>   
-                    User ID:<%=rs.getString("UserID")%> </br>   
-                    Module1:<%=rs.getString("Module1")%> </br>
-                    Module2:<%=rs.getString("Module2")%> </br>   
-                    Module3:<%=rs.getString("Module3")%> </br>
-                    Module4:<%=rs.getString("Module4")%> </br>   
+                    
+                    
+                    
+                    <table border="1">
+                    
+                   <tr>
+                       <th>  User name</th>
+                       <th> Password</th>
+                        <th>    User ID</th>
+                         <th>Module1 </th>
+                          <th>Module2 </th>
+                           <th>Module3 </th>                  
+                            <th>Module4 </th>
+                   </tr>
+                   
+                   <tr>
+                    
+                   <td>   <%=rs.getString("Username")%>  </td>
+                   <td> <%=rs.getString("Password")%> </td>
+                  <td>  <%=rs.getString("UserID")%> </td>
+                  <td>  <%=rs.getString("Module1")%> </td>
+                  <td>  <%=rs.getString("Module2")%> </td>
+                  <td>  <%=rs.getString("Module3")%> </td>
+                 <td>   <%=rs.getString("Module4")%>  </td>
+ 
+                   </tr>
                                
-                    
-                    </br>  
-                    
+                   </table>
                     
                     <%  
                 }      
@@ -78,12 +94,13 @@
                 e.printStackTrace();  
         }   
 %>   
-        
+        <br>  
+        <br>
     <form action="update.jsp" method="post">
      User name &nbsp   
-  <input name="username"  type ="text">
+   <input name="username"  type ="text">
     User  ID &nbsp   
-  <select name="userid"  type ="text">
+   <select name="userid"  type ="text">
       <option value="Admin">Admin</option>
       <option value="ExternalMod">ExternalMod</option>
       <option value="InternalMod">InternalMod</option>
