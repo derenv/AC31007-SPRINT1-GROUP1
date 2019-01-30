@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 10 TESTS FOR VIEW EXAMS
+ * BYTE STRINGS RETURN NULL - AS THERE IS NO PDF STORED FOR THAT EXAM 
+ * NOT SURE HOW TO TEST FOR IS BYTE STRING NOT NULL - BUT IS WORKING.
+ * 
  */
 package db;
 
@@ -86,6 +87,46 @@ public class testViewExam {
     byte[] compare = null;
         try {
             compare = v.getSolution("ACTEST4");
+        } catch (SQLException ex) {
+            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    Assert.assertArrayEquals(compare,result);
+    
+    
+    }
+    @Test 
+    public void  testGetExam(){
+    byte[] result = null;
+    byte[] compare = null;
+        try {
+            compare = v.getExam("ACTEST6");
+        } catch (SQLException ex) {
+            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    Assert.assertArrayEquals(compare,result);
+    
+    
+    }
+
+    @Test 
+    public void  testGetSolution(){
+    byte[] result = null;
+    byte[] compare = null;
+        try {
+            compare = v.getSolution("ACTEST6");
+        } catch (SQLException ex) {
+            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    Assert.assertArrayEquals(compare,result);
+    
+    
+    }
+     @Test 
+    public void  testGetResitSolution(){
+    byte[] result = null;
+    byte[] compare = null;
+        try {
+            compare = v.getResitSolution("ACTEST6");
         } catch (SQLException ex) {
             Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
         }
