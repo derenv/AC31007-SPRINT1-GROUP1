@@ -16,11 +16,13 @@
         <title>Error Page</title>
         <%
             Object[] x = (Object[]) session.getAttribute("parameters");
-            out.println("<h2>"+x[0]+"</h2>");
-            out.println("<h2>"+x[1]+"</h2>");
-            out.println("<h2>"+x[2]+"</h2>");
-            out.println("<h2>"+x[3]+"</h2>");
-            out.println("<h2>"+x[4]+"</h2>");
+            if(x != null){
+                out.println("<h2>"+x[0]+"</h2>");
+                out.println("<h2>"+x[1]+"</h2>");
+                out.println("<h2>"+x[2]+"</h2>");
+                out.println("<h2>"+x[3]+"</h2>");
+                out.println("<h2>"+x[4]+"</h2>");
+            }
         %>
     </head>
     <body>
