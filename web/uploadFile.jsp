@@ -20,7 +20,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Files Uploaded</h1>
+        <h1>Files Uploaded!!</h1>
     </body>
 </html>
 <%
@@ -70,6 +70,7 @@
     ps.setBytes(3, pdfData2);// byte[] array
     ps.executeUpdate();
     exam = null;
+    
 
 
 
