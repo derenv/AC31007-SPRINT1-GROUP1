@@ -35,17 +35,17 @@
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
                 response.sendRedirect("HTML/adminDash.jsp");
-            }else if ("ExternalMod".equals(type)){
+            }else if ("ExternalModerator".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
                 response.sendRedirect("HTML/externalModDash.jsp");
-            }else if ("InternalMod".equals(type)){
+            }else if ("InternalModerator".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
                 response.sendRedirect("HTML/internalModDash.jsp");
-            }else if ("ExternalVet".equals(type)){
+            }else if ("ExamVet".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);

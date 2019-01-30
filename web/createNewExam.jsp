@@ -1,4 +1,5 @@
 
+<%@page import="db.viewExams"%>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -15,7 +16,7 @@ and open the template in the editor.
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page import="db.conn" %>
 
-<%    String username2 = (String) session.getAttribute("username");
+<%    
 %>
 <!DOCTYPE html>
 <html>
@@ -27,134 +28,72 @@ and open the template in the editor.
     
     
     <body>
+            <%
+        //get user from implicit session object
+        String username2 = (String) session.getAttribute("username");
+        java.util.Date date = new java.util.Date();
+        String datetime = new Timestamp(date.getTime()).toString();
+
+        //get the module codes that are relevent to the user
+        viewExams v = new viewExams(username2, "Teacher");
+        ArrayList<String> list = new ArrayList();
+        list = v.getModuleCodes(username2);
         
-           <%
-            //get user from implicit session object
+        //for the stages
+      
+        //gets the size of Array list (number of module codes)
+        Arrays.toString(list.toArray());
+        int length = list.size();
+       
+        //initiase the varibales to empty strings
+        String modCode ="";
+        String modCoord="";
+        String modName="";
+        String year="";
+        double stage=0;
+        double stage2=0;
+        String label="";
+     
+        //loops for the number of modules they have
+       for (int i = 0; i < length ; i++) {
+
           
-       String ModuleCode=request.getParameter("ModuleCode");
-       String Year=request.getParameter("Year");       
-       String ModuleCoordinator=request.getParameter("ModuleCoordinator");
-       String ModuleName=request.getParameter("ModuleName");
+           modCode = list.get(i);
         
+       }
+       %>
+    
         
-            java.util.Date date=new java.util.Date();
-            String datetime=new Timestamp(date.getTime()).toString();
-            
-            try{
-                //create connection
-                conn connection_driver = new conn();
-                Connection connection = connection_driver.connect();
-                
-                //create SQL query
-                Statement stmt = connection.createStatement();
-                stmt.executeQuery("SET NAMES UTF8");
-                String query_sql =( "select * from exams where Teacher='"+username2+"'");
-                
-                //run statement and parse results
-                try {
-                    ResultSet rs = stmt.executeQuery(query_sql);
-                    while(rs.next()){ 
-                        Statement stmt2 = connection.createStatement();
-                        stmt2.executeQuery("SET NAMES UTF8");
-                        String query_sql2 =( "select * from pdf where ModuleCode='"+rs.getString("ModuleCode")+"'");
-                        ResultSet rs2 = stmt2.executeQuery(query_sql2); 
-                        rs2.next();
-        %>              
-        <br/>
-                   
-                    
-        <div class="main">
-          
-            <table  border = "1" width = "100%">
-                
-              <tr>
-            <th>   </th>
-            <th>Module Code</th>
-            <th>Year</th> 
-            <th>Module Coordinator</th>    
-            <th>Module Name</th>             
-           <th>Improve</th>
-        
-         </tr>
-                <tr>
-                    <td class="bLeft"><img src="img/pdflogo.jpg" height="100" width="100">
-                    </td>
-                    <td class="middle"><%=rs.getString("ModuleCode")%>
-                    </td>
-                      <td class="middle"><%=rs.getString("Year")%>
-                    </td>                     
-                    <td class="bRight"><%=rs.getString("ModuleCoordinator")%>
-                   </td>
-                    <td class="bRight"><%=rs.getString("ModuleName")%>
-                    </td>
-                  
-                    
-                    <td>  <button> <a href="createNewExam.jsp?ModuleCode=<%=rs.getString("ModuleCode")%>&Year=<%=rs.getString("Year")%>&ModuleCoordinator=<%=rs.getString("ModuleCoordinator")%>&ModuleName=<%=rs.getString("ModuleName")%> " target="_self">Create</a> </button></td>
-                   
-                </tr>
-                
-                <tr>
-                    <td class="middle">EXAM PROGRESS
-                        </td>
-                </tr>
-            </table>
-            <br>
-           
-        </div>
-                
-        </br>   
-        
-        
-        
-        <%
-                  }  
-                }catch(Exception e){
-                    e.printStackTrace();
-                }   
-                
-                stmt.close();
-            }catch(SQLException e){
-                e.printStackTrace();
-            }
-        %>
-        
-        <script>
-        function value(){
-            
-            
-        }    
-           
-        </script>
+     
         
         
         <div class="main">
-            <h2>Create a new exam</h2>
-            <p>Please fill in the details for the exam and add the files(PDF format only) to be uploaded.</p>
-            <form action="createInsert.jsp" method="post" style="padding:0px">
-                <h3>Details</H3>
+          <p>Please Upload Your exams</p>
+        <form name="upload" method='POST' action="uploadFile.jsp">
+          Main Exam:  <input name="exam" type ="file" value="Main Exam"><br/>
+          Main Solutions:   <input name="sol" type ="file" value="Main Solutions"><br/>
+          Resit Exam:   <input name="resit" type ="file" value="Resit"><br/>
+          Resit Solutions:  <input name="resitSol" type ="file" value="Resit Solutions"><br/>
+           <!--Module Code <input name="modCode2" type="text"><br>-->
+           Module Code<select name="modCode" size="" multiple>
+               <% for (int i = 0; i < length ; i++) {
+
+          
+                     modCode = list.get(i);
+                     %>
+                <option value="<%=modCode%>"><%=modCode%></option>
+       <%}%>
                 
-                Module code &nbsp 
-                <input name="moduleCode"  type ="text"  value="<%=request.getParameter("ModuleCode") %>"   >  <br/>
-                Year &nbsp  
-                <input name="year"  type ="text"  value="<%=request.getParameter("Year") %>" ><br/>
-                Module Name &nbsp  &nbsp 
-                <input name="moduleName"  type ="text"  value="<%=request.getParameter("ModuleName") %>" ><br/>
-                Module Coordinator  &nbsp 
-                <input name="modCoord"  type ="text"   value="<%=request.getParameter("ModuleCoordinator") %>" ><br/>
-                <h3>Files</H3>
+              
+            </select>
+            <input type="hidden" name="type" value="1">
+            
+        <input type="submit"  value="upload"style="float: right;background-color: rgb(67,101,226);border: none;color:white;
+                       padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;" />
+        </form>
 
-                Main Exam  &nbsp <!--type in table main-->
-                <input name="mainExam"  type ="file" id="botton"><br/>
-                Solutions(Main)  &nbsp <!--type in table main sol-->
-                <input name="solMain"  type ="file"><br/>
-                Resit Exam  &nbsp <!--type in table resit-->
-                <input name="resitExam"  type ="file"><br/>
-                Solutions (Resit)  &nbsp <!--type in table resit sol-->
-                <input name="solResit"  type ="file"><br/>
-
-
-                <input name="submit"  type ="submit"  value="submit"style="float: right;background-color: rgb(67,101,226);border: none;color:white;
-                       padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"  ><br/>
+<% %>
+             
 
       
 

@@ -247,7 +247,23 @@ public class viewExams {
         try{
             ResultSet rs = da.run_statement("select Stage from exams where ModuleCode='" + ModuleCode + "'");
             rs.next();
-            stage = rs.getInt("stage");
+            stage = rs.getInt("Stage");
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+                
+        return stage;
+    }
+    
+    //DOESNT WORK !!!!!!!!!!!!!!
+    
+      public int getIncreaseStage(String ModuleCode) {
+        int stage = 0;
+        data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("update exams set Stage = Stage+1 where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            stage = rs.getInt("Stage");
         } catch(Exception e) {
             e.printStackTrace();
         }

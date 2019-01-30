@@ -58,6 +58,7 @@
         String modName="";
         String year="";
         double stage=0;
+        double stage2=0;
         String label="";
      
         //loops for the number of modules they have
@@ -69,15 +70,16 @@
            modName = v.getModName(modCode);
            year = v.getYear(modCode);
            stage = v.getStage(modCode);
+           stage2 = v.getIncreaseStage(modCode);
            
-           if (stage == 1){label = "Teacher";}
-           else if (stage ==2 ){label = "Internal Moderator";}
-           else if (stage ==3 ){label = "Teacher Review";}
-           else if (stage ==4 ){label = "Exam Vetting Committee";}
-           else if (stage ==5 ){label = "Teacher Review";}
-           else if (stage ==6 ){label = "External Examiner";}
-           else if (stage ==7 ){label = "Teacher Review";}
-           else if (stage ==8 ){label = "School Office";}
+           if (stage == 1){label = "Uploaded";}
+           else if (stage ==2 ){label = " Internal Moderator";}
+           else if (stage ==3 ){label = " Teacher Review";}
+           else if (stage ==4 ){label = " Exam Vetting Committee";}
+           else if (stage ==5 ){label = " Teacher Review";}
+           else if (stage ==6 ){label = " External Examiner";}
+           else if (stage ==7 ){label = " Teacher Review";}
+           else if (stage ==8 ){label = " Completed";}
            else if (stage == 0){label = "";}
            
            
@@ -103,7 +105,7 @@
                 </td>
                 <td class="bRight"><%=modName%>
                 </td>
-                <td class="bRight"><%=year%>
+                <td class="bRight"><%=stage2%>
                 </td>
                 <!--this sends the module code to view PDF and displays it-->
                 <td class="bRight">

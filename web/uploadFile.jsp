@@ -29,7 +29,7 @@
  String resit = request.getParameter("resit");
  String resitSol = request.getParameter("resitSol");
  String modCode = request.getParameter("modCode");
-  Integer type = Integer.parseInt(request.getParameter("type"));
+
  
     //load in main exam 
     File pdfFile = new File(exam);
@@ -45,13 +45,19 @@
     dis2.readFully(pdfData2);  // read from file into byte[] array
     dis2.close();
     
-    //load 
-       File _resit = new File(sol);
+    //load in resit
+    File _resit = new File(resit);
     byte[] pdfData3 = new byte[(int) _resit.length()];
     DataInputStream dis3 = new DataInputStream(new FileInputStream(_resit));
     dis3.readFully(pdfData2);  // read from file into byte[] array
     dis3.close();
     
+    //load in resit
+    File _resitSol = new File(resitSol);
+    byte[] pdfData4 = new byte[(int) _resit.length()];
+    DataInputStream dis4 = new DataInputStream(new FileInputStream(_resitSol));
+    dis4.readFully(pdfData2);  // read from file into byte[] array
+    dis4.close();
     
     
     
@@ -63,15 +69,21 @@
                     "ModuleCode, " +
                     "Exam," +
                 
-                    "ExamSolution" +
-                ") VALUES (?,?,?)");
+                    "ExamSolution," +
+                
+                
+                    "Resit," +
+                ""+  "ResitSolution" +
+                ") VALUES (?,?,?,?,?)");
     ps.setString(1, modCode);
     ps.setBytes(2, pdfData); 
     ps.setBytes(3, pdfData2);// byte[] array
+    ps.setBytes(4, pdfData3);
+    ps.setBytes(5, pdfData4);
     ps.executeUpdate();
     exam = null;
 
-
+    c.close();
 
 
 %>
