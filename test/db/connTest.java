@@ -6,6 +6,10 @@
 package db;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -16,16 +20,29 @@ import static org.junit.Assert.*;
  */
 public class connTest {
     conn c;
+    Connection work;
     
     @Before
     public void setUp() {
         c = new conn();
+        work = c.connect();
     }
 
     @Test
     public void testConn() {
-        Connection work = c.connect();
         assertNotNull(work);
+    }
+    
+    @Test
+    public void testCatalog() {
+        String compare = "";
+        String expected = "18agileteam1db";
+        try {
+            compare = work.getCatalog();
+        } catch (SQLException ex) {
+            Logger.getLogger(connTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        assertEquals(expected, compare);
     }
     
 }
