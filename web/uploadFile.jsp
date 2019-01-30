@@ -20,7 +20,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Files Uploaded</h1>
+        <h1>Files Uploaded!!</h1>
     </body>
 </html>
 <%
@@ -82,6 +82,7 @@
     ps.setBytes(5, pdfData4);
     ps.executeUpdate();
     exam = null;
+    
 
     c.close();
 
