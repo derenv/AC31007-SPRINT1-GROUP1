@@ -122,14 +122,11 @@
                         <input type="submit"  value="View Resit Solutions"/>
                     </form>
                 </td> 
-               
-                
+            
             </tr>
             <tr>
-           
-
-
-            <!-- Progress bar HTML 
+     
+            <!-- Progress bar HTML  CURRENTLY NOT WORKING!>
             <div class="progress progress-striped active">
                 <div class="progress-bar"></div>
             </div>-->
@@ -182,38 +179,4 @@
 </body>
 </html>
 
-<!-- jQuery Script -->
-            <script type="text/javascript">
-             
-               
-                function makeProgress(int i) {
-                    if (i === 1) {
-                        j = 12.5;
-                        $(".progress-bar").css("width", j + "%").text("Teacher");
-                    } else if (i === 2) {
-                        j = 25;
-                        $(".progress-bar").css("width", j + "%").text("Internal Moderator");
-                    } else if (i === 3) {
-                        j = 37.5;
-                        $(".progress-bar").css("width", j + "%").text("Teacher Review");
-                    } else if (i === 4) {
-                        j = 50;
-                        $(".progress-bar").css("width", j + "%").text("Exam Vetting Committee");
-                    } else if (i === 5) {
-                        j = 62.5;
-                        $(".progress-bar").css("width", j + "%").text("Teacher Review");
-                    } else if (i === 6) {
-                        j = 75;
-                        $(".progress-bar").css("width", j + "%").text("External Examiner");
-                    } else if (i === 7) {
-                        j = 87.5;
-                        $(".progress-bar").css("width", j + "%").text("Teacher Review");
-                    } else if (i === 8) {
-                        j = 100;
-                        $(".progress-bar").css("width", j + "%").text("School Office");
-                    }
-                    // Wait for sometime before running this script again
-                 
-                }
-                makeProgress()
-            </script>
+
