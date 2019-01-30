@@ -13,6 +13,10 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.junit.Assert;
 
 
 /**
@@ -78,14 +82,20 @@ public class testViewExam {
         assertEquals(expected,results);
     }
     
-    //@Test 
-   // public void  testGetExam(){
-    //Blob result = null;
-   // Blob compare = v.getExam("ACTEST4");
-    //assertEquals(compare,result);
+    @Test 
+    public void  testGetExamSolutions(){
+    byte[] result = null;
+    byte[] compare = null;
+        try {
+            compare = v.getSolution("ACTEST4");
+        } catch (SQLException ex) {
+            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    Assert.assertArrayEquals(compare,result);
     
     
-    //}
-    
-    
+    }
 }
+   
+    
+

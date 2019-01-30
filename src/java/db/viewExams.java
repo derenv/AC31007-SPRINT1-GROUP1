@@ -101,8 +101,8 @@ public class viewExams {
         try{
             ResultSet rs = da.run_statement("select ExamSolution from pdf where ModuleCode='" + ModuleCode + "'");
             while(rs.next()){
-             System.out.print("Your blob has been created");
-              exam = rs.getBlob("Exam");
+             System.out.print("Your blob solutions has been created");
+              exam = rs.getBlob("ExamSolution");
              
             }
         } catch(Exception e) {
@@ -129,7 +129,7 @@ public class viewExams {
             ResultSet rs = da.run_statement("select Resit from pdf where ModuleCode='" + ModuleCode + "'");
             while(rs.next()){
              System.out.print("Your blob has been created");
-              exam = rs.getBlob("Exam");
+              exam = rs.getBlob("Resit");
              
             }
         } catch(Exception e) {
@@ -151,7 +151,7 @@ public class viewExams {
             ResultSet rs = da.run_statement("select ResitSolution from pdf where ModuleCode='" + ModuleCode + "'");
             while(rs.next()){
              System.out.print("Your blob has been created");
-              exam = rs.getBlob("Exam");
+              exam = rs.getBlob("ResitSolution");
              
             }
         } catch(Exception e) {
