@@ -30,7 +30,8 @@ public class testViewExam {
     
     @Before
     public void setUp() {
-        v = new viewExams("test", "Teacher");
+        //v = new viewExams("test", "Teacher");
+        v = new viewExams("finn", "ExternalMod");
     }
     
     @After
@@ -67,7 +68,7 @@ public class testViewExam {
     
     @Test
     public void testGetStage() {
-        int expected = 5;
+        int expected = 6;
         int compare = v.getStage("ACTEST1");
         assertEquals(expected, compare);
     }
@@ -134,7 +135,9 @@ public class testViewExam {
     
     
     }
-}
-   
     
+
+    
+    
+}
 
