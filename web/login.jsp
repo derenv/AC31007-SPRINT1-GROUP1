@@ -55,11 +55,9 @@
                 response.sendRedirect("error.jsp");
             }
         }catch(SQLException e){
-            String state = e.getSQLState();
-            session.setAttribute("cause", e.getErrorCode());
-            session.setAttribute("databasestatus", state);
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
+            session.setAttribute("state", e.getSQLState());
+            session.setAttribute("code", e.getErrorCode());
+            session.setAttribute("mess", e.getMessage());
             response.sendRedirect("dberror.jsp");
         }
     %>
