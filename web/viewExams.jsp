@@ -50,12 +50,7 @@
         String modCoord="";
         String modName="";
         String year="";
-        byte[] exam=null;
-        //below byte papers not implemented
-       // byte[] solutions = null;
-        //byte[] resit = null;
-       // byte[] resitSolutions = null;
-        
+     
         //loops for the number of modules they have
        for (int i = 0; i < length ; i++) {
 
@@ -89,21 +84,35 @@
                 </td>
                 <!--this sends the module code to view PDF and displays it-->
                 <td class="bRight">
-                    <form name=viewPDF" method='POST' action="viewPDF.jsp">
+                    <form name="viewPDF" method='POST' action="viewPDF.jsp">
                         <input type="hidden" name="modCode" value="<%=modCode%>">
+                        <input type="hidden" name="type" value="1">
                         <input type="submit" value="View Exam Paper"/>
                     </form>
                 </td>
                 <td>
-                    <!--<form name=viewPDF" method='POST' action="viewPDF.jsp">
+                    <form name="viewSolutions" method='POST' action="viewPDF.jsp">
                         <input type="hidden" name="modCode" value="<%=modCode%>">
-                        <input type="hidden" name="type" value=2>
+                        <input type="hidden" name="type" value="2">
                         <input type="submit"  value="View Exam Solutions"/>
-                    </form>-->
-                </td>        
-                    <a href="">View Resit Paper</a>
-                    <a href="">View Resit Solutions</a>
+                    </form>
                 </td>
+                <td>
+                    <form name="viewResit" method='POST' action="viewPDF.jsp">
+                        <input type="hidden" name="modCode" value="<%=modCode%>">
+                        <input type="hidden" name="type" value="3">
+                        <input type="submit"  value="View Resit Paper"/>
+                    </form>
+                </td> 
+                <td>
+                    <form name="viewSolutions" method='POST' action="viewPDF.jsp">
+                        <input type="hidden" name="modCode" value="<%=modCode%>">
+                        <input type="hidden" name="type" value="4">
+                        <input type="submit"  value="View Resit Solutions"/>
+                    </form>
+                </td> 
+                   
+                </td
             </tr>
             <tr>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
