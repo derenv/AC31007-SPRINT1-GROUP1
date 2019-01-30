@@ -2,7 +2,6 @@
 <%@page import="java.util.Enumeration"%>
 <%@ page import="db.login" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
@@ -38,12 +37,13 @@ java.util.Date date=new java.util.Date();
             Statement stmt = conn.createStatement();  
             stmt.executeQuery("SET NAMES UTF8");  
             
-            String insert_sql = "insert into papers(ModuleCode,Year, ModuleName,ModCoord,MainPaper, ResitPaper, MainSolutions, ResitSolutions) values('" + moduleCode + "','" + year + "','" + modCoord + "','" + moduleName + "','" + mainExam+ "','"+ resitExam+"','"+ solMain+"','"+solResit+"')";  
+            String insert_sql = "insert into pdf(ModuleCode,Exam, ExamSolution, Resit,ResitSolutions) values('" + moduleCode + "','" + mainExam+ "','"+ solMain+"','"+ resitExam+"','"+solResit+"')";  
            
         // String insert_sql = "insert into pdf (Mod_code,Pdf_path,Current_Stage,Edit)  values('AC32006','www.zhujiefan.com','0','0')";
            
-         String query_sql = "select * from papers";  
-                          
+           
+       String query_sql = "select * from exams where ModuleCode= '" + moduleCode + "' ";  
+         
             try {   
                 stmt.execute(insert_sql);   
             }catch(Exception e)     {  
@@ -51,20 +51,29 @@ java.util.Date date=new java.util.Date();
             }  
             
             try {   
-                ResultSet rs = stmt.executeQuery(query_sql);     
-                while(rs.next()) {  
+                ResultSet rs = stmt.executeQuery(query_sql);    
+                         
+                while(rs.next()) { 
                     %>     
-                    <br/>
-                    Module Code:<%=rs.getString("ModuleCode")%> </br>     
-                    Year:<%=rs.getString("Year")%> </br>   
-                    Module Name<%=rs.getString("ModuleName")%> </br>   
-                    Module Coordinator:<%=rs.getString("ModCoord")%> </br>
-                    Main Paper:<%=rs.getString("MainPaper")%> </br>
-                    Solutions(main)<%=rs.getString("MainSolutions")%> </br>
-                    Resit Paper<%=rs.getString("ResitPaper")%> </br>
-                    </br>   
-                     Solutions(resit)<%=rs.getString("ResitSolutions")%> </br>
-                    </br>   
+                 <table border="1">
+                     <tr> 
+                         <th> Module Code</th>
+                         <th> Year</th>
+                         <th> Module Name</th>
+                         <th> Module Coordinator</th>
+                         <th>Stage </th>      
+                     </tr>
+                     
+                     <tr>
+                      <td><%=rs.getString("ModuleCode")%>  </td>
+                      <td><%=rs.getString("Year")%>   </td>
+                      <td><%=rs.getString("ModuleName")%>  </td>
+                      <td><%=rs.getString("ModuleCoordinator")%>  </td>   
+                      <td><%=rs.getString("Stage")%>  </td>
+                  
+                     
+                     </tr>
+                 </table>
                     <%  
                 }      
             }
