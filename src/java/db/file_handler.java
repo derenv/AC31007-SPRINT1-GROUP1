@@ -3,7 +3,16 @@ import java.io.*;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.*;
+import org.apache.commons.io.IOUtils;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.FileItemIterator;
+import org.apache.tomcat.util.http.fileupload.FileItemStream;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -30,38 +39,40 @@ public class file_handler {
         try{
             //get values & files to be added to database
             String newModuleCode = request.getParameter("ModuleCode");
-            ByteArrayInputStream[] files = new ByteArrayInputStream[4];
-            //Exam
-            String req = request.getParameter("fname1");
-            byte[] file_data = (req).getBytes();
-            files[0] = new ByteArrayInputStream(file_data);
-            //Solution
-            file_data = (request.getParameter("fname2")).getBytes();
-            files[1] = new ByteArrayInputStream(file_data);
-            //Resit
-            file_data = (request.getParameter("fname3")).getBytes();
-            files[2] = new ByteArrayInputStream(file_data);
-            //ResitSolution
-            file_data = (request.getParameter("fname4")).getBytes();
-            files[3] = new ByteArrayInputStream(file_data);
-            //Edit
-            String Edit = request.getParameter("Edit");
-            Object[] paramater_list = {newModuleCode, files[0], files[1], files[2], files[3], Edit};
+            ArrayList<ByteArrayInputStream> files = new ArrayList<>();
+            
+            
+            ServletFileUpload x = new ServletFileUpload();
+            FileItemIterator items = x.getItemIterator(request);
+            // iterate items
+            while (items.hasNext()) {
+                FileItemStream item = items.next();
+                if (!item.isFormField()) {
+                    InputStream stream = item.openStream();
+                    byte[] file_data = IOUtils.toByteArray(stream);
+                    files.add(new ByteArrayInputStream(file_data));
+                }
+            }
+            
+            //form parameters for SQL command
+            Object[] paramater_list = {newModuleCode, files.get(0), files.get(1), files.get(2), files.get(3)};
             
             //check if file exists
             if(file_exists(newModuleCode)){
                 //update file and metadata on database
                 (new data_access()).run_statement(
-                    "UPDATE pdf(ModuleCode,Exam,Solution,Resit,ResitSolution,Edit) VALUES('?','?','?','?','?','?') WHERE ModuleCode="+newModuleCode,paramater_list
+                    "UPDATE pdf(ModuleCode,Exam,Solution,Resit,ResitSolution) VALUES('?','?','?','?','?') WHERE ModuleCode="+newModuleCode,paramater_list
                 );
             }else{
                 //add file and metadata to database
                 (new data_access()).run_statement(
-                    "INSERT INTO pdf(ModuleCode,Exam,Solution,Resit,ResitSolution,Edit) VALUES('?','?','?','?','?','?')",paramater_list
+                    "INSERT INTO pdf(ModuleCode,Exam,Solution,Resit,ResitSolution) VALUES('?','?','?','?','?')",paramater_list
                 );
             }
         }catch(SQLException e){
             response.sendRedirect("dberror.jsp");
+        } catch (FileUploadException ex) {
+            Logger.getLogger(file_handler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

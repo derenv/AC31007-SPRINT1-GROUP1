@@ -20,7 +20,6 @@
             <input type="file" name="fname3"><br/>
             <input type="file" name="fname4"><br/>
             Mode Code:<input type="text" name="ModuleCode" required> <br/>
-            Edit:<input type="text" name="Edit" required> <br/>
        
            <input type="submit" value="Upload">
         </form>  

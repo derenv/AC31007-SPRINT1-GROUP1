@@ -17,13 +17,5 @@
     </head>
     <body>
         <h1>Sorry there has been a database error!</h1>
-        <%
-            String e = (String) session.getAttribute("databasestatus");
-            out.println("<h2>SQL Database State: "+e+"</h2>");
-            String el = Integer.toString((int)session.getAttribute("cause"));
-            out.println("<h2>error code: "+el+"</h2>");
-            String ed = (String) session.getAttribute("username");
-            out.println("<h2>attempted user: "+ed+"</h2>");
-        %>
     </body>
 </html>
