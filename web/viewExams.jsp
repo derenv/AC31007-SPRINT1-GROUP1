@@ -129,14 +129,14 @@
            
 
 
-            <!-- Progress bar HTML -->
+            <!-- Progress bar HTML 
             <div class="progress progress-striped active">
                 <div class="progress-bar"></div>
-            </div>
+            </div>-->
 
             <!-- jQuery Script -->
             <script type="text/javascript">
-             
+             /*
                
                 function makeProgress(int i) {
                     if (i === 1) {
@@ -167,7 +167,7 @@
                     // Wait for sometime before running this script again
                  
                 }
-                makeProgress()
+                makeProgress()*/
             </script>
 
             </tr>

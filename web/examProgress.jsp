@@ -7,6 +7,7 @@
     Created on : 24-Jan-2019, 17:19:54
     Author     : zhendongliu
 --%>
+<%@page import="db.viewExams"%>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
@@ -36,7 +37,39 @@
         <%
             //get user from implicit session object
             String username2 = (String) session.getAttribute("username");
-       %>    
+      
+        java.util.Date date = new java.util.Date();
+        String datetime = new Timestamp(date.getTime()).toString();
+
+        //get the module codes that are relevent to the user
+        viewExams v = new viewExams(username2, "Teacher");
+        ArrayList<String> list = new ArrayList();
+        list = v.getModuleCodes(username2);
+        
+        //for the stages
+      
+        //gets the size of Array list (number of module codes)
+        Arrays.toString(list.toArray());
+        int length = list.size();
+       
+        //initiase the varibales to empty strings
+      
+        String modCode="";
+        int stage=0;
+     
+        //loops for the number of modules they have
+      
+        for (int i=0; i<2; i++) {
+        modCode = list.get(0);
+        
+        stage = v.getStage(modCode);
+       
+  
+         
+           
+     %>
+                
+           
         <br/>
                      
                     
@@ -50,7 +83,7 @@
             <!-- jQuery Script -->
             <script type="text/javascript">
              
-               var i = 5;
+               var i = <%=stage%>;
                 function makeProgress() {
                     if (i === 1) {
                         j = 12.5;
@@ -78,11 +111,11 @@
                         $(".progress-bar").css("width", j + "%").text("School Office");
                     }
                     // Wait for sometime before running this script again
-                 
+                 makeProgress();
                 }
-                makeProgress()
+                
             </script>
-
+<%}%>
         
 
             
