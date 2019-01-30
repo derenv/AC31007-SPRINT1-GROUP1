@@ -95,6 +95,46 @@ public class testViewExam {
     
     
     }
+    @Test 
+    public void  testGetExam(){
+    byte[] result = null;
+    byte[] compare = null;
+        try {
+            compare = v.getExam("ACTEST6");
+        } catch (SQLException ex) {
+            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
+}
+    Assert.assertArrayEquals(compare,result);
+   
+    
+    }
+
+    @Test 
+    public void  testGetSolution(){
+    byte[] result = null;
+    byte[] compare = null;
+        try {
+            compare = v.getSolution("ACTEST6");
+        } catch (SQLException ex) {
+            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    Assert.assertArrayEquals(compare,result);
+    
+    
+    }
+     @Test 
+    public void  testGetResitSolution(){
+    byte[] result = null;
+    byte[] compare = null;
+        try {
+            compare = v.getResitSolution("ACTEST6");
+        } catch (SQLException ex) {
+            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    Assert.assertArrayEquals(compare,result);
+    
+    
+    }
 }
    
     
