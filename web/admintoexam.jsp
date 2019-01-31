@@ -17,6 +17,9 @@
  <head>
  <link rel="stylesheet" type="text/css" href="css/Style.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <header>
@@ -31,7 +34,7 @@
       <li><a href="createusers.jsp">Create user </a></li>
       <li><a href="choose.jsp">Edit user</a></li>
       <li><a href="admintoexam.jsp">Admin edit exam</a></li>  
-     <li><a href="accountDetails.jsp">Account Details</a></li>
+     <li><a href="AdminAccount.jsp">Account Details</a></li>
     <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
   </ul>
 </div>
