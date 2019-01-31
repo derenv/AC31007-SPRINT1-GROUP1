@@ -117,7 +117,7 @@ String datetime=new Timestamp(date.getTime()).toString();
   <center>  <button> <a href="adminCreateExam.jsp">Add an exam</a> </button></center> 
   
    <form action="adminUpdExam.jsp" method="post" style="padding:0px">
-                <h3>Details</H3>
+                <h3>Upadte Table</H3>
                 Module code &nbsp 
                 <input name="ModuleCode"  type ="text"  value="<%=request.getParameter("ModuleCode") %>"   >  <br/>
                 Module Coordinator  &nbsp 
