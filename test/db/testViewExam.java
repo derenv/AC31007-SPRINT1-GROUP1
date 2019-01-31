@@ -76,6 +76,7 @@ public class testViewExam {
     @Test
     public void testGetModuleCodes() {
         ArrayList<String> expected = new ArrayList<String>();
+        expected.add("AC21342");
         expected.add("ACTEST1");
         expected.add("ACTEST2");
         ArrayList<String> results = v.getModuleCodes("sarah");
@@ -135,8 +136,14 @@ public class testViewExam {
     
     
     }
+    @Test 
+    public void testSetIncreaseStage(){
+        int expected = 7;
+        v.setIncreaseStage("ACTEST1");
+        int compare = v.getStage("ACTEST1");
+        assertEquals(expected, compare);
     
-
+    }
     
     
 }

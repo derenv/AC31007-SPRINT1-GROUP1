@@ -74,13 +74,13 @@ and open the template in the editor.
         
         <div class="main">
          
-        <form name="upload" method='POST' action="uploadFile.jsp">
-          Main Exam:  <input name="exam" type ="file" value="Main Exam"><br/>
-          Main Solutions:   <input name="sol" type ="file" value="Main Solutions"><br/>
-          Resit Exam:   <input name="resit" type ="file" value="Resit"><br/>
-          Resit Solutions:  <input name="resitSol" type ="file" value="Resit Solutions"><br/>
+        <form name="upload" method='POST' action="uploadFile.jsp" style="text-align: left;">
+          Main Exam&nbsp; &nbsp; &nbsp;&nbsp;<input name="exam" type ="file" value="Main Exam"><br/>
+          Main Solutions   <input name="sol" type ="file" value="Main Solutions"><br/>
+          Resit Exam  &nbsp;&nbsp;&nbsp;&nbsp; <input name="resit" type ="file" value="Resit"><br/>
+          Resit Solutions  <input name="resitSol" type ="file" value="Resit Solutions"><br/>
            <!--Module Code <input name="modCode2" type="text"><br>-->
-           Module Code<input list="modCode" name="modCode">
+           Module Code&nbsp;&nbsp;&nbsp;&nbsp;<input list="modCode" name="modCode">
             <datalist id="modCode">
                <% for (int i = 0; i < length ; i++) {
 
@@ -96,7 +96,7 @@ and open the template in the editor.
             </select>
             <input type="hidden" name="type" value="1">
             
-        <input type="submit"  value="upload"style="float: right;background-color: rgb(67,101,226);border: none;color:white;
+        <input type="submit"  value="upload"style="background-color: rgb(67,101,226);border: none;color:white;
                        padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;" />
         </form>
 

@@ -257,18 +257,18 @@ public class viewExams {
     
     //DOESNT WORK !!!!!!!!!!!!!!
     
-      public int getIncreaseStage(String ModuleCode) {
-        int stage = 0;
+      public void setIncreaseStage(String ModuleCode) {
+        
         data_access da = new data_access();
         try{
             ResultSet rs = da.run_statement("update exams set Stage = Stage+1 where ModuleCode='" + ModuleCode + "'");
             rs.next();
-            stage = rs.getInt("Stage");
+            
         } catch(Exception e) {
             e.printStackTrace();
         }
                 
-        return stage;
+        
     }
     
     /**

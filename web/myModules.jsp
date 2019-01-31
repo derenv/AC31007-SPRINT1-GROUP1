@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
         <div class="main"><h2>My modules</h2>
-            <p>View all modules you are currently enrolled in.</p> 
+          
          </div>
         <%
             //get user from implicit session object

@@ -70,7 +70,7 @@
            modName = v.getModName(modCode);
            year = v.getYear(modCode);
            stage = v.getStage(modCode);
-           stage2 = v.getIncreaseStage(modCode);
+           
            
            if (stage == 1){label = "Uploaded";}
            else if (stage ==2 ){label = " Internal Moderator";}
