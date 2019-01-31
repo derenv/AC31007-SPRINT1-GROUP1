@@ -49,8 +49,8 @@
     
    <div align="center">
        <fieldset style="background-color: white ; width: 600px ; ">
-       <legend style="text-align: center ; color: black; background-color: white ; font-size:40px">Create User Page</legend>
-        <legend style="text-align: center ; background-color: white ;" >Please enter user's information </legend>
+       <legend style="text-align: center ; color: black; background-color: white ; font-size:40px">Create Exam Page</legend>
+        <legend style="text-align: center ; background-color: white ;" >Please enter the information </legend>
         <div style="text-align: center; padding:20px">      
  
     <form action="adminCreateExam.jsp" method="post">
@@ -73,12 +73,10 @@
   <input name="ExamVetting"  type ="text"><br/><br/>
   
   <input name="submit"  type ="submit"  value="submit"  style="float: right;background-color: rgb(67,101,226);border: none;color:white;
-                  padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"  ><br/>
+        padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"  ><br/>
   
-        </form>
-        
+        </form>  
           </div>
-
 		</fieldset>
 	</div>
 
@@ -91,6 +89,7 @@ String  Teacher =request.getParameter("Teacher");
 String  InternalModerator =request.getParameter("InternalModerator");   
 String  ExternalModerator =request.getParameter("ExternalModerator");   
 String  ExamVetting =request.getParameter("ExamVetting");   
+
 
 
 java.util.Date date=new java.util.Date();   
@@ -107,14 +106,13 @@ String datetime=new Timestamp(date.getTime()).toString();
             Connection conn = DriverManager.getConnection(connUrl);  
             Statement stmt = conn.createStatement();  
             stmt.executeQuery("SET NAMES UTF8");          
+                 
+           String insert_sql = "insert into exams(ModuleCode,ModuleCoordinator,Year,ModuleName,Teacher,InternalModerator,ExternalModerator,ExamVetting ) values('" + ModuleCode + "','" + ModuleCoordinator + "','" + Year+ "','" + ModuleName+ "','"+Teacher+"','"+InternalModerator+"','"+ExternalModerator+"', '"+ExamVetting+"'       )";  
            
-           
-         String insert_sql = "insert into exams(ModuleCode,ModuleCoordinator,Year,ModuleName,Teacher,InternalModerator,ExternalModerator,ExamVetting ) values('" + ModuleCode + "','" + ModuleCoordinator + "','" + Year+ "','" + ModuleName+ "','"+Teacher+"','"+InternalModerator+"','"+ExternalModerator+"', '"+ExamVetting+"'       )";  
-           
-      
                       
             try {   
                 stmt.execute(insert_sql);  
+      
            }catch(Exception e)     {  
                 e.printStackTrace();  
            }  
