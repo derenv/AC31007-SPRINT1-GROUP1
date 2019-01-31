@@ -31,7 +31,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <body>
-        <div class="main"> <h2>Edit/Review Exams</h2>
+        <div class="main"> <h1>Edit/Review Exams</h1>
             <p>Upload revised exams and read the comments from moderators, to check which stage an exam is in please click 
             on view exam progress</p>   
         </div></div>

@@ -23,9 +23,12 @@
     <head>
         <link rel="stylesheet" type="text/css" href="../css/Style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <body>
-        <div class="main"> <h2>My Account Details</h2>
+        <div class="main"> <h1>My Account Details</h1>
            </div>
         <%
             //get user from implicit session object
@@ -56,23 +59,16 @@
         <div class="main">
           
             <table>
+
                 <tr>
-                    <!--<td class="bTop" colspan="3">-->
-                    </td>
-                </tr>
-                <tr>
-                  
                     <td class="middle">Name: <%=rs.getString("Username")%>
                     </td>
                     <td class="bRight">Role: <%=rs.getString("UserID")%>
-                   </td>
-                                     
-                    
+                    </td>   
                 </tr>
                 <tr>
             </table>
 
-            
         </div>
                 
        
