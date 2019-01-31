@@ -28,11 +28,9 @@
         String Mod2=new String("") ;
         String Mod3=new String("") ;
         String Mod4=new String("") ;          
-           
-           
-       if (  request.getParameter("username").length()==0 )  
-       {  Username=(String)session.getAttribute("Username") ;   }
-       else  { Username=(String)request.getParameter("username") ;    }
+    
+        Username=(String)session.getAttribute("Username") ;   
+      
        
      if (  request.getParameter("userid").length()==0 )  
        {   UserID=(String)session.getAttribute("UserID") ;   }
@@ -71,32 +69,11 @@
          String update_sql = "update users set Username='"+Username+"',UserID='"+UserID+"',Module1='"+Mod1+"',Module2='"+Mod2+"' ,Module3= '"+Mod3+"',Module4='"+Mod4+"' where Username='"+Username+"' " ; 
             
 
-         String query_sql = "select * from users where Username='"+Username+"' " ;  
-   
          try{
        stmt.execute(update_sql);
         }catch(Exception e){
             e.printStackTrace();}
-       
-            try {   
-                ResultSet rs = stmt.executeQuery(query_sql);     
-                while(rs.next()) {  
-                    %>     
-                    <br/>
-                    User name:<%=rs.getString("Username")%> </br>     
-                    Password:<%=rs.getString("Password")%> </br>   
-                    User ID:<%=rs.getString("UserID")%> </br>   
-                    Module1:<%=rs.getString("Module1")%> </br>
-                    Module2:<%=rs.getString("Module2")%> </br>   
-                    Module3:<%=rs.getString("Module3")%> </br>
-                    Module4:<%=rs.getString("Module4")%> </br>            
-                    </br>   
-                    <%  
-                }      
-            }
-                 catch(Exception e) {  
-                e.printStackTrace();  
-            }   
+             
                  
             stmt.close();                 
             conn.close();   
@@ -105,15 +82,11 @@
                 e.printStackTrace();  
         }   
 %>   
-        
-         
-    </body>
-    
-    
-    
-         <a href="choose.jsp"> back</a>
-    
-    
-    
+              
+ 
+ </body>
+ 
+ <script > window.location.href='choose.jsp' </script>
+ 
     
 </html>
