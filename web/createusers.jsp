@@ -6,18 +6,47 @@
 --%>
 
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create Users Page</title>
-         
-        <link rel="stylesheet" type="text/css" href="../css/Style.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-    </head>
-    <body>
+
+ <head>  
+<title>Create Users Page</title>
+ <link rel="stylesheet" type="text/css" href="css/Style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<header>
+      <div class="content"><img src="img/UoDlogo.jpg"/></div>
+</header>
+    
+
+    <body>   
         
+        
+            
+<div class="main">
+<div class="sidebar">
+    
+  <ul>
+      
+    <br>
+   
+ 
+       <li><a href="createusers.jsp">Create user </a></li>
+      <li><a href="choose.jsp">Change user </a></li>
+      
+      <li><a href="admintoexam.jsp">Admin edit exam</a></li> 
+      
+      
+    <li><a href="accountDetails.jsp">Account Details</a></li>
+    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
+    
+    
+    
+  </ul>
+</div>
+    
    <div align="center">
 	<fieldset style="background-color: white ; width: 600px ; ">
     <legend style="text-align: center ; color: black; background-color: white ; font-size:40px">Create User Page</legend>
@@ -52,7 +81,7 @@
         </form>
         
           </div>
-    	  <button> <a href="#" onclick="javascript:history.back(-1);">Back</a></button>
+
 		</fieldset>
         
      
