@@ -54,8 +54,7 @@
         <div style="text-align: center; padding:20px">      
  
     <form action="adminCreateExam.jsp" method="post">
-        
-        
+          
     Module Code &nbsp               
     <input name="ModuleCode"  type ="text"> <br/> <br/>
     Module Coordinator &nbsp  
@@ -73,10 +72,9 @@
    ExamVetting  &nbsp 
   <input name="ExamVetting"  type ="text"><br/><br/>
   
-  <input name="submit"  type ="submit"  value="submit"style="float: right;background-color: rgb(67,101,226);border: none;color:white;
+  <input name="submit"  type ="submit"  value="submit"  style="float: right;background-color: rgb(67,101,226);border: none;color:white;
                   padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"  ><br/>
   
-
         </form>
         
           </div>
@@ -116,19 +114,23 @@ String datetime=new Timestamp(date.getTime()).toString();
       
                       
             try {   
-                stmt.execute(insert_sql);   
+                stmt.execute(insert_sql);  
+       %>
+     
+ <script > window.location.href='admintoexam.jsp' </script>
+       <%
            }catch(Exception e)     {  
                 e.printStackTrace();  
            }  
-             
-                 
+     
             stmt.close();                 
             conn.close();   
         }
           catch (Exception e) {  
                 e.printStackTrace();  
-        }   
-%>   
+        }  
+    %>
+
     
 
     </body>
