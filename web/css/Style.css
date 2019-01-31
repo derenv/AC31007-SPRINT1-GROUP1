@@ -215,3 +215,12 @@ input[type=submit] {
 
 form {padding:0px;}
 
+input[type=text] {
+  width: 100% !important;
+  padding: 12px 20px !important; 
+  margin: 8px 0  !important;
+  box-sizing: border-box !important;
+}
+input[type=text]:focus {
+  background-color: lightblue;
+}

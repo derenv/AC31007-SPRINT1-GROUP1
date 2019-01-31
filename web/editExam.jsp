@@ -7,6 +7,7 @@
     Created on : 24-Jan-2019, 17:19:54
     Author     : zhendongliu
 --%>
+<%@page import="db.viewExams"%>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
@@ -71,7 +72,7 @@
            modName = v.getModName(modCode);
            year = v.getYear(modCode);
            stage = v.getStage(modCode);
-           stage2 = v.getIncreaseStage(modCode);
+           
            
            if (stage == 1){label = "Uploaded";}
            else if (stage ==2 ){label = " Internal Moderator";}
@@ -82,7 +83,7 @@
            else if (stage ==7 ){label = " Teacher Review";}
            else if (stage ==8 ){label = " Completed";}
            else if (stage == 0){label = "";}
-                
+       }   
                 //run statement and parse results
                
         %>              
@@ -91,45 +92,7 @@
                     
         <div class="main">
           
-            <table>
-                <tr>
-                    <!--<td class="bTop" colspan="3">-->
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bLeft"><img src="img/pdflogo.jpg" height="100" width="100">
-                    </td>
-                    <td class="middle"><%=rs.getString("ModuleCode")%>
-                    </td>
-                    <td class="bRight"><%=rs.getString("ModuleCoordinator")%>
-                   </td>
-                    <td class="bRight"><%=rs.getString("ModuleName")%>
-                    </td>
-                    <td class="bRight"><a href="<%=rs2.getString("Pdf_path") %>">Upload</a>
-                        
-                    </td> 
-                     </td>
-                    <td class="bRight"><a href="#">Comments</a>  
-                    </td> 
-                </tr>
-                <tr>
-            </table>
-
-        </div>
-                
-       
-        </br>   
-        <%
-                  }  
-                }catch(Exception e){
-                    e.printStackTrace();
-                }   
-                
-                stmt.close();
-            }catch(SQLException e){
-                e.printStackTrace();
-            }
-        %>
+        
         
         
     </body>
