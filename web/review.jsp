@@ -63,13 +63,10 @@
        %>
     
         
-     
-        
-        
         <div class="main">
             
          
-        <form name="upload" method='POST' action="" style="text-align:left;">
+        <form name="upload" method='POST' action="reviewAction.jsp" style="text-align:left;">
        
             <textarea name="comment" form="usrform"  rows="10" cols="50">Please Enter Comments</textarea><br><br><br>
              Module Code&nbsp;&nbsp;&nbsp;&nbsp;<input list="modCode" name="modCode">
