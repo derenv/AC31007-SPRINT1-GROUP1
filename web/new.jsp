@@ -20,7 +20,8 @@
         <button>View Main Exam Solutions</button>
         <button>View Resit Exam Paper</button>
         <button>View Resit Exam Solutions</button>  
-        <button>Upload comments</button> 
+        <a href="review.jsp">Review</a>  
+  
         
         <br><br><br><br>
          <h1> Example: AC823922 Networks</h1>
@@ -29,7 +30,7 @@
         <button>View Main Exam Solutions</button>
         <button>View Resit Exam Paper</button>
         <button>View Resit Exam Solutions</button>  
-        <button>Upload comments</button>  
+        <a href="review.jsp">Review</a>  
   
   
               

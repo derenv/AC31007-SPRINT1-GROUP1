@@ -278,7 +278,7 @@ public class viewExams {
         return stage;
     }
     
-    //DOESNT WORK !!!!!!!!!!!!!!
+    //DOES work now
     
       public void setIncreaseStage(String ModuleCode) {
         
@@ -291,10 +291,6 @@ public class viewExams {
             String sql = ("update exams set Stage = Stage+1 where ModuleCode='"+ModuleCode+"' ");
             stmt.executeUpdate(sql);
 
-          
- 
-    
-
     c.close();
            
             
@@ -304,6 +300,31 @@ public class viewExams {
                 
         
     }
+      
+        public boolean addComments(String Comments, String ModuleCode) {
+        
+       
+        try{
+            Connection c;
+            conn conn1 = new conn();
+            c = conn1.connect();
+            Statement stmt = c.createStatement();
+            String sql = ("update exams set Comments = '"+Comments+"' where ModuleCode='"+ModuleCode+"' ");
+            stmt.executeUpdate(sql);
+            
+
+    c.close();
+    return true;       
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+             return false;    
+            
+        }
+                
+        
+    }
+      
     
     /**
      * Method to return access privileges for the user
@@ -313,7 +334,7 @@ public class viewExams {
     public boolean getAccessPrivileges(String ModuleCode) throws SQLException {
         
         //returns true if admin or teacher has override rights
-        if(role=="Teacher" || role == "Admin") {
+        if("Teacher".equals(role) || "Admin".equals(role)) {
             return true;
         }
         
@@ -330,17 +351,17 @@ public class viewExams {
         
         switch(stage){
             case 2:
-                if (role == "InternalMod"){
+                if ("InternalModerator".equals(role)){
                     return true;
                 }
                 return false;
             case 4:
-                if (role == "ExternalVet"){
+                if ("ExternalVet".equals(role)){
                     return true;
                 }
                 return false;
             case 6:
-                if (role == "ExternalMod"){
+                if ("ExternalModerator".equals(role)){
                     return true;
                 }
                 return false;
@@ -349,7 +370,43 @@ public class viewExams {
         }      
          
     }
+    
+    public String getRole(){return this.role;}
         
+     /**
+     * @author finn torbet and lewis christie
+     *
+     * @param username, username of specified user
+     * @param role, role of specified user (Teacher, InternalModerator, ExternalModerator, ExamVet)
+     * @return arrayList<string> moduleCodes, the modules that the user is assigned to
+     */
+    public ArrayList<String> getModuleCodesInternal(String username) throws SQLException {
+        // can return any amount of modules for a specific user
+        
+        //array list used instead of string[] - sorry finn
+        ArrayList<String> moduleCodes = new ArrayList<String>();
+        
+        data_access da = new data_access();
+        
+        try {
+            //ResultSet rs = da.run_statement("select * from exams where " + role + "='" + username + "'");
+            Object[] params = {username};
+            
+            ResultSet rs = da.run_statement("select ModuleCode, Stage from exams where InternalModerator=?",params);
+            while (rs.next()) {
+                String moduleCode = rs.getString("ModuleCode");
+                int stage = rs.getInt("Stage");
+                if( stage == 1){        
+                moduleCodes.add(moduleCode);}
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         c.close();      
+        System.out.print("connection closed");
+        
+        return moduleCodes;
+    }
     
 
 }

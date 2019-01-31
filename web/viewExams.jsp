@@ -105,7 +105,7 @@
                 </td>
                 <td class="bRight"><%=modName%>
                 </td>
-                <td class="bRight"><%=stage2%>
+                <td class="bRight"><%=year%>
                 </td>
                 <!--this sends the module code to view PDF and displays it-->
                 <td class="bRight">

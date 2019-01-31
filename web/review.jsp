@@ -1,23 +1,16 @@
+<%-- 
+    Document   : rewiew
+    Created on : 31-Jan-2019, 18:56:53
+    Author     : sarahsmall
+--%>
 
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="db.viewExams"%>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%@page import="java.sql.Timestamp"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="session_check.jsp" %>
-<%@include file="sidebarTeacher.jsp" %>
-<%@page import="com.oreilly.servlet.MultipartRequest" %>
-<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
-<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>  
-<%@ page language="java" import="java.util.*,java.sql.*"%>  
-<%@ page import="db.conn" %>
+<%@include file="sidebarModerator.jsp" %>
 
-<%    
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,7 +23,7 @@ and open the template in the editor.
     
     
     <body>
-          <div class="main"> <h1>Upload Exam</h1>
+          <div class="main"> <h1>Review</h1>
        
     </div>
             <%
@@ -40,9 +33,10 @@ and open the template in the editor.
         String datetime = new Timestamp(date.getTime()).toString();
 
         //get the module codes that are relevent to the user
-        viewExams v = new viewExams(username2, "Teacher");
+        viewExams v = new viewExams(username2, "InternalModerator");
+        
         ArrayList<String> list = new ArrayList();
-        list = v.getModuleCodes(username2);
+        list = v.getModuleCodesInternal(username2);
         
         //for the stages
       
@@ -73,14 +67,12 @@ and open the template in the editor.
         
         
         <div class="main">
+            
          
-        <form name="upload" method='POST' action="upload.jsp" enctype="multipart/form-data" style="text-align: left;">
-          Main Exam&nbsp; &nbsp; &nbsp;&nbsp;<input name="exam" type ="file" value="Main Exam"><br/>
-          Main Solutions   <input name="sol" type ="file" value="Main Solutions"><br/>
-          Resit Exam  &nbsp;&nbsp;&nbsp;&nbsp; <input name="resit" type ="file" value="Resit"><br/>
-          Resit Solutions  <input name="resitSol" type ="file" value="Resit Solutions"><br/>
-           <!--Module Code <input name="modCode2" type="text"><br>-->
-           Module Code&nbsp;&nbsp;&nbsp;&nbsp;<input list="modCode" name="modCode">
+        <form name="upload" method='POST' action="" style="text-align:left;">
+       
+            <textarea name="comment" form="usrform"  rows="10" cols="50">Please Enter Comments</textarea><br><br><br>
+             Module Code&nbsp;&nbsp;&nbsp;&nbsp;<input list="modCode" name="modCode">
             <datalist id="modCode">
                <% for (int i = 0; i < length ; i++) {
 
@@ -88,25 +80,13 @@ and open the template in the editor.
                      modCode = list.get(i);
                      %>
                 <option value="<%=modCode%>"><%=modCode%></option>
-       <%}%>
-    
- 
-  </datalist>
-              
-         
-            <input type="hidden" name="type" value="1">
-            
-        <input type="submit"  value="upload"style="background-color: rgb(67,101,226);border: none;color:white;
+             <% } %>
+            </datalist>
+              <br><br><br>
+            <input type="submit"  value="upload"style="background-color: rgb(67,101,226);border: none;color:white;
                        padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;" />
+        
         </form>
-
-<% %>
-             
-
-      
-
-                
-                </div>
-                
-                </body>
-                </html>
+        </div>
+    </body>
+</html>

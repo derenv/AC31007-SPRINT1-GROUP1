@@ -46,39 +46,39 @@ public class testViewExam {
    
     @Test 
     public void getModCoord() throws SQLException{
-    String expected = "sarah";
-    String compare = v.getModCoord("ACTEST1");
+    String expected = "Sarah Smith";
+    String compare = v.getModCoord("AC21007");
     assertEquals(expected, compare);
     }
     
     @Test 
     public void getModName() throws SQLException{
-    String expected = "test1Name";
-    String compare = v.getModName("ACTEST1");
+    String expected = "Introduction to Java";
+    String compare = v.getModName("AC31005");
     assertEquals(expected, compare);
     
     }
     @Test 
     public void getYear() throws SQLException{
     String expected = "2019";
-    String compare = v.getYear("ACTEST1");
+    String compare = v.getYear("AC31005");
     assertEquals(expected, compare);
     
     }
     
     @Test
     public void testGetStage() throws SQLException {
-        int expected = 6;
-        int compare = v.getStage("ACTEST1");
+        int expected = 2;
+        int compare = v.getStage("AC21007");
         assertEquals(expected, compare);
     }
     
     @Test
     public void testGetModuleCodes() throws SQLException {
         ArrayList<String> expected = new ArrayList<String>();
-        expected.add("AC21342");
-        expected.add("ACTEST1");
-        expected.add("ACTEST2");
+        expected.add("AC21007");
+        expected.add("AC22009");
+        expected.add("AC31005");
         ArrayList<String> results = v.getModuleCodes("sarah");
         assertEquals(expected,results);
     }
@@ -88,7 +88,7 @@ public class testViewExam {
     byte[] result = null;
     byte[] compare = null;
         try {
-            compare = v.getSolution("ACTEST4");
+            compare = v.getSolution("AC31005");
         } catch (SQLException ex) {
             Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -139,8 +139,16 @@ public class testViewExam {
     @Test 
     public void testSetIncreaseStage() throws SQLException{
         int expected = 3;
-        v.setIncreaseStage("ACTEST3");
-        int compare = v.getStage("ACTEST3");
+        v.setIncreaseStage("AC21007");
+        int compare = v.getStage("AC21007");
+        assertEquals(expected, compare);
+    
+    }
+    
+      @Test 
+        public void testAddComments(){
+        boolean expected = true;
+        boolean compare = v.addComments("comments","AC21007");
         assertEquals(expected, compare);
     
     }
