@@ -48,7 +48,7 @@ and open the template in the editor.
     <br>
      <li><p><u>Other</U></p></li>
        <li><a href="../createusers.jsp">Create user </a></li>
-      <li><a href="../choose.jsp">Change user </a></li>
+      <li><a href="../choose.jsp">Edit user </a></li>
       
       <li><a href="../admintoexam.jsp">Edit exam</a></li> 
       

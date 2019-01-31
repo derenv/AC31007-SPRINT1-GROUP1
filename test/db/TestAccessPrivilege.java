@@ -5,6 +5,7 @@
  */
 package db;
 
+import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -29,7 +30,7 @@ viewExams v;
     
     
     @Test
-    public void testGetAccessPrivileges(){
+    public void testGetAccessPrivileges() throws SQLException{
         
         boolean compare = v.getAccessPrivileges("ACTEST1");
         assertTrue(compare);

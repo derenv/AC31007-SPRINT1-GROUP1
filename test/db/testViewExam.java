@@ -11,7 +11,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,6 +35,7 @@ public class testViewExam {
     
     @After
     public void tearDown() {
+      
     }
 
     @Test
@@ -45,21 +45,21 @@ public class testViewExam {
     
    
     @Test 
-    public void getModCoord(){
+    public void getModCoord() throws SQLException{
     String expected = "sarah";
     String compare = v.getModCoord("ACTEST1");
     assertEquals(expected, compare);
     }
     
     @Test 
-    public void getModName(){
+    public void getModName() throws SQLException{
     String expected = "test1Name";
     String compare = v.getModName("ACTEST1");
     assertEquals(expected, compare);
     
     }
     @Test 
-    public void getYear(){
+    public void getYear() throws SQLException{
     String expected = "2019";
     String compare = v.getYear("ACTEST1");
     assertEquals(expected, compare);
@@ -67,14 +67,14 @@ public class testViewExam {
     }
     
     @Test
-    public void testGetStage() {
+    public void testGetStage() throws SQLException {
         int expected = 6;
         int compare = v.getStage("ACTEST1");
         assertEquals(expected, compare);
     }
     
     @Test
-    public void testGetModuleCodes() {
+    public void testGetModuleCodes() throws SQLException {
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("AC21342");
         expected.add("ACTEST1");
@@ -137,10 +137,10 @@ public class testViewExam {
     
     }
     @Test 
-    public void testSetIncreaseStage(){
-        int expected = 7;
-        v.setIncreaseStage("ACTEST1");
-        int compare = v.getStage("ACTEST1");
+    public void testSetIncreaseStage() throws SQLException{
+        int expected = 3;
+        v.setIncreaseStage("ACTEST3");
+        int compare = v.getStage("ACTEST3");
         assertEquals(expected, compare);
     
     }

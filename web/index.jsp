@@ -12,7 +12,7 @@
         //check type and compare for redirect
 	String type = (String) session.getAttribute("type");
         if ("Teacher".equals(type)){
-            response.sendRedirect("HTML/teacherDash.jsp");
+            response.sendRedirect("myModules.jsp");
         }else if ("Admin".equals(type)){
             response.sendRedirect("HTML/adminDash.jsp");
         }else if ("ExternalMod".equals(type)){

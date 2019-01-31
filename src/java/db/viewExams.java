@@ -38,7 +38,7 @@ public class viewExams {
      * @param role, role of specified user (Teacher, InternalModerator, ExternalModerator, ExamVet)
      * @return arrayList<string> moduleCodes, the modules that the user is assigned to
      */
-    public ArrayList<String> getModuleCodes(String username) {
+    public ArrayList<String> getModuleCodes(String username) throws SQLException {
         // can return any amount of modules for a specific user
         
         //array list used instead of string[] - sorry finn
@@ -56,6 +56,8 @@ public class viewExams {
         } catch (Exception e) {
             e.printStackTrace();
         }
+         c.close();      
+        System.out.print("connection closed");
         
         return moduleCodes;
     }
@@ -80,9 +82,13 @@ public class viewExams {
             e.printStackTrace();
         }
         if (exam !=    null  ) { 
+             c.close();      
+        System.out.print("connection closed");
         return exam.getBytes((long)1, (int)exam.length());
         }
         else
+             c.close();      
+        System.out.print("connection closed");
             return null;
     
     }
@@ -109,9 +115,13 @@ public class viewExams {
             e.printStackTrace();
         }
         if (exam !=    null  ) { 
+             c.close();      
+        System.out.print("connection closed");
         return exam.getBytes((long)1, (int)exam.length());
         }
         else
+             c.close();      
+        System.out.print("connection closed");
             return null;
     
     }
@@ -136,9 +146,13 @@ public class viewExams {
             e.printStackTrace();
         }
         if (exam !=    null  ) { 
+             c.close();      
+        System.out.print("connection closed");
         return exam.getBytes((long)1, (int)exam.length());
         }
         else
+            c.close();
+            System.out.print("connection closed");
             return null;
     
     }
@@ -158,9 +172,13 @@ public class viewExams {
             e.printStackTrace();
         }
         if (exam !=    null  ) { 
+             c.close();      
+        System.out.print("connection closed");
         return exam.getBytes((long)1, (int)exam.length());
         }
         else
+             c.close();      
+        System.out.print("connection closed");
             return null;
     
     }
@@ -174,7 +192,7 @@ public class viewExams {
      * @return String[] list, returns the meta data in the format
      * MODULE COORDINATOR,
      */ 
-    public String getModCoord(String ModuleCode){
+    public String getModCoord(String ModuleCode) throws SQLException{
     String modCoord ="";
     data_access da = new data_access();
         try{
@@ -185,7 +203,8 @@ public class viewExams {
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
+        c.close();      
+        System.out.print("connection closed");       
         return modCoord;
     }
      /**
@@ -195,7 +214,7 @@ public class viewExams {
      * @return String
      * MODULE NAME
      */ 
-      public String getModName(String ModuleCode){
+      public String getModName(String ModuleCode) throws SQLException{
     String modName ="";
     data_access da = new data_access();
         try{
@@ -206,7 +225,8 @@ public class viewExams {
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
+        c.close();      
+        System.out.print("connection closed");
         return modName;
     }
        /**
@@ -215,19 +235,21 @@ public class viewExams {
      * @param ModuleCode, the module that the user wants the relevant file path for, for either exam, exam solution, resit or resist solution 
      * @return String
      * MODULE NAME
+     * @throws java.sql.SQLException
      */ 
-      public String getYear(String ModuleCode){
+    public String getYear(String ModuleCode) throws SQLException{
     String year ="";
     data_access da = new data_access();
         try{
             ResultSet rs = da.run_statement("select Year from exams where ModuleCode='" + ModuleCode + "'");
             rs.next();
-            year = rs.getString("Year");
+            year = rs.getString("Year"); 
+            c.close();
    
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
+                 
         return year;
     }
    
@@ -241,7 +263,7 @@ public class viewExams {
      * @return
      * @author
      */
-    public int getStage(String ModuleCode) {
+    public int getStage(String ModuleCode) throws SQLException {
         int stage = 0;
         data_access da = new data_access();
         try{
@@ -251,7 +273,8 @@ public class viewExams {
         } catch(Exception e) {
             e.printStackTrace();
         }
-                
+          c.close();       
+          System.out.print("connection closed");
         return stage;
     }
     
@@ -259,10 +282,21 @@ public class viewExams {
     
       public void setIncreaseStage(String ModuleCode) {
         
-        data_access da = new data_access();
+       
         try{
-            ResultSet rs = da.run_statement("update exams set Stage = Stage+1 where ModuleCode='" + ModuleCode + "'");
-            rs.next();
+            Connection c;
+            conn conn1 = new conn();
+            c = conn1.connect();
+            Statement stmt = c.createStatement();
+            String sql = ("update exams set Stage = Stage+1 where ModuleCode='"+ModuleCode+"' ");
+            stmt.executeUpdate(sql);
+
+          
+ 
+    
+
+    c.close();
+           
             
         } catch(Exception e) {
             e.printStackTrace();
@@ -276,7 +310,7 @@ public class viewExams {
      * 
      * @author finntorbet and mikhailpolishchouk
      */
-    public boolean getAccessPrivileges(String ModuleCode) {
+    public boolean getAccessPrivileges(String ModuleCode) throws SQLException {
         
         //returns true if admin or teacher has override rights
         if(role=="Teacher" || role == "Admin") {
@@ -313,7 +347,7 @@ public class viewExams {
             default: 
                 return false;
         }      
-        
+         
     }
         
     
