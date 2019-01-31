@@ -78,9 +78,9 @@ public class file_handler {
                     "INSERT INTO pdf(ModuleCode,Exam,ExamSolution,Resit,ResitSolution) VALUES(?,?,?,?,?)",paramater_list
                 );
                 //set stage to 1
-                (new data_access()).run_statement(
-                    "UPDATE exams SET Stage=Stage+1 WHERE ModuleCode="+newModuleCode
-                );
+               // (new data_access()).run_statement(
+                   // "update exams set Stage = Stage+1 where ModuleCode='"+newModuleCode+"' " //needs an executeUpdate(); not sure where this happens in this
+               // );
                 
                 response.sendRedirect("viewExams.jsp");
             }
