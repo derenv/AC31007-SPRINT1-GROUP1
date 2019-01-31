@@ -17,7 +17,7 @@
 
 <html>
 <%
-    String username=request.getParameter("username");
+String username=request.getParameter("username");
 String password=request.getParameter("password");
 String userid=request.getParameter("userid");
 String mod1=request.getParameter("mod1");
@@ -43,9 +43,7 @@ java.util.Date date=new java.util.Date();
             
             String insert_sql = "insert into users(Username,Password,UserID,Module1,Module2,Module3,Module4) values('" + username + "','" + password + "','" + userid + "','" + mod1+ "','"+ mod2+"','"+ mod3+"','"+mod4+"')";  
            
-        // String insert_sql = "insert into pdf (Mod_code,Pdf_path,Current_Stage,Edit)  values('AC32006','www.zhujiefan.com','0','0')";
-           
-         String query_sql = "select * from users";  
+    
                           
             try {   
                 stmt.execute(insert_sql);   
@@ -53,23 +51,7 @@ java.util.Date date=new java.util.Date();
                 e.printStackTrace();  
             }  
             
-            try {   
-                ResultSet rs = stmt.executeQuery(query_sql);     
-                while(rs.next()) {  
-                    %>     
-                    <br/>
-                    User name:<%=rs.getString("Username")%> </br>     
-                    Password:<%=rs.getString("Password")%> </br>   
-                    User ID:<%=rs.getString("UserID")%> </br>   
-                    Module1:<%=rs.getString("Module1")%> </br>
-                    Module2:<%=rs.getString("Module2")%> </br>
-                    </br>   
-                    <%  
-                }      
-            }
-                 catch(Exception e) {  
-                e.printStackTrace();  
-            }   
+          
                  
             stmt.close();                 
             conn.close();   
@@ -77,5 +59,11 @@ java.util.Date date=new java.util.Date();
           catch (Exception e) {  
                 e.printStackTrace();  
         }   
-%>   
+%>  
+
+
+ <script> window.location.href='choose.jsp' </script>
+ 
+ 
+ 
 </html>
