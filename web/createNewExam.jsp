@@ -74,7 +74,7 @@ and open the template in the editor.
         
         <div class="main">
          
-        <form name="upload" method='POST' action="uploadFile.jsp" style="text-align: left;">
+        <form name="upload" method='POST' action="upload.jsp" enctype="multipart/form-data" style="text-align: left;">
           Main Exam&nbsp; &nbsp; &nbsp;&nbsp;<input name="exam" type ="file" value="Main Exam"><br/>
           Main Solutions   <input name="sol" type ="file" value="Main Solutions"><br/>
           Resit Exam  &nbsp;&nbsp;&nbsp;&nbsp; <input name="resit" type ="file" value="Resit"><br/>

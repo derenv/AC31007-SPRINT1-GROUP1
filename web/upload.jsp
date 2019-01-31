@@ -19,7 +19,4 @@
             response.sendRedirect("ferror.jsp");
         }
     %>
-    <a href="uploadindex.jsp">back</a>  <br/>
-    <a href="connection.jsp"> view data </a>   <br/>
-    <a href="Source Packages/ListFileServlet" >download the file</a>    <br/>
 </html>
