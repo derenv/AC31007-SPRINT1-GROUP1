@@ -34,7 +34,7 @@
    
  
        <li><a href="createusers.jsp">Create user </a></li>
-      <li><a href="choose.jsp">Change user </a></li>
+      <li><a href="choose.jsp">Edit user </a></li>
       
       <li><a href="admintoexam.jsp">Admin edit exam</a></li> 
       
