@@ -50,6 +50,11 @@
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
                 response.sendRedirect("HTML/examVettingDash.jsp");
+            }else if ("SchoolOffice".equals(type)){
+                //create session variables then redirect to dashboard
+                session.setAttribute("username",username);
+                session.setAttribute("type",type);
+                response.sendRedirect("SchoolOfficeDash.jsp");
             }else{
                 //invalid value
                 response.sendRedirect("error.jsp");

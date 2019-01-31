@@ -6,6 +6,8 @@ and open the template in the editor.
 -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../session_check.jsp" %>
+
+
 <%
     String username2 = (String) session.getAttribute("username");
 %>
@@ -16,28 +18,26 @@ and open the template in the editor.
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+
+
+
 <header>
-  
-    
+ 
       <div class="content"><img src="../img/UoDlogo.jpg"/></div>
     
   
   </header>
+
+
+
 <body>
 <div class="main">
-
- 
-     
-
-
-
-
 <div class="sidebar">
+    
   <ul>
     <li><h2>Hello, <% out.println(username2); %></h2></li>
     <br>
    
-    
     <li><p><u>Exams</U></p></li>
     <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
     <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
@@ -48,10 +48,12 @@ and open the template in the editor.
     <br>
      <li><p><u>Other</U></p></li>
        <li><a href="../createusers.jsp">Create user </a></li>
-      <li><a href="../choose.jsp">Change user </a></li>
-       <li><a href="../uploadindex.jsp">New file </a></li>
-    <li><a href="../myModules.jsp">My Modules</a></li>
-    <li><a href="#">Account Details</a></li>
+      <li><a href="../choose.jsp">Edit user </a></li>
+      
+      <li><a href="../admintoexam.jsp">Edit exam</a></li> 
+      
+      
+     <li><a href="../accountDetails.jsp">Account Details</a></li>
     <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
     
     

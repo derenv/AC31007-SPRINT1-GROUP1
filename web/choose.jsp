@@ -13,7 +13,46 @@
 
 <!DOCTYPE html>
 <html>
+    
+ <head>
+ <link rel="stylesheet" type="text/css" href="css/Style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<header>
+      <div class="content"><img src="img/UoDlogo.jpg"/></div>
+</header>
+
     <body>
+        
+        
+        
+          
+<div class="main">
+<div class="sidebar">
+    
+  <ul>
+      
+  
+    <br>
+   
+ 
+      
+  
+       <li><a href="createusers.jsp">Create user </a></li>
+      <li><a href="choose.jsp">edit user </a></li>
+      
+      <li><a href="admintoexam.jsp">Admin edit exam</a></li> 
+      
+      
+    <li><a href="accountDetails.jsp">Account Details</a></li>
+    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
+    
+    
+    
+  </ul>
+</div>
+    
         <%
 
 java.util.Date date=new java.util.Date();   
@@ -35,9 +74,10 @@ String datetime=new Timestamp(date.getTime()).toString();
          String query_sql = "select * from users";  
 
               %>   
-       <div class="main">
-        <table border="1">
+       <div class="main" style="position:fixed;top:80px;left:80px;">
+        <table  border="1" >  
         <tr>       
+           
 	<th>User name</th>
 	<th>Password</th>
 	<th>User ID </th>
@@ -91,7 +131,7 @@ String datetime=new Timestamp(date.getTime()).toString();
         
         
         
-  <button> <a href="#" onclick="javascript:history.back(-1);">Back</a></button>
+ 
     </body>
     
     
