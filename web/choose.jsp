@@ -41,7 +41,7 @@
   
        <li><a href="createusers.jsp">Create user </a></li>
       <li><a href="choose.jsp">Edit user </a></li>    
-      <li><a href="admintoexam.jsp">Admin edit exam</a></li>      
+      <li><a href="admintoexam.jsp">Admin edit Exam</a></li>      
     <li><a href="AdminAccount.jsp">Account Details</a></li>
     <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
     
