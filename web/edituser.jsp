@@ -97,13 +97,13 @@
                    
                    <tr>
                         
-                   <td>   <%=rs.getString("Username")%>  </td>
-                   <td> <%=rs.getString("Password")%> </td>
-                  <td>  <%=rs.getString("UserID")%> </td>
-                  <td>  <%=rs.getString("Module1")%> </td>
-                  <td>  <%=rs.getString("Module2")%> </td>
-                  <td>  <%=rs.getString("Module3")%> </td>
-                 <td>   <%=rs.getString("Module4")%>  </td>
+                   <td><%=rs.getString("Username")%> </td>
+                   <td><%=rs.getString("Password")%> </td>
+                   <td><%=rs.getString("UserID")%> </td>
+                   <td><%=rs.getString("Module1")%> </td>
+                   <td><%=rs.getString("Module2")%> </td>
+                   <td><%=rs.getString("Module3")%> </td>
+                   <td><%=rs.getString("Module4")%>  </td>
  
                    </tr>
                                
@@ -126,8 +126,7 @@
         <br>  
         <br>
     <form action="update.jsp" method="post">
-     User name &nbsp   
-     <input name="username"  type ="text"><br>
+   
     User  ID &nbsp   
    <select name="userid"  type ="text">
       <option value="Admin">Admin</option>
