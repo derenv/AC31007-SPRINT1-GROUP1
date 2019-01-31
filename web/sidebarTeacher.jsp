@@ -8,7 +8,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+
     <head>
         <link rel="stylesheet" type="text/css" href="css/Style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +17,7 @@
     <header>
         <div class="content"><img src="img/UoDlogo.jpg"/></div>
     </header>
+    <body>
     <div class="main">
         <div class="sidebar">
             <ul>
@@ -26,7 +27,6 @@
                 <li><a href="createNewExam.jsp">Create a new Exam</a></li>
                 <li><a href="viewExams.jsp">View uploaded Exams</a></li>
                 <li><a href="editExam.jsp">Edit my Exams</a></li>
-                <li><a href="examProgress.jsp">View Exam Progress</a></li>
                 <li><a href="accountDetails.jsp">Account Details</a></li>
 
 
@@ -34,4 +34,5 @@
             </ul>
         </div>
     </div>
-    <html>
+</body>
+

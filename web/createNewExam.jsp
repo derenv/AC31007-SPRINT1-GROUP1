@@ -22,12 +22,17 @@ and open the template in the editor.
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/Style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     
     
     
     <body>
+          <div class="main"> <h1>Upload Exam</h1>
+       
+    </div>
             <%
         //get user from implicit session object
         String username2 = (String) session.getAttribute("username");
@@ -68,14 +73,15 @@ and open the template in the editor.
         
         
         <div class="main">
-          <p>Please Upload Your exams</p>
+         
         <form name="upload" method='POST' action="uploadFile.jsp">
           Main Exam:  <input name="exam" type ="file" value="Main Exam"><br/>
           Main Solutions:   <input name="sol" type ="file" value="Main Solutions"><br/>
           Resit Exam:   <input name="resit" type ="file" value="Resit"><br/>
           Resit Solutions:  <input name="resitSol" type ="file" value="Resit Solutions"><br/>
            <!--Module Code <input name="modCode2" type="text"><br>-->
-           Module Code<select name="modCode" size="" multiple>
+           Module Code<input list="modCode" name="modCode">
+            <datalist id="modCode">
                <% for (int i = 0; i < length ; i++) {
 
           
@@ -83,7 +89,9 @@ and open the template in the editor.
                      %>
                 <option value="<%=modCode%>"><%=modCode%></option>
        <%}%>
-                
+    
+ 
+  </datalist>
               
             </select>
             <input type="hidden" name="type" value="1">
