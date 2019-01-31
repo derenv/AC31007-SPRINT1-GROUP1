@@ -67,7 +67,7 @@ String datetime=new Timestamp(date.getTime()).toString();
 
               %>   
                
-        <div class="main" style="position:fixed;top:80px;left:-50px;">
+        <div class="main"  style="position:relative;  left:-200px;" >
         <table  border="1" >  
       
         <tr>            
@@ -83,7 +83,9 @@ String datetime=new Timestamp(date.getTime()).toString();
         <th>Edit</th>
         <th>Update/Delete</th>
 	</tr>
-                   
+    
+    
+        
              <%
             try {   
                 ResultSet rs = stmt.executeQuery(query_sql);     
@@ -110,36 +112,12 @@ String datetime=new Timestamp(date.getTime()).toString();
                 } 
 %>
 
-      
-                  </table>
-  <center>  <button> <a href="#">Add an exam</a> </button></center> 
-              </div>
+         </table>
 
-<%
-
-            }
-
-
-                 catch(Exception e) {  
-                e.printStackTrace();  
-            }   
-                 
-            stmt.close();                 
-            conn.close();   
-        }
-          catch (Exception e) {  
-                e.printStackTrace();  
-        }   
-%>   
-        
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div class="main" >
-    
-            <h2>Update exam</h2>
-    
-            <form action="adminUpdExam.jsp" method="post" style="padding:0px">
+  <center>  <button> <a href="adminCreateExam.jsp">Add an exam</a> </button></center> 
+  
+   <form action="adminUpdExam.jsp" method="post" style="padding:0px">
                 <h3>Details</H3>
-                
                 Module code &nbsp 
                 <input name="ModuleCode"  type ="text"  value="<%=request.getParameter("ModuleCode") %>"   >  <br/>
                 Module Coordinator  &nbsp 
@@ -159,13 +137,28 @@ String datetime=new Timestamp(date.getTime()).toString();
            
        
                 <input name="submit"  type ="submit"  value="submit"style="float: right;background-color: rgb(67,101,226);border: none;color:white;
-                       padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"  ><br/>
-
+                      padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"  ><br/>
+                
             </form>
-               
-        
-                </div>   
+  
+              </div>
 
+<%
+
+            }
+
+
+                 catch(Exception e) {  
+                e.printStackTrace();  
+            }   
+                 
+            stmt.close();                 
+            conn.close();   
+        }
+          catch (Exception e) {  
+                e.printStackTrace();  
+        }   
+%>   
 
         
  
