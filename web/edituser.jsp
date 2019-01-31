@@ -11,11 +11,43 @@
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page contentType="text/html;"%>  
 
+
 <!DOCTYPE html>
 <html>
+<head>
+ <link rel="stylesheet" type="text/css" href="css/Style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<header>
+      <div class="content"><img src="img/UoDlogo.jpg"/></div>
+</header>
 
     <body>
-        
+        <div class="main">
+<div class="sidebar">
+    
+  <ul>
+      
+  
+    <br>
+   
+ 
+      
+  
+       <li><a href="createusers.jsp">Create user </a></li>
+      <li><a href="choose.jsp">Change user </a></li>
+      
+      <li><a href="admintoexam.jsp">Admin edit exam</a></li> 
+      
+      
+    <li><a href="accountDetails.jsp">Account Details</a></li>
+    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
+    
+    
+    
+  </ul>
+</div>
         <%
 
        java.util.Date date=new java.util.Date();   
@@ -50,10 +82,7 @@
             session.setAttribute("Mod3",rs.getString("Module3"));
             session.setAttribute("Mod4",rs.getString("Module4"));
                     %>     
-                    
-                    
-                    
-                    
+    
                     <table border="1">
                     
                    <tr>
@@ -67,7 +96,7 @@
                    </tr>
                    
                    <tr>
-                    
+                        
                    <td>   <%=rs.getString("Username")%>  </td>
                    <td> <%=rs.getString("Password")%> </td>
                   <td>  <%=rs.getString("UserID")%> </td>
@@ -98,7 +127,7 @@
         <br>
     <form action="update.jsp" method="post">
      User name &nbsp   
-   <input name="username"  type ="text">
+     <input name="username"  type ="text"><br>
     User  ID &nbsp   
    <select name="userid"  type ="text">
       <option value="Admin">Admin</option>
@@ -107,14 +136,15 @@
       <option value="Teacher">Teacher</option>
       <option value="Exam_Vetting_Committee">Exam Vetting Committee</option>
   </select>
+    <br>
     Module 1  &nbsp 
-  <input name="mod1"  type ="text">
+  <input name="mod1"  type ="text"><br>
     Module 2  &nbsp 
-  <input name="mod2"  type ="text">
+  <input name="mod2"  type ="text"><br>
     Module 3  &nbsp 
-  <input name="mod3"  type ="text">
+  <input name="mod3"  type ="text"><br>
     Module 4  &nbsp 
-  <input name="mod4"  type ="text">
+  <input name="mod4"  type ="text"><br>
   
  
   
