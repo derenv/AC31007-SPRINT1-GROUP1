@@ -64,14 +64,9 @@ public class file_handler {
             //form parameters for SQL command
             Object[] paramater_list = {newModuleCode, files.get(0), files.get(1), files.get(2), files.get(3)};
             
-            if(newModuleCode == null){
-                session.setAttribute("parameters", paramater_list);
-                response.sendRedirect("ferror.jsp");
-            }
-            //check if file exists
-            else if(file_exists(newModuleCode)){
+            if(file_exists(newModuleCode)){
                 //update file and metadata on database
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("feerror.jsp");
             }else{
                 //add file and metadata to database
                 (new data_access()).run_statement(
@@ -79,7 +74,7 @@ public class file_handler {
                 );
                 //set stage to 1
                 (new data_access()).run_statement(
-                    "UPDATE exams SET Stage = Stage+1 WHERE ModuleCode="+newModuleCode
+                    "UPDATE exams SET Stage = Stage+1 WHERE ModuleCode='"+newModuleCode+"'"
                 );
                 
                 response.sendRedirect("viewExams.jsp");
