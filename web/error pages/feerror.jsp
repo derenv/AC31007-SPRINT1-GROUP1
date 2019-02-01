@@ -10,9 +10,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../css/style2.css" />
 	<!-- menu styles -->
-	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" type="text/css" href="../css/component.css" />
         <title>Error Page</title>
         <%
             Object[] x = (Object[]) session.getAttribute("parameters");
@@ -26,9 +27,11 @@
         %>
     </head>
     <header>
-        <div class="content"><img src="img/UoDlogo.jpg"/></div>
+        <div class="content"><img src="../img/UoDlogo.jpg"/></div>
     </header>
     <body>
-        <h1 style="text-align: center;">A file already Exists for this Module</h1>
+         <h1 style="color:#2a2b30;padding-top: 100px;text-align: center;">A file already exists for this Module</h1>
+        <h1 style="padding-top: 100px;text-align: center;">A file already exists for this Module</h1>
+        <a style="align: center;" href="../createNewExam.jsp">Go Back</a>
     </body>
 </html>

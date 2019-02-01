@@ -170,13 +170,20 @@ public class file_handler {
      * @return   q
      * @throws  IOException
      */
-    public void file_download(HttpServletRequest request, HttpServletResponse response, HttpSession session, String type) throws IOException{
-        //check if file exists
+    public void file_download(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException{
+        //get parameters & validate
+        String identifier = request.getParameter("modCode");
+        String type = request.getParameter("type");
+        if(type == null | identifier == null){
+            throw new IOException("SELECT "+type+" FROM pdf WHERE ModuleCode='"+identifier+"'");
+        }
+        
         try{
-            String identifier = request.getParameter("modCode");
+            //check if file exists
             if(file_exists(identifier)){
                 //get file from database & create input stream
-                ResultSet rs = (new data_access()).run_statement("SELECT "+type+" FROM pdf WHERE ModuleCode='"+identifier+"'");
+                Object[] parameters = {type,identifier};
+                ResultSet rs = (new data_access()).run_statement("SELECT ? FROM pdf WHERE ModuleCode=?",parameters);
                 //FOR EACH FILE
                 for(int i=0;i<4;i++){
                     Blob file_blob = rs.getBlob(i);
