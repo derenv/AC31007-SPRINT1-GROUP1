@@ -5,7 +5,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java"%>
 
-<%@include file="../jsp/session_check.jsp" %>
+<%@include file="../../jsp/session_check.jsp" %>
 <%@include file="../sidebarTeacher.jsp" %>
 <%@ page import="db.data_access" %>
 <%@ page import="java.sql.ResultSet,java.sql.SQLException"%>
@@ -49,7 +49,7 @@
                 session.setAttribute("state", e.getSQLState());
                 session.setAttribute("code", e.getErrorCode());
                 session.setAttribute("mess", e.getMessage());
-                response.sendRedirect("../error pages/dberror.jsp");
+                response.sendRedirect("../../error pages/dberror.jsp");
             }
         %>
     </body>
