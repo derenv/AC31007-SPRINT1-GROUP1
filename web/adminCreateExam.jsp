@@ -12,7 +12,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>  
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page contentType="text/html;"%> 
-<%@include file="session_check.jsp" %>
+
 <!DOCTYPE html>
 
 
@@ -117,9 +117,7 @@ String datetime=new Timestamp(date.getTime()).toString();
                       
             try {   
                 stmt.execute(insert_sql);  
-     <% 
-      <script > window.location.href='admintoexam.jsp' </script>
-     %>
+    
      
            }catch(Exception e)     {  
                 e.printStackTrace();  
