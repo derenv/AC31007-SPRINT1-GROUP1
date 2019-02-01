@@ -116,9 +116,7 @@ String datetime=new Timestamp(date.getTime()).toString();
                       
             try {   
                 stmt.execute(insert_sql);  
-      %>
-       <script> window.location.href='admintoexam.jsp' </script>
-      <%
+     
            }catch(Exception e)     {  
                 e.printStackTrace();  
            }  
