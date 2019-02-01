@@ -27,7 +27,7 @@ This is the sidebar file that is included for all moderator web pages
                     <li><a href="#">Completed</a></li><br>
                     <li><p><u>Other</u></p></li>
                     <li><a href="#">Account Details</a></li>
-                    <div class="signout"><li><a href='../logout.jsp'>Sign out</a></li></div>
+                    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
                 </ul>
             </div>
         </div>

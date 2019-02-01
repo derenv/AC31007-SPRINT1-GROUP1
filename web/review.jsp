@@ -9,7 +9,7 @@
 <%@page import="db.viewExams"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="sidebarModerator.jsp" %>
+<%@include file="../HTML/Sidebars/sidebarModerator.jsp" %>
 
 <!DOCTYPE html>
 <html>

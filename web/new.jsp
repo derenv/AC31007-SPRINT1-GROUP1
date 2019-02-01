@@ -6,7 +6,7 @@
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page import="db.conn" %>
 <%@include file="session_check.jsp" %>
-<%@include file="sidebarModerator.jsp" %>
+<%@include file="../HTML/Sidebars/sidebarModerator.jsp" %>
  
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

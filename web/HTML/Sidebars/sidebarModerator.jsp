@@ -22,7 +22,7 @@
 
                 <br>
                 <li><a href="new.jsp">My Modules</a></li>
-                <li><a href="">View Exams</a></li>
+                <li><a href="#">View Exams</a></li>
                 <li><a href="review.jsp">Send Review</a></li>
                
 

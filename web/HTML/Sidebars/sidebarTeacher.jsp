@@ -15,7 +15,7 @@
     </head>
     
     <header>
-        <div class="content"><img src="../../img/UoDlogo.jpg"/></div>
+        <div class="content"><img src="../img/UoDlogo.jpg"/></div>
     </header>
     <body>
     <div class="main">
@@ -30,7 +30,7 @@
                 <li><a href="accountDetails.jsp">Account Details</a></li>
 
 
-                <div class="signout"><li><a href='../../jsp/logout.jsp'>Sign out</a></li></div>
+                <div class="signout"><li><a href="logout.jsp">Sign out</a></li></div>
             </ul>
         </div>
     </div>
