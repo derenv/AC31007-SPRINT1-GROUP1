@@ -1,15 +1,9 @@
-
-<!--
-This is the internal moderator dashboard, this is first stage in exam review after the exam setter (teacher) has created the exam.
-@include file="../session_check.jsp" 
--->
+<%-- 
+    Document   : examVettingDash.jsp
+    Author     : sarahsmall
+--%>
+<%@include file="../jsp/session_check.jsp"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
-<%    String username2 = (String) session.getAttribute("username");
-    
-
-%>
 <!DOCTYPE html>
 <html>
     <head>

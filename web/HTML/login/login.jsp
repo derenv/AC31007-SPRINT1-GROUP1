@@ -3,11 +3,8 @@
     Created on : 22 Jan 2019, 17:30:40
     Author     : deren vural
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@page import="java.util.Enumeration"%>
-<%@ page import = "java.io.*"%>
 <%@ page import = "java.sql.SQLException"%>
 <%@ page import="db.login" %>
 
@@ -24,46 +21,46 @@
             String type = log1.check_valid_details(username,password);
             if(type == null){
                 //null value
-                response.sendRedirect("error pages/error.jsp");
+                response.sendRedirect("../../error pages/error.jsp");
             }else if ("Teacher".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
-                response.sendRedirect("HTML/teacherDash.jsp");
+                response.sendRedirect("../teacherDash.jsp");
             }else if ("Admin".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
-                response.sendRedirect("HTML/adminDash.jsp");
+                response.sendRedirect("../adminDash.jsp");
             }else if ("ExternalModerator".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
-                response.sendRedirect("HTML/externalModDash.jsp");
+                response.sendRedirect("../externalModDash.jsp");
             }else if ("InternalModerator".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
-                response.sendRedirect("HTML/internalModDash.jsp");
+                response.sendRedirect("../internalModDash.jsp");
             }else if ("ExamVet".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
-                response.sendRedirect("HTML/examVettingDash.jsp");
+                response.sendRedirect("../examVettingDash.jsp");
             }else if ("SchoolOffice".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
                 session.setAttribute("type",type);
-                response.sendRedirect("SchoolOfficeDash.jsp");
+                response.sendRedirect("../SchoolOfficeDash.jsp");
             }else{
                 //invalid value
-                response.sendRedirect("error pages/error.jsp");
+                response.sendRedirect("../../error pages/error.jsp");
             }
         }catch(SQLException e){
             session.setAttribute("state", e.getSQLState());
             session.setAttribute("code", e.getErrorCode());
             session.setAttribute("mess", e.getMessage());
-            response.sendRedirect("error pages/dberror.jsp");
+            response.sendRedirect("../../error pages/dberror.jsp");
         }
     %>
 </html>

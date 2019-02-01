@@ -12,10 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.junit.Assert;
-
 
 /**
  *
@@ -35,7 +31,7 @@ public class testViewExam {
     
     @After
     public void tearDown() {
-      
+        //
     }
 
     @Test
@@ -43,7 +39,6 @@ public class testViewExam {
         assertNotNull(v.c);
     }
     
-   
     @Test 
     public void getModCoord() throws SQLException{
     String expected = "Sarah Smith";
@@ -84,100 +79,38 @@ public class testViewExam {
     }
     
     @Test 
-    public void  testGetExamSolutions(){
-    byte[] result = null;
-    byte[] compare = null;
-        try {
-            compare = v.getSolution("AC31005");
-        } catch (SQLException ex) {
-            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    Assert.assertArrayEquals(compare,result);
-    
-    
-    }
-    @Test 
-    public void  testGetExam(){
-    byte[] result = null;
-    byte[] compare = null;
-        try {
-            compare = v.getExam("ACTEST6");
-        } catch (SQLException ex) {
-            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    Assert.assertArrayEquals(compare,result);
-    
-    
-    }
-
-    @Test 
-    public void  testGetSolution(){
-    byte[] result = null;
-    byte[] compare = null;
-        try {
-            compare = v.getSolution("ACTEST6");
-        } catch (SQLException ex) {
-            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    Assert.assertArrayEquals(compare,result);
-    
-    
-    }
-     @Test 
-    public void  testGetResitSolution(){
-    byte[] result = null;
-    byte[] compare = null;
-        try {
-            compare = v.getResitSolution("ACTEST6");
-        } catch (SQLException ex) {
-            Logger.getLogger(testViewExam.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    Assert.assertArrayEquals(compare,result);
-    
-    
-    }
-    @Test 
     public void testSetIncreaseStage() throws SQLException{
         int expected = 6;
         v.setIncreaseStage("AC21007");
         int compare = v.getStage("AC21007");
         assertEquals(expected, compare);
-    
     }
     
-      @Test 
-        public void testAddComments(){
+    @Test 
+    public void testAddComments(){
         boolean expected = true;
         boolean compare = v.addComments("comments","AC21007");
         assertEquals(expected, compare);
-    
     }
     
-     @Test 
-        public void testGetInternalModerator() throws SQLException{
+    @Test 
+    public void testGetInternalModerator() throws SQLException{
         String expected = "Lesley";
         String compare = v.getInternalModerator("AC21007");
         assertEquals(expected, compare);
-    
     }
-        @Test 
-        public void testGetExamVetting() throws SQLException{
+        
+    @Test 
+    public void testGetExamVetting() throws SQLException{
         String expected = "lewis";
         String  compare = v.getExamVetting("AC21007");
         assertEquals(expected, compare);
-    
     }
-        @Test 
-        public void testExternalModerator() throws SQLException{
+        
+    @Test 
+    public void testExternalModerator() throws SQLException{
         String expected = "finn";
         String compare = v.getExternalModerator("AC21007");
         assertEquals(expected, compare);
-    
     }
-        
-    
-        
-    
-    
 }
-

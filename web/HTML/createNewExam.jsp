@@ -1,23 +1,16 @@
-
-<%@page import="db.viewExams"%>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%-- 
+    Document   : createNewExam.jsp
+    Author     : sarahsmall
+--%>
+<%@ page language="java"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="session_check.jsp" %>
-<%@include file="sidebarTeacher.jsp" %>
-<%@page import="com.oreilly.servlet.MultipartRequest" %>
-<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
-<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>  
-<%@ page language="java" import="java.util.*,java.sql.*"%>  
-<%@ page import="db.conn" %>
 
-<%    
-%>
+<%@include file="../jsp/session_check.jsp" %>
+<%@include file="../sidebarTeacher.jsp" %>
+
+<%@ page import="java.util.ArrayList,java.util.Arrays" %>
+<%@ page import="db.conn" %>
+<%@ page import="db.viewExams"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,21 +19,18 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
-    
     <body>
-        <div class="main"> <h1>Upload Exam</h1>
+        <div class="main">
+            <h1>Upload Exam</h1>
         </div>
         <%
             //get user from implicit session object
             String username2 = (String) session.getAttribute("username");
-            java.util.Date date = new java.util.Date();
-            String datetime = new Timestamp(date.getTime()).toString();
 
             //get the module codes that are relevent to the user
             viewExams v = new viewExams(username2, "Teacher");
             ArrayList<String> list = new ArrayList();
             list = v.getModuleCodes(username2);
-
 
             //gets the size of Array list (number of module codes)
             Arrays.toString(list.toArray());
@@ -48,12 +38,6 @@ and open the template in the editor.
 
             //initiase the varibales to empty strings
             String modCode ="";
-            String modCoord="";
-            String modName="";
-            String year="";
-            double stage=0;
-            double stage2=0;
-            String label="";
      
             //loops for the number of modules they have
             for (int i = 0; i < length ; i++) {
@@ -62,19 +46,21 @@ and open the template in the editor.
         %>
     
         <div class="main">
-            <form name="upload" method='POST' action="upload.jsp" enctype="multipart/form-data" style="text-align: left;">
+            <form name="upload" method='POST' action="../upload.jsp" enctype="multipart/form-data" style="text-align: left;">
                 Main Exam&nbsp; &nbsp; &nbsp;&nbsp;<input name="exam" type ="file" accept=".pdf" required><br>
                 Main Solutions   <input name="sol" type ="file" accept=".pdf" required><br>
                 Resit Exam  &nbsp;&nbsp;&nbsp;&nbsp; <input name="resit" type ="file" accept=".pdf" required><br>
                 Resit Solutions  <input name="resitSol" type ="file" accept=".pdf" required><br>
                 Module Code&nbsp;&nbsp;&nbsp;&nbsp;<input list="modCode" name="modCode" required>
                 <datalist id="modCode">
-                    <% for (int i = 0; i < length; i++) {
-
+                    <%
+                        for (int i = 0; i < length; i++) {
                             modCode = list.get(i); //displays module codes that are at stage 0 meaning nothing has been uploaded yet - so they can upload
                     %>
                     <option value="<%=modCode%>"><%=modCode%></option>
-                    <%}%>
+                    <%
+                        }
+                    %>
                 </datalist>
                 <br>
                 <%

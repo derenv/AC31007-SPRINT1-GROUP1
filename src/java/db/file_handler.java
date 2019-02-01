@@ -175,9 +175,9 @@ public class file_handler {
         String identifier = request.getParameter("modCode");
         String type = request.getParameter("type");
         if(type == null | identifier == null){
-            throw new IOException("SELECT "+type+" FROM pdf WHERE ModuleCode='"+identifier+"'");
+            session.setAttribute("message", "null user type or module identifier");
+            throw new IOException("file error");
         }
-        
         try{
             //check if file exists
             if(file_exists(identifier)){
@@ -188,13 +188,13 @@ public class file_handler {
                 for(int i=0;i<4;i++){
                     Blob file_blob = rs.getBlob(i);
                     InputStream inputStream = file_blob.getBinaryStream();
-                    
+
                     //create file location & output stream
                     String home = System.getProperty("user.home");
                     String file_name = identifier+"_"+Integer.toString(i)+".pdf";
                     File file = new File(home+"/Downloads/" + file_name);
                     OutputStream outputStream = new FileOutputStream(file);
-                    
+
                     //write to file
                     int bytesRead = -1;
                     byte[] buffer = new byte[2048];
@@ -205,7 +205,7 @@ public class file_handler {
                     //end write
                     inputStream.close();
                     outputStream.close();
-                    
+
                     //view pdf
                     int blobLength = (int) file_blob.length();  
                     byte[] file_bytes = file_blob.getBytes(1, blobLength);

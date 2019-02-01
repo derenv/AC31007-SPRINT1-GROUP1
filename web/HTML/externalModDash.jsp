@@ -1,15 +1,9 @@
-
-<!--
-This is the internal moderator dashboard, this is first stage in exam review after the exam setter (teacher) has created the exam.
-@include file="../session_check.jsp" 
--->
+<%-- 
+    Document   : externalModDash.jsp
+    Author     : sarahsmall
+--%>
+<%@include file="../jsp/session_check.jsp"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
-<%    String username2 = (String) session.getAttribute("username");
-    
-
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,11 +15,10 @@ This is the internal moderator dashboard, this is first stage in exam review aft
          <header>
         <div class="content"><img src="../img/UoDlogo.jpg"/></div>
     </header>
-   
     <body>
         <div class="main">
-
-            <center><br><br><br><br><br><br>
+            <center>
+                <br><br><br><br><br><br>
                 <table>
                     <tr>
                         <td class="bLeft"><img src="../img/folder.png" height="256" width="256">
@@ -44,27 +37,16 @@ This is the internal moderator dashboard, this is first stage in exam review aft
                     <tr>
                 </table>
             </center>
-            
-     
-  
-        <div class="sidebar">
-            <ul>
-
-                <br>
-                <li><a href="../new.jsp">My Modules</a></li>
-                <li><a href="">View Exams</a></li>
-                <li><a href="../review.jsp">Send Review</a></li>
-          
-
-
-                <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
-            </ul>
+            <div class="sidebar">
+                <ul>
+                    <br>
+                    <li><a href="../new.jsp">My Modules</a></li>
+                    <li><a href="">View Exams</a></li>
+                    <li><a href="../review.jsp">Send Review</a></li>
+                    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
+                </ul>
+            </div>
         </div>
-  
-    
-        </div>
-        
-        
     </body>
 </html>
 

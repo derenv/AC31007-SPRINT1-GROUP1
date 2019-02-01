@@ -15,6 +15,11 @@
 	<!-- menu styles -->
 	<link rel="stylesheet" type="text/css" href="../css/component.css" />
         <title>Error Page</title>
+    </head>
+    <header>
+        <div class="content"><img src="../img/UoDlogo.jpg"/></div>
+    </header>
+    <body>
         <%
             Object[] x = (Object[]) session.getAttribute("parameters");
             if(x != null){
@@ -24,13 +29,12 @@
                 out.println("<h2>"+x[3]+"</h2>");
                 out.println("<h2>"+x[4]+"</h2>");
             }
+            String message = (String) session.getAttribute("message");
+            if(message != null){
+                out.println("<h2>"+message+"</h2>");
+            }
         %>
-    </head>
-    <header>
-        <div class="content"><img src="../img/UoDlogo.jpg"/></div>
-    </header>
-    <body>
-         <h1 style="color:#2a2b30;padding-top: 100px;text-align: center;">A file already exists for this Module</h1>
+        <h1 style="color:#2a2b30;padding-top: 100px;text-align: center;">A file already exists for this Module</h1>
         <h1 style="padding-top: 100px;text-align: center;">A file already exists for this Module</h1>
         <a style="align: center;" href="../createNewExam.jsp">Go Back</a>
     </body>

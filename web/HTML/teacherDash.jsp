@@ -1,14 +1,9 @@
-
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%-- 
+    Document   : teacherDash.jsp
+    Author     : sarahsmall
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="../session_check.jsp" %>
-<%
-    String username2 = (String) session.getAttribute("username");
-%>
+<%@include file="../jsp/session_check.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,11 +24,11 @@ and open the template in the editor.
                 <ul>
 
                     <br><br>
-                    <li><a href="../myModules.jsp">My Modules</a></li>
-                    <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
-                    <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
-                    <li><a href="../editExam.jsp">Edit my Exams</a></li>
-                    <li><a href="../accountDetails.jsp">Account Details</a></li>
+                    <li><a href="myModules.jsp">My Modules</a></li>
+                    <li><a href="createNewExam.jsp">Create a new Exam</a></li>
+                    <li><a href="viewExams.jsp">View uploaded Exams</a></li>
+                    <li><a href="editExam.jsp">Edit my Exams</a></li>
+                    <li><a href="accountDetails.jsp">Account Details</a></li>
 
 
                     <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
