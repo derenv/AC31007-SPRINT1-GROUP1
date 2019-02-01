@@ -408,5 +408,36 @@ public class viewExams {
         return moduleCodes;
     }
     
+     public String getComments(String ModuleCode) throws SQLException{
+     String comments ="";
+     data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select Comments from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            comments = rs.getString("Comments"); 
+            c.close();
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        if (comments == null){comments ="No Comments yet";}        
+        return comments;
+    }
+     
+    public String getInternalModerator(String ModuleCode) throws SQLException{
+    String InternalModerator ="";
+    data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select InternalModerator from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            InternalModerator = rs.getString("InternalModerator"); 
+            c.close();
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+                 
+        return InternalModerator;
+    }
 
 }

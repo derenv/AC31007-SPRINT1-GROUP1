@@ -44,7 +44,6 @@ and open the template in the editor.
         ArrayList<String> list = new ArrayList();
         list = v.getModuleCodes(username2);
         
-        //for the stages
       
         //gets the size of Array list (number of module codes)
         Arrays.toString(list.toArray());
@@ -69,44 +68,33 @@ and open the template in the editor.
        %>
     
         
-     
-        
         
         <div class="main">
-         
-        <form name="upload" method='POST' action="upload.jsp" enctype="multipart/form-data" style="text-align: left;">
-          Main Exam&nbsp; &nbsp; &nbsp;&nbsp;<input name="exam" type ="file" value="Main Exam"><br/>
-          Main Solutions   <input name="sol" type ="file" value="Main Solutions"><br/>
-          Resit Exam  &nbsp;&nbsp;&nbsp;&nbsp; <input name="resit" type ="file" value="Resit"><br/>
-          Resit Solutions  <input name="resitSol" type ="file" value="Resit Solutions"><br/>
-           <!--Module Code <input name="modCode2" type="text"><br>-->
-           Module Code&nbsp;&nbsp;&nbsp;&nbsp;<input list="modCode" name="modCode">
-            <datalist id="modCode">
-               <% for (int i = 0; i < length ; i++) {
 
-          
-                     modCode = list.get(i);
-                     %>
-                <option value="<%=modCode%>"><%=modCode%></option>
-       <%}%>
-    
- 
-  </datalist>
-              
-         
-            <input type="hidden" name="type" value="1">
-            
-        <input type="submit"  value="upload"style="background-color: rgb(67,101,226);border: none;color:white;
+            <form name="upload" method='POST' action="upload.jsp" enctype="multipart/form-data" style="text-align: left;">
+                Main Exam&nbsp; &nbsp; &nbsp;&nbsp;<input name="exam" type ="file" value="Main Exam"required><br>
+                Main Solutions   <input name="sol" type ="file" value="Main Solutions"required><br>
+                Resit Exam  &nbsp;&nbsp;&nbsp;&nbsp; <input name="resit" type ="file" value="Resit"required><br>
+                Resit Solutions  <input name="resitSol" type ="file" value="Resit Solutions" required><br>
+                <!--Module Code <input name="modCode2" type="text"><br>-->
+                Module Code&nbsp;&nbsp;&nbsp;&nbsp;<input list="modCode" name="modCode"required>
+                <datalist id="modCode">
+                    <% for (int i = 0; i < length; i++) {
+
+                            modCode = list.get(i); //displays module codes that are at stage 0 meaning nothing has been uploaded yet - so they can upload
+                    %>
+                    <option value="<%=modCode%>"><%=modCode%></option>
+                    <%}%>
+
+                </datalist>
+
+                <br>
+                Sign Exam&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="sign" value="Sign"required>  <br>
+
+                <input type="submit"  value="upload"style="background-color: rgb(67,101,226);border: none;color:white;
                        padding: 10px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;" />
-        </form>
-
+            </form>
 <% %>
-             
-
-      
-
-                
-                </div>
-                
-                </body>
-                </html>
+        </div>
+    </body>
+</html>
