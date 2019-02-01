@@ -11,12 +11,15 @@
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page contentType="text/html;"%>  
 
+
 <!DOCTYPE html>
 <html>
     
  <head>
  <link rel="stylesheet" type="text/css" href="css/Style.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <header>
@@ -41,14 +44,14 @@
   
        <li><a href="createusers.jsp">Create user </a></li>
       <li><a href="choose.jsp">Edit user </a></li>    
-      <li><a href="admintoexam.jsp">Admin edit Exam</a></li>      
+      <li><a href="admintoexam.jsp">Edit Exam</a></li>      
     <li><a href="AdminAccount.jsp">Account Details</a></li>
-    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
+    <div class="signout"><li><a href="logout.jsp">Sign out</a></li></div>
     
     
     
   </ul>
-</div>
+</div></div>
     
         <%
 
@@ -71,9 +74,9 @@ String datetime=new Timestamp(date.getTime()).toString();
          String query_sql = "select * from users";  
 
               %>   
-       <div class="main" style="position:fixed;top:80px;left:80px;">
+              <div class="main" style="position:fixed;top:80px;left:80px;"><br><br>
         <table  border="1" >  
-        <tr>       
+        <tr style="text-align: center;">       
            
 	<th>User name</th>
 	<th>Password</th>
@@ -127,7 +130,8 @@ String datetime=new Timestamp(date.getTime()).toString();
 %>   
         
         
-        
+</div>
+
  
     </body>
     

@@ -13,6 +13,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>  
 <%@ page language="java" import="java.util.*,java.sql.*"%>  
 <%@ page contentType="text/html;"%> 
+<%@include file="session_check.jsp" %>
 <!DOCTYPE html>
 
 
@@ -44,12 +45,13 @@
       <li><a href="choose.jsp">Edit user </a></li>  
       <li><a href="admintoexam.jsp">Admin edit Exam</a></li>      
      <li><a href="accountDetails.jsp">Account Details</a></li>
-    <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>
+    <div class="signout"><li><a href="logout.jsp">Sign out</a></li></div>
   
   </ul>
-</div>
-    
+</div></div>
+    <div class="main">
    <div align="center">
+       <br>
        <fieldset style="background-color: white ; width: 600px ; ">
        <legend style="text-align: center ; color: black; background-color: white ; font-size:40px">Create Exam Page</legend>
         <legend style="text-align: center ; background-color: white ;" >Please enter the information </legend>
@@ -80,7 +82,7 @@
         </form>  
           </div>
 		</fieldset>
-	</div>
+   </div></div>
 
     <%
 String  ModuleCode =request.getParameter("ModuleCode");  
@@ -96,6 +98,8 @@ String  ExamVetting =request.getParameter("ExamVetting");
 
 java.util.Date date=new java.util.Date();   
 String datetime=new Timestamp(date.getTime()).toString();  
+
+
         try   
         {   
             String driverName = "com.mysql.jdbc.Driver"; 
@@ -114,9 +118,10 @@ String datetime=new Timestamp(date.getTime()).toString();
                       
             try {   
                 stmt.execute(insert_sql);  
-      %>
-       <script> window.location.href='admintoexam.jsp' </script>
-      <%
+     <% 
+      <script > window.location.href='admintoexam.jsp' </script>
+     %>
+     
            }catch(Exception e)     {  
                 e.printStackTrace();  
            }  

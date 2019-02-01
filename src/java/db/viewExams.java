@@ -285,21 +285,38 @@ public class viewExams {
         return moduleCodes;
     }
     
-     public String getComments(String ModuleCode) throws SQLException{
-     String comments ="";
+     public String getInternalModComs(String ModuleCode) throws SQLException{
+     String InternalModComs ="";
      data_access da = new data_access();
         try{
-            ResultSet rs = da.run_statement("select Comments from exams where ModuleCode='" + ModuleCode + "'");
+            ResultSet rs = da.run_statement("select InternalModComs from exams where ModuleCode='" + ModuleCode + "'");
             rs.next();
-            comments = rs.getString("Comments"); 
+            InternalModComs = rs.getString("InternalModComs"); 
             c.close();
    
         } catch(Exception e) {
             e.printStackTrace();
         }
-        if (comments == null){comments ="No Comments yet";}        
-        return comments;
+        if (InternalModComs == null){InternalModComs ="No Comments yet";}        
+        return InternalModComs;
     }
+     
+     public String getExternalModComs(String ModuleCode) throws SQLException{
+     String ExternalModComs ="";
+     data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select ExternalModComs from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            ExternalModComs = rs.getString("ExternalModComs"); 
+            c.close();
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        if (ExternalModComs == null){ExternalModComs ="No Comments yet";}        
+        return ExternalModComs;
+    }
+     
      
     public String getInternalModerator(String ModuleCode) throws SQLException{
     String InternalModerator ="";
@@ -313,8 +330,40 @@ public class viewExams {
         } catch(Exception e) {
             e.printStackTrace();
         }
-                 
+         if (InternalModerator == null){InternalModerator ="No internal moderator selected";}           
         return InternalModerator;
+    }
+    
+    public String getExternalModerator(String ModuleCode) throws SQLException{
+    String externalModerator ="";
+    data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select externalModerator from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            externalModerator = rs.getString("ExternalModerator"); 
+            c.close();
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+         if (externalModerator == null){externalModerator ="no external moderator selected";}          
+        return externalModerator;
+    }
+    
+      public String getExamVetting (String ModuleCode) throws SQLException{
+        String externalModerator ="";
+        data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select ExamVetting from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            externalModerator = rs.getString("ExamVetting"); 
+            c.close();
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+         if (externalModerator == null){externalModerator ="no Exam vetter selected";}          
+        return externalModerator;
     }
 
 }
