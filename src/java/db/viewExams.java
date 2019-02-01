@@ -439,5 +439,37 @@ public class viewExams {
                  
         return InternalModerator;
     }
+    
+    public String getExternalModerator(String ModuleCode) throws SQLException{
+    String externalModerator ="";
+    data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select externalModerator from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            externalModerator = rs.getString("ExternalModerator"); 
+            c.close();
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+         if (externalModerator == null){externalModerator ="no external moderator selected";}          
+        return externalModerator;
+    }
+    
+      public String getExamVetting (String ModuleCode) throws SQLException{
+        String externalModerator ="";
+        data_access da = new data_access();
+        try{
+            ResultSet rs = da.run_statement("select ExamVetting from exams where ModuleCode='" + ModuleCode + "'");
+            rs.next();
+            externalModerator = rs.getString("ExamVetting"); 
+            c.close();
+   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+         if (externalModerator == null){externalModerator ="no Exam vetter selected";}          
+        return externalModerator;
+    }
 
 }

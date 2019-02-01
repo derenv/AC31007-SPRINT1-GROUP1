@@ -3,6 +3,7 @@
     Created on : 24-Jan-2019, 17:19:54
     Author     : zhendongliu
 --%>
+ 
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
@@ -17,6 +18,8 @@
 <head>
  <link rel="stylesheet" type="text/css" href="css/Style.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+               <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <header>
@@ -47,7 +50,7 @@
     
     
   </ul>
-</div>
+</div></div>
         <%
 
        java.util.Date date=new java.util.Date();   
@@ -82,7 +85,7 @@
             session.setAttribute("Mod3",rs.getString("Module3"));
             session.setAttribute("Mod4",rs.getString("Module4"));
                     %>     
-    
+    <div class="main">
                     <table border="1">
                     
                    <tr>
@@ -152,7 +155,7 @@
 
         </form>
         
- 
+    </div>
     </body>
     
     
