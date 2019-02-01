@@ -15,6 +15,8 @@ This is the internal moderator dashboard, this is first stage in exam review aft
     <head>
         <link rel="stylesheet" type="text/css" href="../css/Style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
          <header>
         <div class="content"><img src="../img/UoDlogo.jpg"/></div>
@@ -49,9 +51,10 @@ This is the internal moderator dashboard, this is first stage in exam review aft
             <ul>
 
                 <br>
-                <li><a href="../myModules.jsp">My Modules</a></li>
-                <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
-                <li><a href="../accountDetails.jsp">Account Details</a></li>
+                <li><a href="../new.jsp">My Modules</a></li>
+                <li><a href="">View Exams</a></li>
+                <li><a href="../review.jsp">Send Review</a></li>
+          
 
 
                 <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>

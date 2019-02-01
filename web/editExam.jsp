@@ -112,7 +112,7 @@ and open the template in the editor.
         
 <% %>
 <br>
-<h1>Exams and Review</h1>
+<h1>FeedBack</h1>
 
    <% for (int i = 0; i < length; i++) {
                         
@@ -128,11 +128,11 @@ and open the template in the editor.
 //displays module codes that are at stage 3,5 or 7 meaning they are at teacher review
                     %>
                     <br>
-                    <p><%=modCode%></p>
-                    <p>Internal Moderator:<%=internalMod%></p>
-                    <p><%=internalModComs%></p>
-                     <p>External Moderator:<%=externalMod%></p>
-                    <p><%=externalModComs%></p>
+                    <h2><%=modCode%></h2>
+                    <h5>Internal Moderator:<%=internalMod%></h5>
+                    <h5>Review:<br><%=internalModComs%></h5>
+                     <h5>External Moderator:<%=externalMod%></h5>
+                    <h5>Review<br><%=externalModComs%></h5>
                     <br>
                     <%}%>
 
