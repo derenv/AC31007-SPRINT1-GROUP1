@@ -25,7 +25,10 @@
             }
         %>
     </head>
+    <header>
+        <div class="content"><img src="img/UoDlogo.jpg"/></div>
+    </header>
     <body>
-        <h1>Sorry there has been a file handling error!</h1>
+        <h1 style="text-align: center;">A file already Exists for this Module</h1>
     </body>
 </html>
