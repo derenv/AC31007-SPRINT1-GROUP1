@@ -23,6 +23,9 @@
                 out.println("<h2>"+x[3]+"</h2>");
                 out.println("<h2>"+x[4]+"</h2>");
             }
+            if(session.getAttribute("message") != null){
+                out.println(session.getAttribute("message"));
+            }
         %>
     </head>
     <body>

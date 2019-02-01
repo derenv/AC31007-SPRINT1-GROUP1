@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.*;
 import org.apache.commons.fileupload.util.Streams;
 import org.apache.commons.io.IOUtils;
@@ -156,6 +157,71 @@ public class file_handler {
             response.sendRedirect("dberror.jsp");
         } catch (FileUploadException ex) {
             Logger.getLogger(file_handler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /* 
+     * download file (if it exists) to users downloads directory from database
+     * NEEDS REWORK FOR 4 FILES
+     * source:
+     * https://www.codejava.net/java-se/jdbc/read-file-data-from-database-using-jdbc
+     * 
+     * @param   identifier
+     * @return   q
+     * @throws  IOException
+     */
+    public void file_download(HttpServletRequest request, HttpServletResponse response, HttpSession session, String type) throws IOException{
+        //check if file exists
+        try{
+            String identifier = request.getParameter("modCode");
+            if(file_exists(identifier)){
+                //get file from database & create input stream
+                ResultSet rs = (new data_access()).run_statement("SELECT "+type+" FROM pdf WHERE ModuleCode='"+identifier+"'");
+                //FOR EACH FILE
+                for(int i=0;i<4;i++){
+                    Blob file_blob = rs.getBlob(i);
+                    InputStream inputStream = file_blob.getBinaryStream();
+                    
+                    //create file location & output stream
+                    String home = System.getProperty("user.home");
+                    String file_name = identifier+"_"+Integer.toString(i)+".pdf";
+                    File file = new File(home+"/Downloads/" + file_name);
+                    OutputStream outputStream = new FileOutputStream(file);
+                    
+                    //write to file
+                    int bytesRead = -1;
+                    byte[] buffer = new byte[2048];
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+
+                    //end write
+                    inputStream.close();
+                    outputStream.close();
+                    
+                    //view pdf
+                    int blobLength = (int) file_blob.length();  
+                    byte[] file_bytes = file_blob.getBytes(1, blobLength);
+                    ServletOutputStream output_stream = response.getOutputStream();
+                    response.setContentType("Exams/pdf");
+                    response.setHeader("Content-disposition","inline; filename=Exam.pdf" );
+                    response.setHeader("Cache-Control","no-cache");
+                    response.setHeader("Pragma","no-cache");
+                    BufferedOutputStream bos = new BufferedOutputStream(output_stream);
+                    bos.write(file_bytes);
+                    bos.close();
+                }
+            }else{
+                //error
+                session.setAttribute("code", identifier);
+                session.setAttribute("mess", "FILE DOES NOT EXIST");
+                response.sendRedirect("dberror.jsp");//replace with invalid file error page
+            }
+        }catch(SQLException e){
+            session.setAttribute("state", e.getSQLState());
+            session.setAttribute("code", e.getErrorCode());
+            session.setAttribute("mess", e.getMessage());
+            response.sendRedirect("dberror.jsp");
         }
     }
     
