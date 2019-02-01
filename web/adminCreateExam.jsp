@@ -98,6 +98,8 @@ String  ExamVetting =request.getParameter("ExamVetting");
 
 java.util.Date date=new java.util.Date();   
 String datetime=new Timestamp(date.getTime()).toString();  
+
+
         try   
         {   
             String driverName = "com.mysql.jdbc.Driver"; 
@@ -116,6 +118,9 @@ String datetime=new Timestamp(date.getTime()).toString();
                       
             try {   
                 stmt.execute(insert_sql);  
+     <% 
+      <script > window.location.href='admintoexam.jsp' </script>
+     %>
      
            }catch(Exception e)     {  
                 e.printStackTrace();  
