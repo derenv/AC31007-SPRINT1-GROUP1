@@ -58,7 +58,9 @@ and open the template in the editor.
         double stage=0;
         double stage2=0;
         String label="";
-        String comments="";
+        String internalModComs="";
+        String externalModComs="";
+        String examVetComs="";
         String internalMod="";
         String externalMod="";
      
@@ -89,9 +91,9 @@ and open the template in the editor.
 
                             modCode = list.get(i);
                             stage = v.getStage(modCode);
-                            if (stage == 3){ modCode = list.get(i); comments = v.getComments(modCode);}
-                            else if (stage ==5){ modCode = list.get(i);comments = v.getComments(modCode);}
-                            else if (stage ==7){ modCode = list.get(i);comments = v.getComments(modCode);}
+                            if (stage == 3){ modCode = list.get(i);}
+                            else if (stage ==5){ modCode = list.get(i);}
+                            else if (stage ==7){ modCode = list.get(i);}
                             else{modCode="";}
 //displays module codes that are at stage 3,5 or 7 meaning they are at teacher review
                     %>
@@ -114,8 +116,11 @@ and open the template in the editor.
 
    <% for (int i = 0; i < length; i++) {
                         
-                            modCode = list.get(i); modCode = list.get(i); comments = v.getComments(modCode);internalMod = v.getInternalModerator(modCode);
+                           modCode = list.get(i); modCode = list.get(i); 
+                           internalModComs = v.getInternalModComs(modCode);
+                           internalMod = v.getInternalModerator(modCode);
                            externalMod = v.getExternalModerator(modCode);
+                           externalModComs = v.getExternalModComs(modCode);
                             
                          
                           
@@ -125,8 +130,9 @@ and open the template in the editor.
                     <br>
                     <p><%=modCode%></p>
                     <p>Internal Moderator:<%=internalMod%></p>
-                     <p>Internal Moderator:<%=externalMod%></p>
-                    <p><%=comments%></p>
+                    <p><%=internalModComs%></p>
+                     <p>External Moderator:<%=externalMod%></p>
+                    <p><%=externalModComs%></p>
                     <br>
                     <%}%>
 
