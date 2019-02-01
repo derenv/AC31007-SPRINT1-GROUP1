@@ -44,9 +44,13 @@ public class data_access {
         PreparedStatement ps = c.prepareStatement(statement);
 
         //parse set of results
-        ResultSet results = ps.executeQuery();
-
-        return results;
+        if(statement.contains("INSERT") || statement.contains("UPDATE")){
+            ps.executeUpdate();
+            return null;
+        }else{
+            ResultSet results = ps.executeQuery();
+            return results;
+        }
     }
     
     /**
