@@ -70,7 +70,7 @@ String datetime=new Timestamp(date.getTime()).toString();
 
               %>   
                
-        <div class="main"  style="position:relative;  left:-280px;" >
+        <div class="main"  style="position:relative;  left:-10px;" >
             <br><br>
         <table  border="1" >  
       

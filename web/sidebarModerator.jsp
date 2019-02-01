@@ -21,9 +21,10 @@
             <ul>
 
                 <br>
-                <li><a href="myModules.jsp">My Modules</a></li>
-                <li><a href="viewExams.jsp">View uploaded Exams</a></li>
-                <li><a href="accountDetails.jsp">Account Details</a></li>
+                <li><a href="new.jsp">My Modules</a></li>
+                <li><a href="">View Exams</a></li>
+                <li><a href="review.jsp">Send Review</a></li>
+               
 
 
                 <div class="signout"><li><a href='logout.jsp'>Sign out</a></li></div>

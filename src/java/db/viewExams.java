@@ -178,7 +178,7 @@ public class viewExams {
         
     }
       
-        public boolean addComments(String Comments, String ModuleCode) {
+        public boolean addComments(String InternalModComs, String ModuleCode) {
         
        
         try{
@@ -186,7 +186,7 @@ public class viewExams {
             conn conn1 = new conn();
             c = conn1.connect();
             Statement stmt = c.createStatement();
-            String sql = ("update exams set Comments = '"+Comments+"' where ModuleCode='"+ModuleCode+"' ");
+            String sql = ("update exams set InternalModComs = '"+InternalModComs+"' where ModuleCode='"+ModuleCode+"' ");
             stmt.executeUpdate(sql);
             
 
