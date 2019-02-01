@@ -24,7 +24,7 @@
             String type = log1.check_valid_details(username,password);
             if(type == null){
                 //null value
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("error pages/error.jsp");
             }else if ("Teacher".equals(type)){
                 //create session variables then redirect to dashboard
                 session.setAttribute("username",username);
@@ -57,13 +57,13 @@
                 response.sendRedirect("SchoolOfficeDash.jsp");
             }else{
                 //invalid value
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("error pages/error.jsp");
             }
         }catch(SQLException e){
             session.setAttribute("state", e.getSQLState());
             session.setAttribute("code", e.getErrorCode());
             session.setAttribute("mess", e.getMessage());
-            response.sendRedirect("dberror.jsp");
+            response.sendRedirect("error pages/dberror.jsp");
         }
     %>
 </html>

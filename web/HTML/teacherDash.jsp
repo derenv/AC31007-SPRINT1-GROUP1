@@ -42,24 +42,3 @@ and open the template in the editor.
         </div>
 </body>
 </html>
-<!--
-
-                    <li><p><u>Exams</U></p></li>
-                    <li><a href="../createNewExam.jsp">Create a new Exam</a></li>
-                    <li><a href="../viewExams.jsp">View uploaded Exams</a></li>
-                    <li><a href="#">Edit my Exams</a></li>
-                    <li><a href="#">View Exam Progress</a></li>
-                    <br>
-                     <li><p><u>Other</U></p></li>
-                    <li><a href="../myModules.jsp">My Modules</a></li>
-                    <li><a href="#">Account Details</a></li>
-                    <div class="signout">
-                        <li>
-                            <a href='../logout.jsp'>Sign out</a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </div>
-    </body>
-</html>-->

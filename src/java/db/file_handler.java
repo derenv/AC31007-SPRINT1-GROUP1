@@ -84,11 +84,11 @@ public class file_handler {
             session.setAttribute("state", e.getSQLState());
             session.setAttribute("code", e.getErrorCode());
             session.setAttribute("mess", e.getMessage());
-            response.sendRedirect("dberror.jsp");
+            response.sendRedirect("error pages/dberror.jsp");
         } catch (FileUploadException ex) {
-            response.sendRedirect("dberror.jsp");
+            response.sendRedirect("error pages/dberror.jsp");
         }catch (NullPointerException eq) {
-            response.sendRedirect("dberror.jsp");
+            response.sendRedirect("error pages/dberror.jsp");
         }
     }
     
@@ -130,7 +130,7 @@ public class file_handler {
             
             if(newModuleCode == null){
                 session.setAttribute("parameters", paramater_list);
-                response.sendRedirect("ferror.jsp");
+                response.sendRedirect("error pages/feerror.jsp");
             }
             //check if file exists
             else if(file_exists(newModuleCode)){
@@ -148,13 +148,13 @@ public class file_handler {
                 response.sendRedirect("viewExams.jsp");
             }else{
                 //redirect for non existant exam
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("error pages/error.jsp");
             }
         }catch(SQLException e){
             session.setAttribute("state", e.getSQLState());
             session.setAttribute("code", e.getErrorCode());
             session.setAttribute("mess", e.getMessage());
-            response.sendRedirect("dberror.jsp");
+            response.sendRedirect("error pages/dberror.jsp");
         } catch (FileUploadException ex) {
             Logger.getLogger(file_handler.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -222,13 +222,13 @@ public class file_handler {
                 //error
                 session.setAttribute("code", identifier);
                 session.setAttribute("mess", "FILE DOES NOT EXIST");
-                response.sendRedirect("dberror.jsp");//replace with invalid file error page
+                response.sendRedirect("error pages/dberror.jsp");//replace with invalid file error page
             }
         }catch(SQLException e){
             session.setAttribute("state", e.getSQLState());
             session.setAttribute("code", e.getErrorCode());
             session.setAttribute("mess", e.getMessage());
-            response.sendRedirect("dberror.jsp");
+            response.sendRedirect("error pages/dberror.jsp");
         }
     }
     

@@ -17,7 +17,7 @@
             handle.file_upload(request,response,session);
         }catch(IOException ff){
             session.setAttribute("message", ff.getMessage());
-            response.sendRedirect("ferror.jsp");
+            response.sendRedirect("error pages/feerror.jsp");
         }
     %>
 </html>

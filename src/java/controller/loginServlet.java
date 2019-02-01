@@ -68,7 +68,7 @@ public class loginServlet extends HttpServlet {
               
               
 	  }
-          response.sendRedirect("error.jsp");
+          response.sendRedirect("error pages/error.jsp");
 	  return;  
 	  
 	  } catch (ClassNotFoundException | SQLException e) {
