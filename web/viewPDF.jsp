@@ -8,8 +8,11 @@
 <%@page import="java.util.Base64"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="db.viewExams"%>
+<%@page import="db.file_handler"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.sql.Blob"%>
+<%@page import="java.io.*"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +21,18 @@
         <title>View Exam</title>
     </head>
     <body>
-        <%  
+        <%
+            file_handler handle = new file_handler();
+            try{
+                String type = (String) request.getAttribute("type");
+                if(type==null){throw new IOException();}
+                handle.file_download(request,response,session,type);
+            }catch(IOException ff){
+                session.setAttribute("message", ff.getMessage());
+                response.sendRedirect("ferror.jsp");
+            }
+        %>
+        <%/*  
             //takes the module code as a parameter
             String modCode = request.getParameter("modCode");
             int type = Integer.parseInt(request.getParameter("type"));
@@ -72,7 +86,7 @@
              out.clear();
              out = pageContext.pushBody();
              }
-             
+             */
         %>
     </body>
 </html>

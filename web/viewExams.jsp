@@ -38,8 +38,6 @@
     <%
         //get user from implicit session object
         String username2 = (String) session.getAttribute("username");
-        java.util.Date date = new java.util.Date();
-        String datetime = new Timestamp(date.getTime()).toString();
 
         //get the module codes that are relevent to the user
         viewExams v = new viewExams(username2, "Teacher");
@@ -111,28 +109,28 @@
                 <td class="bRight">
                     <form name="viewPDF" method='POST' action="viewPDF.jsp">
                         <input type="hidden" name="modCode" value="<%=modCode%>">
-                        <input type="hidden" name="type" value="1">
+                        <input type="hidden" name="type" value="Exam">
                         <input type="submit" value="View Exam Paper"/>
                     </form>
                 </td>
                 <td>
                     <form name="viewSolutions" method='POST' action="viewPDF.jsp">
                         <input type="hidden" name="modCode" value="<%=modCode%>">
-                        <input type="hidden" name="type" value="2">
+                        <input type="hidden" name="type" value="ExamSolution">
                         <input type="submit"  value="View Exam Solutions"/>
                     </form>
                 </td>
                 <td>
                     <form name="viewResit" method='POST' action="viewPDF.jsp">
                         <input type="hidden" name="modCode" value="<%=modCode%>">
-                        <input type="hidden" name="type" value="3">
+                        <input type="hidden" name="type" value="Resit">
                         <input type="submit"  value="View Resit Paper"/>
                     </form>
                 </td> 
                 <td>
                     <form name="viewSolutions" method='POST' action="viewPDF.jsp">
                         <input type="hidden" name="modCode" value="<%=modCode%>">
-                        <input type="hidden" name="type" value="4">
+                        <input type="hidden" name="type" value="ResitSolution">
                         <input type="submit"  value="View Resit Solutions"/>
                     </form>
                 </td> 
