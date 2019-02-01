@@ -68,7 +68,7 @@ public class testViewExam {
     
     @Test
     public void testGetStage() throws SQLException {
-        int expected = 2;
+        int expected = 5;
         int compare = v.getStage("AC21007");
         assertEquals(expected, compare);
     }
@@ -138,7 +138,7 @@ public class testViewExam {
     }
     @Test 
     public void testSetIncreaseStage() throws SQLException{
-        int expected = 3;
+        int expected = 6;
         v.setIncreaseStage("AC21007");
         int compare = v.getStage("AC21007");
         assertEquals(expected, compare);
@@ -152,6 +152,31 @@ public class testViewExam {
         assertEquals(expected, compare);
     
     }
+    
+     @Test 
+        public void testGetInternalModerator() throws SQLException{
+        String expected = "Lesley";
+        String compare = v.getInternalModerator("AC21007");
+        assertEquals(expected, compare);
+    
+    }
+        @Test 
+        public void testGetExamVetting() throws SQLException{
+        String expected = "lewis";
+        String  compare = v.getExamVetting("AC21007");
+        assertEquals(expected, compare);
+    
+    }
+        @Test 
+        public void testExternalModerator() throws SQLException{
+        String expected = "finn";
+        String compare = v.getExternalModerator("AC21007");
+        assertEquals(expected, compare);
+    
+    }
+        
+    
+        
     
     
 }

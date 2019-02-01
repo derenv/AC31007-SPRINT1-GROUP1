@@ -6,7 +6,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="session_check.jsp" %>
+
 <%@include file="sidebarTeacher.jsp" %>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
@@ -30,8 +30,9 @@ and open the template in the editor.
     
     
     <body>
-          <div class="main"> <h1>Update Exams - Update exams which have been reviewed</h1>
-              <br>
+          <div class="main"> <h1>Update Exams </h1>
+              <p>Update exams which have received feedback</p>
+           
     </div>
             <%
         //get user from implicit session object
@@ -57,8 +58,11 @@ and open the template in the editor.
         double stage=0;
         double stage2=0;
         String label="";
-        String comments="";
+        String internalModComs="";
+        String externalModComs="";
+        String examVetComs="";
         String internalMod="";
+        String externalMod="";
      
         //loops for the number of modules they have
        for (int i = 0; i < length ; i++) {
@@ -87,9 +91,9 @@ and open the template in the editor.
 
                             modCode = list.get(i);
                             stage = v.getStage(modCode);
-                            if (stage == 3){ modCode = list.get(i); comments = v.getComments(modCode);}
-                            else if (stage ==5){ modCode = list.get(i);comments = v.getComments(modCode);}
-                            else if (stage ==7){ modCode = list.get(i);comments = v.getComments(modCode);}
+                            if (stage == 3){ modCode = list.get(i);}
+                            else if (stage ==5){ modCode = list.get(i);}
+                            else if (stage ==7){ modCode = list.get(i);}
                             else{modCode="";}
 //displays module codes that are at stage 3,5 or 7 meaning they are at teacher review
                     %>
@@ -112,21 +116,23 @@ and open the template in the editor.
 
    <% for (int i = 0; i < length; i++) {
                         
-                        
-                           
-                            stage = v.getStage(modCode);
+                           modCode = list.get(i); modCode = list.get(i); 
+                           internalModComs = v.getInternalModComs(modCode);
+                           internalMod = v.getInternalModerator(modCode);
+                           externalMod = v.getExternalModerator(modCode);
+                           externalModComs = v.getExternalModComs(modCode);
+                            
                          
-                           
-                            if (stage == 3){modCode = list.get(i); modCode = list.get(i); comments = v.getComments(modCode);internalMod = v.getInternalModerator(modCode);}
-                            else if (stage ==5){ modCode = list.get(i);comments = v.getComments(modCode);internalMod = v.getInternalModerator(modCode);}
-                            else if (stage ==7){ modCode = list.get(i);comments = v.getComments(modCode);internalMod = v.getInternalModerator(modCode);}
+                          
                             
 //displays module codes that are at stage 3,5 or 7 meaning they are at teacher review
                     %>
                     <br>
                     <p><%=modCode%></p>
-                    <p><%=internalMod%></p>
-                    <p><%=comments%></p>
+                    <p>Internal Moderator:<%=internalMod%></p>
+                    <p><%=internalModComs%></p>
+                     <p>External Moderator:<%=externalMod%></p>
+                    <p><%=externalModComs%></p>
                     <br>
                     <%}%>
 
