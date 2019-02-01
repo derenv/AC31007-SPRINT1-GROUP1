@@ -6,7 +6,7 @@
 <%@ page language="java"%>
 
 <%@include file="../jsp/session_check.jsp" %>
-<%@include file="../sidebarTeacher.jsp" %>
+<%@include file="Sidebars/sidebarTeacher.jsp" %>
 <%@ page import="db.data_access" %>
 <%@ page import="java.sql.ResultSet,java.sql.SQLException"%>
 <!DOCTYPE html>

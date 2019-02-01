@@ -5,7 +5,7 @@
 <%@ page import="java.sql.ResultSet,java.sql.SQLException"%>
 <%@ page import="db.data_access"%>
 <%@include file="../jsp/session_check.jsp"%>
-<%@include file="../sidebarTeacher.jsp"%>
+<%@include file="Sidebars/sidebarTeacher.jsp"%>
  
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

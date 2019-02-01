@@ -56,7 +56,7 @@ public class viewExams {
         } catch (Exception e) {
             e.printStackTrace();
         }
-         c.close();      
+        
         System.out.print("connection closed");
         
         return moduleCodes;
@@ -80,7 +80,7 @@ public class viewExams {
         } catch(Exception e) {
             e.printStackTrace();
         }
-        c.close();      
+        
         System.out.print("connection closed");       
         return modCoord;
     }
@@ -102,7 +102,7 @@ public class viewExams {
         } catch(Exception e) {
             e.printStackTrace();
         }
-        c.close();      
+        
         System.out.print("connection closed");
         return modName;
     }
@@ -120,9 +120,7 @@ public class viewExams {
         try{
             ResultSet rs = da.run_statement("select Year from exams where ModuleCode='" + ModuleCode + "'");
             rs.next();
-            year = rs.getString("Year"); 
-            c.close();
-   
+            year = rs.getString("Year");
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -150,8 +148,8 @@ public class viewExams {
         } catch(Exception e) {
             e.printStackTrace();
         }
-          c.close();       
-          System.out.print("connection closed");
+        
+        System.out.print("connection closed");
         return stage;
     }
     

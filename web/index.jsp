@@ -12,7 +12,7 @@
         //check type and compare for redirect
 	String type = (String) session.getAttribute("type");
         if ("Teacher".equals(type)){
-            response.sendRedirect("myModules.jsp");
+            response.sendRedirect("HTML/myModules.jsp");
         }else if ("Admin".equals(type)){
             response.sendRedirect("HTML/adminDash.jsp");
         }else if ("ExternalMod".equals(type)){
@@ -40,7 +40,7 @@
 <div class="bg">
 <div class="login">
    
-  <form method="post" action="login.jsp">
+  <form method="post" action="jsp/login.jsp">
     <center> <h1>Sign in</h1>
         <br>
 

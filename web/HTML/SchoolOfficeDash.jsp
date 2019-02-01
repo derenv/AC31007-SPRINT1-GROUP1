@@ -6,7 +6,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file="../jsp/session_check.jsp" %>
-<%@include file="../sidebarSchoolOffice.jsp" %>
+<%@include file="Sidebars/sidebarSchoolOffice.jsp" %>
 
 <%@ page import="java.util.ArrayList,java.util.Arrays" %>
 <%@ page import="db.viewExams"%>
